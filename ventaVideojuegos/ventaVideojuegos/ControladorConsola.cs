@@ -8,7 +8,7 @@ using ventaVideojuegos.Modelo;
 
 namespace ventaVideojuegos
 {
-    internal class ControladorConsola
+    public class ControladorConsola
     {
         public static List<Consola> Consolas { get; set; }
         public static int lastId = 0;
@@ -43,7 +43,7 @@ namespace ventaVideojuegos
 
         }
 
-        public static void Añadirconsola(Consola con)
+        public static void AñadirConsola(Consola con)
         {
             Consolas.Add(con);
             lastId++;
@@ -83,7 +83,7 @@ namespace ventaVideojuegos
         public static void ActualizarConsola(int id, Consola con)
         {
             int index = Consolas.FindIndex(e => e.Id.Equals(id));
-            if (index == -1)
+            if (index != -1)
             {
                 Consolas[index] = con;
             }

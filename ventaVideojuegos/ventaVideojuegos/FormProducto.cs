@@ -18,13 +18,16 @@ namespace ventaVideojuegos
         public FormProducto()
         {
             InitializeComponent();
+            txtId.Text = (ControladorProductos.lastId + 1).ToString();
+            llenarBoxCategoria();
+            llenarBoxConsola();
         }
 
         public FormProducto(Producto prod)
         {
             InitializeComponent();
-
             llenarBoxCategoria();
+            llenarBoxConsola();
 
             txtId.Text = prod.Id.ToString();
             txtNombre.Text = prod.Nombre.ToString();
@@ -49,7 +52,7 @@ namespace ventaVideojuegos
         {
             foreach (Consola con in ControladorConsola.Consolas)
             {
-                boxCategoria.Items.Add(con.Nombre);
+                boxConsola.Items.Add(con.Nombre);
             }
         }
 
@@ -71,33 +74,6 @@ namespace ventaVideojuegos
             lista.GuardarEnInstancia(prod);
             lista.GuardarEnMemoria(prod);
 
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            bool productoValidado = ValidarProducto(out string errorMsg);
-
-            if(productoValidado)
-            {
-                productoNuevo = new Producto()
-                {
-                    Id = int.Parse(txtId.Text),
-                    Nombre = txtNombre.Text,
-                    Precio = int.Parse(txtPrecio.Text),
-                    Stock = int.Parse(txtStock.Text),
-                    Categoria = ControladorCategorias.GetCategoriaByName(boxCategoria.SelectedItem.ToString()),
-                    Consola = ControladorConsola.GetConsolaByName(boxConsola.SelectedItem.ToString()),
-                    Conexion = txtConexion.Text,
-                    ModoJuego = txtModoJuego.Text
-                };
-                
-                this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.DialogResult =DialogResult.Cancel; 
-            }
         }
 
         private bool ValidarProducto(out string errorMsg)
@@ -139,5 +115,32 @@ namespace ventaVideojuegos
             return errorMsg == String.Empty;
         }
 
+        private void btnAceptar_Click_1(object sender, EventArgs e)
+        {
+            bool productoValidado = ValidarProducto(out string errorMsg);
+
+            if (productoValidado)
+            {
+                productoNuevo = new Producto()
+                {
+                    Id = int.Parse(txtId.Text),
+                    Nombre = txtNombre.Text,
+                    Precio = int.Parse(txtPrecio.Text),
+                    Stock = int.Parse(txtStock.Text),
+                    Categoria = ControladorCategorias.GetCategoriaByName(boxCategoria.SelectedItem.ToString()),
+                    Consola = ControladorConsola.GetConsolaByName(boxConsola.SelectedItem.ToString()),
+                    Conexion = txtConexion.Text,
+                    ModoJuego = txtModoJuego.Text
+                };
+
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DialogResult = DialogResult.Cancel;
+            }
+
+        }
     }
 }

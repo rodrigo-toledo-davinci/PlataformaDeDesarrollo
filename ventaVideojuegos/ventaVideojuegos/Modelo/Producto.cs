@@ -17,8 +17,7 @@ namespace ventaVideojuegos.Modelo
         public Consola Consola { get; set; }
         public string Conexion { get; set; }
         public string ModoJuego { get; set; }
-
-        public string imagen { get; set; }
+        public string Imagen { get; set; }
 
         
 

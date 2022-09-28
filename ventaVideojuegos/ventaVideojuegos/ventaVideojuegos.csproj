@@ -56,6 +56,7 @@
       <HintPath>..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
@@ -99,6 +100,18 @@
     <Compile Include="Consola.cs" />
     <Compile Include="ControladorCategorias.cs" />
     <Compile Include="ControladorConsola.cs" />
+    <Compile Include="FormCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCategoria.Designer.cs">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsola.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsola.Designer.cs">
+      <DependentUpon>FormConsola.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +156,12 @@
     <Compile Include="UsersControls\UC_Ventas.Designer.cs">
       <DependentUpon>UC_Ventas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormCategoria.resx">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsola.resx">
+      <DependentUpon>FormConsola.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProducto.resx">
       <DependentUpon>FormProducto.cs</DependentUpon>
     </EmbeddedResource>

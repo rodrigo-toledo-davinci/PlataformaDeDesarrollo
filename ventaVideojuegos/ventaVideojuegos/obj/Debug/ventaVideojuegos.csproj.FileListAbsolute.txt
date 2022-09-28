@@ -42,3 +42,5 @@ C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\bin\Debug\Xamarin.
 C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.UsersControls.UC_Inicio.resources
 C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.UsersControls.UC_Admin.resources
 C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.UsersControls.UC_Stats.resources
+C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.FormCategoria.resources
+C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.FormConsola.resources

@@ -14,6 +14,7 @@ namespace ventaVideojuegos
     {
 
         public static List<Producto> Productos {get ; set;}
+        public static int lastId = 0;
 
         public static void IniciarRepositorio()
         {
@@ -43,6 +44,7 @@ namespace ventaVideojuegos
                         ModoJuego = datos[7],
                        
                     };
+                    lastId = int.Parse(datos[0]);
                     Productos.Add(prod);
                 }
                 archivo.Close();
@@ -53,6 +55,7 @@ namespace ventaVideojuegos
         public static void AñandirProducto (Producto prod)
         {
             Productos.Add (prod);
+            lastId++;
             GuardarEnMemoria(prod);
         }
 
@@ -65,7 +68,7 @@ namespace ventaVideojuegos
         public static void ActualizarProductos(int id, Producto prod)
         {
             int index = Productos.FindIndex(e => e.Id.Equals(id));
-            if(index == -1)
+            if(index != -1)
             {
                 Productos[index] = prod;
             }
@@ -75,7 +78,7 @@ namespace ventaVideojuegos
         private static void GuardarEnMemoria(Producto prod)
         {
             StreamWriter archivo = new StreamWriter("productos.txt", true);
-            archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria + "," + prod.Consola + "," + prod.Conexion + "," + prod.ModoJuego);
+            archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego);
             archivo.Close();
         }
 
@@ -84,7 +87,7 @@ namespace ventaVideojuegos
             StreamWriter archivo = new StreamWriter("productos.txt");
             foreach (Producto prod in Productos)
             {
-                archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria + "," + prod.Consola + "," + prod.Conexion + "," + prod.ModoJuego);
+                archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego);
             }
             archivo.Close();
         }

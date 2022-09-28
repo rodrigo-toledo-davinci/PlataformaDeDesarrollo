@@ -8,7 +8,7 @@ using ventaVideojuegos.Modelo;
 
 namespace ventaVideojuegos
 {
-    internal class ControladorCategorias
+    public class ControladorCategorias
     {
         public static List<Categoria> Categorias { get; set; }
         public static int lastId = 0;
@@ -21,6 +21,7 @@ namespace ventaVideojuegos
             if (!File.Exists("categorias.txt"))
             {
                 StreamWriter archivo = new StreamWriter("categorias.txt");
+                archivo.Close();
             }
             else
             {
@@ -34,9 +35,10 @@ namespace ventaVideojuegos
                         Id = int.Parse(datos[0]),
                         Nombre = datos[1]
                     };
-
                     Categorias.Add(cat);
                     lastId = int.Parse(datos[0]);
+                   
+                    
                 }
                 archivo.Close();
             }
@@ -83,7 +85,7 @@ namespace ventaVideojuegos
         public static void ActualizarCategoria(int id, Categoria cat)
         {
             int index = Categorias.FindIndex(e => e.Id.Equals(id));
-            if (index == -1)
+            if (index != -1)
             {
                 Categorias[index] = cat;
             }
