@@ -21,6 +21,7 @@ namespace ventaVideojuegos.Modelo
             StreamWriter archivo = new StreamWriter("categorias.txt");
             archivo.WriteLine(cat.Id);
             archivo.WriteLine(cat.Nombre);
+            archivo.WriteLine(cat.Vista);
             archivo.Close();
         }
 

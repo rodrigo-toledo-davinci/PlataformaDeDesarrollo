@@ -237,6 +237,7 @@
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtNombre);
             this.Name = "FormProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AgregarProducto";
             this.ResumeLayout(false);
             this.PerformLayout();

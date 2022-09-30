@@ -44,15 +44,22 @@ namespace ventaVideojuegos
         {
             foreach (Categoria cat in ControladorCategorias.Categorias)
             {
-                boxCategoria.Items.Add(cat.Nombre);
+                if (cat.Vista == true)
+                {
+                    boxCategoria.Items.Add(cat.Nombre);
+                }
             }
         }
 
         private void llenarBoxConsola()
         {
+
             foreach (Consola con in ControladorConsola.Consolas)
             {
-                boxConsola.Items.Add(con.Nombre);
+                if(con.Vista == true)
+                {
+                    boxConsola.Items.Add(con.Nombre);
+                }
             }
         }
 

@@ -42,6 +42,7 @@ namespace ventaVideojuegos
                         Consola = ControladorConsola.GetConsolaById(int.Parse(datos[5])),
                         Conexion = datos[6],
                         ModoJuego = datos[7],
+                        Vista = bool.Parse(datos[8])
                        
                     };
                     lastId = int.Parse(datos[0]);
@@ -61,8 +62,9 @@ namespace ventaVideojuegos
 
         public static void EliminarProducto(int id)
         {
-            Productos.RemoveAll(e => e.Id.Equals(id));
-            GuardarEnMemoriaLista();
+            Producto prod = Productos.FirstOrDefault(c => c.Id == id);
+            prod.Vista = false;
+            ActualizarProductos(id, prod);
         }
 
         public static void ActualizarProductos(int id, Producto prod)
@@ -78,7 +80,7 @@ namespace ventaVideojuegos
         private static void GuardarEnMemoria(Producto prod)
         {
             StreamWriter archivo = new StreamWriter("productos.txt", true);
-            archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego);
+            archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego + "," + prod.Vista);
             archivo.Close();
         }
 
@@ -87,7 +89,7 @@ namespace ventaVideojuegos
             StreamWriter archivo = new StreamWriter("productos.txt");
             foreach (Producto prod in Productos)
             {
-                archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego);
+                archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego + "," + prod.Vista);
             }
             archivo.Close();
         }
@@ -120,6 +122,7 @@ namespace ventaVideojuegos
                             string consola = archivo.ReadLine();
                             string conexion = archivo.ReadLine();
                             string modojuego = archivo.ReadLine();
+                            string vista = archivo.ReadLine();
 
                             Producto prod = new Producto()
                             {
@@ -130,7 +133,8 @@ namespace ventaVideojuegos
                                 Categoria = ControladorCategorias.GetCategoriaByName(categoria),
                                 Consola = ControladorConsola.GetConsolaByName(consola),
                                 Conexion = conexion,
-                                ModoJuego = modojuego
+                                ModoJuego = modojuego,
+                                Vista = bool.Parse(vista),
                             };
 
                             _lista.GuardarEnInstancia(prod);

@@ -35,11 +35,11 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2ImageCheckBox1 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.btnStats = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnVentas = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnInicio = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnAdmin = new Guna.UI2.WinForms.Guna2GradientButton();
             this.panelContainer = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.btnStats = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
@@ -60,13 +60,13 @@
             this.Panel.Controls.Add(this.guna2ImageCheckBox1);
             this.Panel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Panel.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.Panel.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.Panel.FillColor = System.Drawing.Color.Teal;
             this.Panel.FillColor2 = System.Drawing.Color.LightCyan;
             this.Panel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.Panel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.Panel.Location = new System.Drawing.Point(-1, -4);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(878, 72);
+            this.Panel.Size = new System.Drawing.Size(911, 125);
             this.Panel.TabIndex = 5;
             // 
             // guna2GradientButton4
@@ -123,10 +123,10 @@
             this.guna2ImageCheckBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageCheckBox1.Image")));
             this.guna2ImageCheckBox1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageCheckBox1.ImageRotate = 0F;
-            this.guna2ImageCheckBox1.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2ImageCheckBox1.Location = new System.Drawing.Point(13, 16);
+            this.guna2ImageCheckBox1.ImageSize = new System.Drawing.Size(130, 50);
+            this.guna2ImageCheckBox1.Location = new System.Drawing.Point(-27, 0);
             this.guna2ImageCheckBox1.Name = "guna2ImageCheckBox1";
-            this.guna2ImageCheckBox1.Size = new System.Drawing.Size(83, 41);
+            this.guna2ImageCheckBox1.Size = new System.Drawing.Size(213, 77);
             this.guna2ImageCheckBox1.TabIndex = 0;
             // 
             // guna2GradientPanel1
@@ -144,14 +144,36 @@
             this.guna2GradientPanel1.Controls.Add(this.btnAdmin);
             this.guna2GradientPanel1.CustomBorderColor = System.Drawing.Color.White;
             this.guna2GradientPanel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.Aquamarine;
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.LightSeaGreen;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.Transparent;
             this.guna2GradientPanel1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(-1, 66);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(878, 53);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(911, 55);
             this.guna2GradientPanel1.TabIndex = 6;
+            // 
+            // btnStats
+            // 
+            this.btnStats.BackColor = System.Drawing.Color.Transparent;
+            this.btnStats.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStats.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStats.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStats.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStats.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStats.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStats.FillColor = System.Drawing.Color.Transparent;
+            this.btnStats.FillColor2 = System.Drawing.Color.Transparent;
+            this.btnStats.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStats.ForeColor = System.Drawing.Color.Black;
+            this.btnStats.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnStats.Location = new System.Drawing.Point(325, 0);
+            this.btnStats.Name = "btnStats";
+            this.btnStats.Size = new System.Drawing.Size(100, 45);
+            this.btnStats.TabIndex = 4;
+            this.btnStats.Text = "Stats";
+            this.btnStats.UseTransparentBackground = true;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
             // 
             // btnVentas
             // 
@@ -226,47 +248,26 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContainer.BackColor = System.Drawing.Color.Transparent;
             this.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelContainer.BorderColor = System.Drawing.Color.Aqua;
+            this.panelContainer.BorderColor = System.Drawing.Color.Teal;
             this.panelContainer.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
             this.panelContainer.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panelContainer.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.panelContainer.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.panelContainer.FillColor = System.Drawing.Color.Teal;
             this.panelContainer.FillColor2 = System.Drawing.Color.LightCyan;
             this.panelContainer.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelContainer.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.panelContainer.Location = new System.Drawing.Point(-1, 117);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(878, 358);
+            this.panelContainer.Size = new System.Drawing.Size(911, 411);
             this.panelContainer.TabIndex = 6;
             this.panelContainer.UseTransparentBackground = true;
-            // 
-            // btnStats
-            // 
-            this.btnStats.BackColor = System.Drawing.Color.Transparent;
-            this.btnStats.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStats.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnStats.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnStats.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnStats.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnStats.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnStats.FillColor = System.Drawing.Color.Transparent;
-            this.btnStats.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnStats.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStats.ForeColor = System.Drawing.Color.Black;
-            this.btnStats.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnStats.Location = new System.Drawing.Point(325, 0);
-            this.btnStats.Name = "btnStats";
-            this.btnStats.Size = new System.Drawing.Size(100, 45);
-            this.btnStats.TabIndex = 4;
-            this.btnStats.Text = "Stats";
-            this.btnStats.UseTransparentBackground = true;
-            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
+            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 473);
+            this.ClientSize = new System.Drawing.Size(910, 526);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.panelContainer);

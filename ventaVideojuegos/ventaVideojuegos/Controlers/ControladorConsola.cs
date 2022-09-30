@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using ventaVideojuegos.Modelo;
 
 namespace ventaVideojuegos
@@ -32,7 +33,8 @@ namespace ventaVideojuegos
                     Consola cat = new Consola()
                     {
                         Id = int.Parse(datos[0]),
-                        Nombre = datos[1]
+                        Nombre = datos[1],
+                        Vista = bool.Parse(datos[2])
                     };
 
                     Consolas.Add(cat);
@@ -52,32 +54,21 @@ namespace ventaVideojuegos
 
         public static Consola GetConsolaByName(string name)
         {
-            foreach (var consola in Consolas)
-            {
-                if (consola.Nombre.Equals(name))
-                {
-                    return consola;
-                }
-            }
-            return null;
+            Consola con = Consolas.FirstOrDefault(x => x.Nombre == name);
+            return con;
         }
 
         public static Consola GetConsolaById(int id)
         {
-            foreach (var consola in Consolas)
-            {
-                if (consola.Id.Equals(id))
-                {
-                    return consola;
-                }
-            }
-            return null;
+            Consola con = Consolas.FirstOrDefault(x => x.Id == id);
+            return con;
         }
 
         public static void EliminarConsola(int id)
         {
-            Consolas.RemoveAll(e => e.Id.Equals(id));
-            GuardarEnMemoriaLista();
+            Consola con = Consolas.FirstOrDefault(c => c.Id == id);
+            con.Vista = false;
+            ActualizarConsola(id, con);
         }
 
         public static void ActualizarConsola(int id, Consola con)
@@ -93,7 +84,7 @@ namespace ventaVideojuegos
         private static void GuardarEnMemoria(Consola con)
         {
             StreamWriter archivo = new StreamWriter("consolas.txt", true);
-            archivo.WriteLine(con.Id + "," + con.Nombre);
+            archivo.WriteLine(con.Id + "," + con.Nombre + "," + con.Vista);
             archivo.Close();
         }
 
@@ -102,7 +93,7 @@ namespace ventaVideojuegos
             StreamWriter archivo = new StreamWriter("consolas.txt");
             foreach (Consola con in Consolas)
             {
-                archivo.WriteLine(con.Id + "," + con.Nombre);
+                archivo.WriteLine(con.Id + "," + con.Nombre + "," + con.Vista);
             }
             archivo.Close();
         }
@@ -127,12 +118,14 @@ namespace ventaVideojuegos
                         {
                             string id = archivo.ReadLine();
                             string nombre = archivo.ReadLine();
+                            string vista = archivo.ReadLine();
 
 
                             Consola con = new Consola()
                             {
                                 Id = int.Parse(id),
-                                Nombre = nombre
+                                Nombre = nombre,
+                                Vista = bool.Parse(vista)
                             };
 
                             _listaCon.GuardarEnInstancia(con);

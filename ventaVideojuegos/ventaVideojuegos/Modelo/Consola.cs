@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ventaVideojuegos
 {
-    public class Categoria
+    public class Consola
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+
+        public bool Vista = true;
     }
 }

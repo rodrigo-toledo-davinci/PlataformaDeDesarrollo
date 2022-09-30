@@ -71,11 +71,26 @@
             this.dataGridViewCon = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.TabAdmin = new Guna.UI2.WinForms.Guna2TabControl();
+            this.TabProductos = new System.Windows.Forms.TabPage();
+            this.btn_FirstPage = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btn_prev_page = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.label_paginacion = new System.Windows.Forms.Label();
+            this.paginacionTxt = new System.Windows.Forms.Label();
+            this.boxPaginacion = new System.Windows.Forms.ComboBox();
+            this.boxConsolas = new System.Windows.Forms.ComboBox();
+            this.boxCategorias = new System.Windows.Forms.ComboBox();
+            this.TabCategorias = new System.Windows.Forms.TabPage();
+            this.TabConsolas = new System.Windows.Forms.TabPage();
+            this.btn_last_page = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btn_next_page = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            this.TabAdmin.SuspendLayout();
+            this.TabProductos.SuspendLayout();
+            this.TabCategorias.SuspendLayout();
+            this.TabConsolas.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -83,7 +98,7 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -107,13 +122,13 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 36);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 89);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -127,7 +142,7 @@
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.Size = new System.Drawing.Size(751, 158);
+            this.dataGridView1.Size = new System.Drawing.Size(678, 205);
             this.dataGridView1.TabIndex = 5;
             // 
             // Id
@@ -187,9 +202,9 @@
             this.btnNuevo.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevo.Location = new System.Drawing.Point(760, 75);
+            this.btnNuevo.Location = new System.Drawing.Point(373, 6);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(105, 26);
+            this.btnNuevo.Size = new System.Drawing.Size(100, 26);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -200,9 +215,9 @@
             this.btnEliminar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEliminar.Location = new System.Drawing.Point(760, 136);
+            this.btnEliminar.Location = new System.Drawing.Point(578, 6);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(105, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(100, 26);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -213,9 +228,9 @@
             this.btnEditar.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEditar.Location = new System.Drawing.Point(760, 107);
+            this.btnEditar.Location = new System.Drawing.Point(475, 6);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(105, 23);
+            this.btnEditar.Size = new System.Drawing.Size(100, 26);
             this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -226,7 +241,7 @@
             this.dataGridViewCat.AllowUserToOrderColumns = true;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewCat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewCat.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridViewCat.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridViewCat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -243,13 +258,13 @@
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCat.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewCat.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewCat.Location = new System.Drawing.Point(3, 215);
+            this.dataGridViewCat.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewCat.Name = "dataGridViewCat";
             this.dataGridViewCat.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -286,7 +301,7 @@
             this.btnNuevaCat.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnNuevaCat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevaCat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevaCat.Location = new System.Drawing.Point(195, 229);
+            this.btnNuevaCat.Location = new System.Drawing.Point(222, 29);
             this.btnNuevaCat.Name = "btnNuevaCat";
             this.btnNuevaCat.Size = new System.Drawing.Size(105, 26);
             this.btnNuevaCat.TabIndex = 10;
@@ -299,7 +314,7 @@
             this.btnEliminarCat.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEliminarCat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminarCat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEliminarCat.Location = new System.Drawing.Point(195, 290);
+            this.btnEliminarCat.Location = new System.Drawing.Point(222, 90);
             this.btnEliminarCat.Name = "btnEliminarCat";
             this.btnEliminarCat.Size = new System.Drawing.Size(105, 23);
             this.btnEliminarCat.TabIndex = 12;
@@ -312,7 +327,7 @@
             this.btnEditarCat.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnEditarCat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditarCat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEditarCat.Location = new System.Drawing.Point(195, 261);
+            this.btnEditarCat.Location = new System.Drawing.Point(222, 61);
             this.btnEditarCat.Name = "btnEditarCat";
             this.btnEditarCat.Size = new System.Drawing.Size(105, 23);
             this.btnEditarCat.TabIndex = 11;
@@ -325,7 +340,7 @@
             this.btnNuevaCon.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnNuevaCon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevaCon.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevaCon.Location = new System.Drawing.Point(648, 229);
+            this.btnNuevaCon.Location = new System.Drawing.Point(221, 29);
             this.btnNuevaCon.Name = "btnNuevaCon";
             this.btnNuevaCon.Size = new System.Drawing.Size(105, 26);
             this.btnNuevaCon.TabIndex = 14;
@@ -338,7 +353,7 @@
             this.btnEliminarCon.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEliminarCon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminarCon.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEliminarCon.Location = new System.Drawing.Point(648, 290);
+            this.btnEliminarCon.Location = new System.Drawing.Point(221, 90);
             this.btnEliminarCon.Name = "btnEliminarCon";
             this.btnEliminarCon.Size = new System.Drawing.Size(105, 23);
             this.btnEliminarCon.TabIndex = 16;
@@ -351,7 +366,7 @@
             this.btnEditarCon.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnEditarCon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditarCon.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEditarCon.Location = new System.Drawing.Point(648, 261);
+            this.btnEditarCon.Location = new System.Drawing.Point(221, 61);
             this.btnEditarCon.Name = "btnEditarCon";
             this.btnEditarCon.Size = new System.Drawing.Size(105, 23);
             this.btnEditarCon.TabIndex = 15;
@@ -364,7 +379,7 @@
             this.dataGridViewCon.AllowUserToOrderColumns = true;
             dataGridViewCellStyle13.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewCon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridViewCon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataGridViewCon.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridViewCon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -381,13 +396,13 @@
             dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle16.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCon.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewCon.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewCon.Location = new System.Drawing.Point(456, 215);
+            this.dataGridViewCon.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewCon.Name = "dataGridViewCon";
             this.dataGridViewCon.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -419,33 +434,210 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // fileSystemWatcher1
+            // TabAdmin
             // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
+            this.TabAdmin.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.TabAdmin.Controls.Add(this.TabProductos);
+            this.TabAdmin.Controls.Add(this.TabCategorias);
+            this.TabAdmin.Controls.Add(this.TabConsolas);
+            this.TabAdmin.ItemSize = new System.Drawing.Size(180, 40);
+            this.TabAdmin.Location = new System.Drawing.Point(15, 14);
+            this.TabAdmin.Name = "TabAdmin";
+            this.TabAdmin.SelectedIndex = 0;
+            this.TabAdmin.Size = new System.Drawing.Size(884, 384);
+            this.TabAdmin.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.TabAdmin.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.TabAdmin.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.TabAdmin.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
+            this.TabAdmin.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.TabAdmin.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.TabAdmin.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.TabAdmin.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.TabAdmin.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
+            this.TabAdmin.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.TabAdmin.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.TabAdmin.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(49)))));
+            this.TabAdmin.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.TabAdmin.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
+            this.TabAdmin.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.TabAdmin.TabButtonSize = new System.Drawing.Size(180, 40);
+            this.TabAdmin.TabIndex = 17;
+            this.TabAdmin.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            // 
+            // TabProductos
+            // 
+            this.TabProductos.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.TabProductos.Controls.Add(this.btn_next_page);
+            this.TabProductos.Controls.Add(this.btn_last_page);
+            this.TabProductos.Controls.Add(this.btn_FirstPage);
+            this.TabProductos.Controls.Add(this.btn_prev_page);
+            this.TabProductos.Controls.Add(this.label_paginacion);
+            this.TabProductos.Controls.Add(this.paginacionTxt);
+            this.TabProductos.Controls.Add(this.boxPaginacion);
+            this.TabProductos.Controls.Add(this.boxConsolas);
+            this.TabProductos.Controls.Add(this.boxCategorias);
+            this.TabProductos.Controls.Add(this.dataGridView1);
+            this.TabProductos.Controls.Add(this.btnNuevo);
+            this.TabProductos.Controls.Add(this.btnEditar);
+            this.TabProductos.Controls.Add(this.btnEliminar);
+            this.TabProductos.Location = new System.Drawing.Point(184, 4);
+            this.TabProductos.Name = "TabProductos";
+            this.TabProductos.Padding = new System.Windows.Forms.Padding(3);
+            this.TabProductos.Size = new System.Drawing.Size(696, 376);
+            this.TabProductos.TabIndex = 0;
+            this.TabProductos.Text = "Productos";
+            // 
+            // btn_FirstPage
+            // 
+            this.btn_FirstPage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_FirstPage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_FirstPage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_FirstPage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_FirstPage.FillColor = System.Drawing.Color.Silver;
+            this.btn_FirstPage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_FirstPage.ForeColor = System.Drawing.Color.White;
+            this.btn_FirstPage.Location = new System.Drawing.Point(389, 301);
+            this.btn_FirstPage.Name = "btn_FirstPage";
+            this.btn_FirstPage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_FirstPage.Size = new System.Drawing.Size(22, 24);
+            this.btn_FirstPage.TabIndex = 15;
+            // 
+            // btn_prev_page
+            // 
+            this.btn_prev_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_prev_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_prev_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_prev_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_prev_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_prev_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_prev_page.ForeColor = System.Drawing.Color.White;
+            this.btn_prev_page.Location = new System.Drawing.Point(417, 301);
+            this.btn_prev_page.Name = "btn_prev_page";
+            this.btn_prev_page.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_prev_page.Size = new System.Drawing.Size(22, 24);
+            this.btn_prev_page.TabIndex = 14;
+            // 
+            // label_paginacion
+            // 
+            this.label_paginacion.AutoSize = true;
+            this.label_paginacion.Location = new System.Drawing.Point(208, 301);
+            this.label_paginacion.Name = "label_paginacion";
+            this.label_paginacion.Size = new System.Drawing.Size(0, 13);
+            this.label_paginacion.TabIndex = 13;
+            // 
+            // paginacionTxt
+            // 
+            this.paginacionTxt.AutoSize = true;
+            this.paginacionTxt.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paginacionTxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.paginacionTxt.Location = new System.Drawing.Point(3, 350);
+            this.paginacionTxt.Name = "paginacionTxt";
+            this.paginacionTxt.Size = new System.Drawing.Size(64, 15);
+            this.paginacionTxt.TabIndex = 12;
+            this.paginacionTxt.Text = "Paginación";
+            // 
+            // boxPaginacion
+            // 
+            this.boxPaginacion.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxPaginacion.FormattingEnabled = true;
+            this.boxPaginacion.Location = new System.Drawing.Point(70, 347);
+            this.boxPaginacion.Name = "boxPaginacion";
+            this.boxPaginacion.Size = new System.Drawing.Size(37, 23);
+            this.boxPaginacion.TabIndex = 11;
+            // 
+            // boxConsolas
+            // 
+            this.boxConsolas.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxConsolas.FormattingEnabled = true;
+            this.boxConsolas.Location = new System.Drawing.Point(475, 60);
+            this.boxConsolas.Name = "boxConsolas";
+            this.boxConsolas.Size = new System.Drawing.Size(100, 23);
+            this.boxConsolas.TabIndex = 10;
+            // 
+            // boxCategorias
+            // 
+            this.boxCategorias.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxCategorias.FormattingEnabled = true;
+            this.boxCategorias.Location = new System.Drawing.Point(373, 60);
+            this.boxCategorias.Name = "boxCategorias";
+            this.boxCategorias.Size = new System.Drawing.Size(100, 23);
+            this.boxCategorias.TabIndex = 9;
+            // 
+            // TabCategorias
+            // 
+            this.TabCategorias.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.TabCategorias.Controls.Add(this.dataGridViewCat);
+            this.TabCategorias.Controls.Add(this.btnNuevaCat);
+            this.TabCategorias.Controls.Add(this.btnEditarCat);
+            this.TabCategorias.Controls.Add(this.btnEliminarCat);
+            this.TabCategorias.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TabCategorias.Location = new System.Drawing.Point(184, 4);
+            this.TabCategorias.Name = "TabCategorias";
+            this.TabCategorias.Padding = new System.Windows.Forms.Padding(3);
+            this.TabCategorias.Size = new System.Drawing.Size(696, 376);
+            this.TabCategorias.TabIndex = 1;
+            this.TabCategorias.Text = "Categorias";
+            // 
+            // TabConsolas
+            // 
+            this.TabConsolas.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.TabConsolas.Controls.Add(this.dataGridViewCon);
+            this.TabConsolas.Controls.Add(this.btnNuevaCon);
+            this.TabConsolas.Controls.Add(this.btnEliminarCon);
+            this.TabConsolas.Controls.Add(this.btnEditarCon);
+            this.TabConsolas.Location = new System.Drawing.Point(184, 4);
+            this.TabConsolas.Name = "TabConsolas";
+            this.TabConsolas.Padding = new System.Windows.Forms.Padding(3);
+            this.TabConsolas.Size = new System.Drawing.Size(696, 376);
+            this.TabConsolas.TabIndex = 2;
+            this.TabConsolas.Text = "Consolas";
+            // 
+            // btn_last_page
+            // 
+            this.btn_last_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_last_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_last_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_last_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_last_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_last_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_last_page.ForeColor = System.Drawing.Color.White;
+            this.btn_last_page.Location = new System.Drawing.Point(635, 301);
+            this.btn_last_page.Name = "btn_last_page";
+            this.btn_last_page.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_last_page.Size = new System.Drawing.Size(22, 24);
+            this.btn_last_page.TabIndex = 16;
+            // 
+            // btn_next_page
+            // 
+            this.btn_next_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_next_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_next_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_next_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_next_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_next_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_next_page.ForeColor = System.Drawing.Color.White;
+            this.btn_next_page.Location = new System.Drawing.Point(607, 301);
+            this.btn_next_page.Name = "btn_next_page";
+            this.btn_next_page.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btn_next_page.Size = new System.Drawing.Size(22, 24);
+            this.btn_next_page.TabIndex = 17;
             // 
             // UC_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnNuevaCon);
-            this.Controls.Add(this.btnEliminarCon);
-            this.Controls.Add(this.btnEditarCon);
-            this.Controls.Add(this.dataGridViewCon);
-            this.Controls.Add(this.btnNuevaCat);
-            this.Controls.Add(this.btnEliminarCat);
-            this.Controls.Add(this.btnEditarCat);
-            this.Controls.Add(this.dataGridViewCat);
-            this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.TabAdmin);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "UC_Admin";
-            this.Size = new System.Drawing.Size(871, 392);
+            this.Size = new System.Drawing.Size(911, 411);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            this.TabAdmin.ResumeLayout(false);
+            this.TabProductos.ResumeLayout(false);
+            this.TabProductos.PerformLayout();
+            this.TabCategorias.ResumeLayout(false);
+            this.TabConsolas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -477,6 +669,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Conexion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModoJuego;
         private System.Windows.Forms.DataGridViewImageColumn Imagen;
-        private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private Guna.UI2.WinForms.Guna2TabControl TabAdmin;
+        private System.Windows.Forms.TabPage TabProductos;
+        private System.Windows.Forms.TabPage TabCategorias;
+        private System.Windows.Forms.TabPage TabConsolas;
+        private System.Windows.Forms.ComboBox boxConsolas;
+        private System.Windows.Forms.ComboBox boxCategorias;
+        private System.Windows.Forms.Label paginacionTxt;
+        private System.Windows.Forms.ComboBox boxPaginacion;
+        private System.Windows.Forms.Label label_paginacion;
+        private Guna.UI2.WinForms.Guna2CircleButton btn_prev_page;
+        private Guna.UI2.WinForms.Guna2CircleButton btn_FirstPage;
+        private Guna.UI2.WinForms.Guna2CircleButton btn_next_page;
+        private Guna.UI2.WinForms.Guna2CircleButton btn_last_page;
     }
 }

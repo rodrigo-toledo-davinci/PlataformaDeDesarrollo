@@ -22,6 +22,7 @@ namespace ventaVideojuegos.Modelo
             StreamWriter archivo = new StreamWriter("consolas.txt");
             archivo.WriteLine(con.Id);
             archivo.WriteLine(con.Nombre);
+            archivo.WriteLine(con.Vista);
             archivo.Close();
         }
 

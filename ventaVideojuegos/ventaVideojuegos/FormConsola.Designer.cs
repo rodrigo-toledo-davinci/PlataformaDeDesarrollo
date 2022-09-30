@@ -121,6 +121,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtID);
             this.Name = "FormConsola";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormConsola";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -60,6 +60,7 @@
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -96,10 +97,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categoria.cs" />
-    <Compile Include="Consola.cs" />
-    <Compile Include="ControladorCategorias.cs" />
-    <Compile Include="ControladorConsola.cs" />
+    <Compile Include="Modelo\Categoria.cs" />
+    <Compile Include="Modelo\Consola.cs" />
+    <Compile Include="Controlers\ControladorCategorias.cs" />
+    <Compile Include="Controlers\ControladorConsola.cs" />
     <Compile Include="FormCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,7 +119,7 @@
     <Compile Include="FormProducto.Designer.cs">
       <DependentUpon>FormProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControladorProductos.cs" />
+    <Compile Include="Controlers\ControladorProductos.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +127,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsController.cs" />
-    <Compile Include="Modelo\ListaCategoria.cs" />
-    <Compile Include="Modelo\ListaConsola.cs" />
-    <Compile Include="Modelo\ListaProducto.cs" />
+    <Compile Include="ListaCategoria.cs" />
+    <Compile Include="ListaConsola.cs" />
+    <Compile Include="ListaProducto.cs" />
     <Compile Include="Modelo\Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -185,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsersControls\UC_Stats.resx">
       <DependentUpon>UC_Stats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersControls\UC_Ventas.resx">
+      <DependentUpon>UC_Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

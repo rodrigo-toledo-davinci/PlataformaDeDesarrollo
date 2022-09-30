@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ventaVideojuegos.Modelo;
 
 namespace ventaVideojuegos.UsersControls
 {
@@ -15,6 +16,9 @@ namespace ventaVideojuegos.UsersControls
         public UC_Stats()
         {
             InitializeComponent();
+
         }
+
+
     }
 }

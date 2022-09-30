@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "UC_Inicio";
-            this.Size = new System.Drawing.Size(726, 328);
+            this.Size = new System.Drawing.Size(911, 411);
             this.ResumeLayout(false);
 
         }

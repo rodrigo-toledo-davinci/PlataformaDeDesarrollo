@@ -54,5 +54,11 @@ namespace ventaVideojuegos
             UC_Stats uc = new UC_Stats();
             addUserControl(uc);
         }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }

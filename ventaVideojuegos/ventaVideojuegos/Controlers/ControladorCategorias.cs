@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using ventaVideojuegos.Modelo;
 
 namespace ventaVideojuegos
@@ -33,7 +34,8 @@ namespace ventaVideojuegos
                     Categoria cat = new Categoria()
                     {
                         Id = int.Parse(datos[0]),
-                        Nombre = datos[1]
+                        Nombre = datos[1],
+                        Vista = bool.Parse(datos[2])
                     };
                     Categorias.Add(cat);
                     lastId = int.Parse(datos[0]);
@@ -54,32 +56,22 @@ namespace ventaVideojuegos
 
         public static Categoria GetCategoriaByName(string name)
         {
-            foreach (var categoria in Categorias)
-            {
-                if(categoria.Nombre.Equals(name))
-                {
-                    return categoria;
-                }    
-            }
-            return null;
+            Categoria cat = Categorias.FirstOrDefault(x => x.Nombre == name);
+            return cat;
         }
 
         public static Categoria GetCategoriaById(int id)
         {
-            foreach (var categoria in Categorias)
-            {
-                if (categoria.Id.Equals(id))
-                {
-                    return categoria;
-                }
-            }
-            return null;
+            Categoria cat = Categorias.FirstOrDefault(x => x.Id == id);
+            return cat;
         }
 
         public static void EliminarCategoria(int id)
         {
-            Categorias.RemoveAll(e => e.Id.Equals(id));
-            GuardarEnMemoriaLista();
+            Categoria cat = Categorias.FirstOrDefault(c => c.Id == id);
+            cat.Vista = false;
+            ActualizarCategoria(id, cat);
+            
         }
 
         public static void ActualizarCategoria(int id, Categoria cat)
@@ -95,7 +87,7 @@ namespace ventaVideojuegos
         private static void GuardarEnMemoria(Categoria cat)
         {
             StreamWriter archivo = new StreamWriter("categorias.txt", true);
-            archivo.WriteLine(cat.Id + "," + cat.Nombre);
+            archivo.WriteLine(cat.Id + "," + cat.Nombre + "," + cat.Vista);
             archivo.Close();
         }
 
@@ -104,7 +96,7 @@ namespace ventaVideojuegos
             StreamWriter archivo = new StreamWriter("categorias.txt");
             foreach (Categoria cat in Categorias)
             {
-                archivo.WriteLine(cat.Id + "," + cat.Nombre);
+                archivo.WriteLine(cat.Id + "," + cat.Nombre + "," + cat.Vista);
             }
             archivo.Close();
         }
@@ -129,12 +121,14 @@ namespace ventaVideojuegos
                         {
                             string id = archivo.ReadLine();
                             string nombre = archivo.ReadLine();
+                            string vista = archivo.ReadLine();
 
 
                             Categoria cat = new Categoria()
                             {
                                 Id = int.Parse(id),
-                                Nombre = nombre
+                                Nombre = nombre,
+                                Vista = bool.Parse(vista)
                             };
 
                             _listaCat.GuardarEnInstancia(cat);

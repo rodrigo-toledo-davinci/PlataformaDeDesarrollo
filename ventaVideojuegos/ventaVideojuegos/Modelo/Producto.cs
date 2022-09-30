@@ -18,9 +18,13 @@ namespace ventaVideojuegos.Modelo
         public string Conexion { get; set; }
         public string ModoJuego { get; set; }
         public string Imagen { get; set; }
+        public bool Vista = true;
 
-        
+        public Producto()
+        {
 
-
+        }
     }
+
+  
 }
