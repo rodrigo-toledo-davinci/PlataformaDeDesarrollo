@@ -1,3 +1,5 @@
-1,f,True
-2,h,False
-3,dhf,False
+1,Accion,True
+2,Deporte,True
+3,Simulacion,True
+4,Aventura,True
+5,pepe,False

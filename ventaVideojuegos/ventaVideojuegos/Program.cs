@@ -16,7 +16,7 @@ namespace ventaVideojuegos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(FormsController.Form1);
+            Application.Run(FormsController.login1);
 
            ControladorProductos controllerProds = new ControladorProductos();   
 

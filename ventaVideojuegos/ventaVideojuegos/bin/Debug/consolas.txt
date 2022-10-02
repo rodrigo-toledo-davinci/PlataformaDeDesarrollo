@@ -1,2 +1,5 @@
-1,s,True
-2,d,False
+1,PS4,true
+2,PS5,true
+3,XBOX 360,true
+4,XBOX series X,true
+5,PC,true

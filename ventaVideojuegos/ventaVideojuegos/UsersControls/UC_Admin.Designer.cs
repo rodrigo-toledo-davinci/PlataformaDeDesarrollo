@@ -73,8 +73,15 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabAdmin = new Guna.UI2.WinForms.Guna2TabControl();
             this.TabProductos = new System.Windows.Forms.TabPage();
-            this.btn_FirstPage = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btn_prev_page = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.filtroNombre = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblCon = new System.Windows.Forms.Label();
+            this.lblCat = new System.Windows.Forms.Label();
+            this.btnVaciarFiltros = new System.Windows.Forms.Button();
+            this.btn_actual_page = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_FirstPage = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_prev_page = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_next_page = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_last_page = new Guna.UI2.WinForms.Guna2Button();
             this.label_paginacion = new System.Windows.Forms.Label();
             this.paginacionTxt = new System.Windows.Forms.Label();
             this.boxPaginacion = new System.Windows.Forms.ComboBox();
@@ -82,8 +89,6 @@
             this.boxCategorias = new System.Windows.Forms.ComboBox();
             this.TabCategorias = new System.Windows.Forms.TabPage();
             this.TabConsolas = new System.Windows.Forms.TabPage();
-            this.btn_last_page = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btn_next_page = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCon)).BeginInit();
@@ -128,7 +133,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 98);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -278,7 +283,7 @@
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewCat.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridViewCat.Size = new System.Drawing.Size(174, 118);
+            this.dataGridViewCat.Size = new System.Drawing.Size(173, 163);
             this.dataGridViewCat.TabIndex = 9;
             // 
             // dataGridViewTextBoxColumn1
@@ -416,7 +421,7 @@
             dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle18.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewCon.RowsDefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridViewCon.Size = new System.Drawing.Size(174, 118);
+            this.dataGridViewCon.Size = new System.Drawing.Size(174, 171);
             this.dataGridViewCon.TabIndex = 13;
             // 
             // dataGridViewTextBoxColumn3
@@ -467,10 +472,15 @@
             // TabProductos
             // 
             this.TabProductos.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.TabProductos.Controls.Add(this.btn_next_page);
-            this.TabProductos.Controls.Add(this.btn_last_page);
+            this.TabProductos.Controls.Add(this.filtroNombre);
+            this.TabProductos.Controls.Add(this.lblCon);
+            this.TabProductos.Controls.Add(this.lblCat);
+            this.TabProductos.Controls.Add(this.btnVaciarFiltros);
+            this.TabProductos.Controls.Add(this.btn_actual_page);
             this.TabProductos.Controls.Add(this.btn_FirstPage);
             this.TabProductos.Controls.Add(this.btn_prev_page);
+            this.TabProductos.Controls.Add(this.btn_next_page);
+            this.TabProductos.Controls.Add(this.btn_last_page);
             this.TabProductos.Controls.Add(this.label_paginacion);
             this.TabProductos.Controls.Add(this.paginacionTxt);
             this.TabProductos.Controls.Add(this.boxPaginacion);
@@ -487,6 +497,73 @@
             this.TabProductos.TabIndex = 0;
             this.TabProductos.Text = "Productos";
             // 
+            // filtroNombre
+            // 
+            this.filtroNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.filtroNombre.DefaultText = "";
+            this.filtroNombre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.filtroNombre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.filtroNombre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.filtroNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.filtroNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.filtroNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.filtroNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.filtroNombre.Location = new System.Drawing.Point(83, 68);
+            this.filtroNombre.Name = "filtroNombre";
+            this.filtroNombre.PasswordChar = '\0';
+            this.filtroNombre.PlaceholderText = "";
+            this.filtroNombre.SelectedText = "";
+            this.filtroNombre.Size = new System.Drawing.Size(84, 23);
+            this.filtroNombre.TabIndex = 22;
+            this.filtroNombre.TextChanged += new System.EventHandler(this.filtroNombre_TextChanged);
+            // 
+            // lblCon
+            // 
+            this.lblCon.AutoSize = true;
+            this.lblCon.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblCon.Location = new System.Drawing.Point(481, 51);
+            this.lblCon.Name = "lblCon";
+            this.lblCon.Size = new System.Drawing.Size(45, 13);
+            this.lblCon.TabIndex = 21;
+            this.lblCon.Text = "Consola";
+            // 
+            // lblCat
+            // 
+            this.lblCat.AutoSize = true;
+            this.lblCat.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblCat.Location = new System.Drawing.Point(380, 51);
+            this.lblCat.Name = "lblCat";
+            this.lblCat.Size = new System.Drawing.Size(52, 13);
+            this.lblCat.TabIndex = 20;
+            this.lblCat.Text = "Categoria";
+            // 
+            // btnVaciarFiltros
+            // 
+            this.btnVaciarFiltros.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnVaciarFiltros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVaciarFiltros.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnVaciarFiltros.Location = new System.Drawing.Point(578, 68);
+            this.btnVaciarFiltros.Name = "btnVaciarFiltros";
+            this.btnVaciarFiltros.Size = new System.Drawing.Size(100, 23);
+            this.btnVaciarFiltros.TabIndex = 19;
+            this.btnVaciarFiltros.Text = "reiniciar filtros";
+            this.btnVaciarFiltros.UseVisualStyleBackColor = false;
+            this.btnVaciarFiltros.Click += new System.EventHandler(this.btnVaciarFiltros_Click);
+            // 
+            // btn_actual_page
+            // 
+            this.btn_actual_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_actual_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_actual_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_actual_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_actual_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_actual_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_actual_page.ForeColor = System.Drawing.Color.White;
+            this.btn_actual_page.Location = new System.Drawing.Point(322, 320);
+            this.btn_actual_page.Name = "btn_actual_page";
+            this.btn_actual_page.Size = new System.Drawing.Size(39, 21);
+            this.btn_actual_page.TabIndex = 18;
+            // 
             // btn_FirstPage
             // 
             this.btn_FirstPage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -495,12 +572,13 @@
             this.btn_FirstPage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_FirstPage.FillColor = System.Drawing.Color.Silver;
             this.btn_FirstPage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_FirstPage.ForeColor = System.Drawing.Color.White;
-            this.btn_FirstPage.Location = new System.Drawing.Point(389, 301);
+            this.btn_FirstPage.ForeColor = System.Drawing.Color.Black;
+            this.btn_FirstPage.Location = new System.Drawing.Point(199, 320);
             this.btn_FirstPage.Name = "btn_FirstPage";
-            this.btn_FirstPage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_FirstPage.Size = new System.Drawing.Size(22, 24);
-            this.btn_FirstPage.TabIndex = 15;
+            this.btn_FirstPage.Size = new System.Drawing.Size(43, 21);
+            this.btn_FirstPage.TabIndex = 17;
+            this.btn_FirstPage.Text = "<<";
+            this.btn_FirstPage.Click += new System.EventHandler(this.btn_FirstPage_Click);
             // 
             // btn_prev_page
             // 
@@ -510,20 +588,55 @@
             this.btn_prev_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_prev_page.FillColor = System.Drawing.Color.Silver;
             this.btn_prev_page.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_prev_page.ForeColor = System.Drawing.Color.White;
-            this.btn_prev_page.Location = new System.Drawing.Point(417, 301);
+            this.btn_prev_page.ForeColor = System.Drawing.Color.Black;
+            this.btn_prev_page.Location = new System.Drawing.Point(261, 320);
             this.btn_prev_page.Name = "btn_prev_page";
-            this.btn_prev_page.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_prev_page.Size = new System.Drawing.Size(22, 24);
-            this.btn_prev_page.TabIndex = 14;
+            this.btn_prev_page.Size = new System.Drawing.Size(39, 21);
+            this.btn_prev_page.TabIndex = 16;
+            this.btn_prev_page.Text = " <";
+            this.btn_prev_page.Click += new System.EventHandler(this.btn_prev_page_Click);
+            // 
+            // btn_next_page
+            // 
+            this.btn_next_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_next_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_next_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_next_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_next_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_next_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_next_page.ForeColor = System.Drawing.Color.Black;
+            this.btn_next_page.Location = new System.Drawing.Point(389, 321);
+            this.btn_next_page.Name = "btn_next_page";
+            this.btn_next_page.Size = new System.Drawing.Size(39, 21);
+            this.btn_next_page.TabIndex = 15;
+            this.btn_next_page.Text = ">";
+            this.btn_next_page.Click += new System.EventHandler(this.btn_next_page_Click);
+            // 
+            // btn_last_page
+            // 
+            this.btn_last_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_last_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_last_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_last_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_last_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_last_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_last_page.ForeColor = System.Drawing.Color.Black;
+            this.btn_last_page.Location = new System.Drawing.Point(449, 321);
+            this.btn_last_page.Name = "btn_last_page";
+            this.btn_last_page.Size = new System.Drawing.Size(43, 21);
+            this.btn_last_page.TabIndex = 14;
+            this.btn_last_page.Text = ">>";
+            this.btn_last_page.Click += new System.EventHandler(this.btn_last_page_Click);
             // 
             // label_paginacion
             // 
             this.label_paginacion.AutoSize = true;
-            this.label_paginacion.Location = new System.Drawing.Point(208, 301);
+            this.label_paginacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_paginacion.Location = new System.Drawing.Point(3, 321);
             this.label_paginacion.Name = "label_paginacion";
-            this.label_paginacion.Size = new System.Drawing.Size(0, 13);
+            this.label_paginacion.Size = new System.Drawing.Size(117, 13);
             this.label_paginacion.TabIndex = 13;
+            this.label_paginacion.Text = "Mostrando 1 - 10 de 40";
             // 
             // paginacionTxt
             // 
@@ -544,24 +657,27 @@
             this.boxPaginacion.Name = "boxPaginacion";
             this.boxPaginacion.Size = new System.Drawing.Size(37, 23);
             this.boxPaginacion.TabIndex = 11;
+            this.boxPaginacion.SelectedIndexChanged += new System.EventHandler(this.boxPaginacion_SelectedIndexChanged);
             // 
             // boxConsolas
             // 
             this.boxConsolas.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxConsolas.FormattingEnabled = true;
-            this.boxConsolas.Location = new System.Drawing.Point(475, 60);
+            this.boxConsolas.Location = new System.Drawing.Point(478, 69);
             this.boxConsolas.Name = "boxConsolas";
-            this.boxConsolas.Size = new System.Drawing.Size(100, 23);
+            this.boxConsolas.Size = new System.Drawing.Size(84, 23);
             this.boxConsolas.TabIndex = 10;
+            this.boxConsolas.SelectedIndexChanged += new System.EventHandler(this.boxConsolas_SelectedIndexChanged);
             // 
             // boxCategorias
             // 
             this.boxCategorias.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxCategorias.FormattingEnabled = true;
-            this.boxCategorias.Location = new System.Drawing.Point(373, 60);
+            this.boxCategorias.Location = new System.Drawing.Point(377, 69);
             this.boxCategorias.Name = "boxCategorias";
-            this.boxCategorias.Size = new System.Drawing.Size(100, 23);
+            this.boxCategorias.Size = new System.Drawing.Size(84, 23);
             this.boxCategorias.TabIndex = 9;
+            this.boxCategorias.SelectedIndexChanged += new System.EventHandler(this.boxCategorias_SelectedIndexChanged);
             // 
             // TabCategorias
             // 
@@ -591,36 +707,6 @@
             this.TabConsolas.Size = new System.Drawing.Size(696, 376);
             this.TabConsolas.TabIndex = 2;
             this.TabConsolas.Text = "Consolas";
-            // 
-            // btn_last_page
-            // 
-            this.btn_last_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_last_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_last_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_last_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_last_page.FillColor = System.Drawing.Color.Silver;
-            this.btn_last_page.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_last_page.ForeColor = System.Drawing.Color.White;
-            this.btn_last_page.Location = new System.Drawing.Point(635, 301);
-            this.btn_last_page.Name = "btn_last_page";
-            this.btn_last_page.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_last_page.Size = new System.Drawing.Size(22, 24);
-            this.btn_last_page.TabIndex = 16;
-            // 
-            // btn_next_page
-            // 
-            this.btn_next_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_next_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_next_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_next_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_next_page.FillColor = System.Drawing.Color.Silver;
-            this.btn_next_page.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_next_page.ForeColor = System.Drawing.Color.White;
-            this.btn_next_page.Location = new System.Drawing.Point(607, 301);
-            this.btn_next_page.Name = "btn_next_page";
-            this.btn_next_page.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btn_next_page.Size = new System.Drawing.Size(22, 24);
-            this.btn_next_page.TabIndex = 17;
             // 
             // UC_Admin
             // 
@@ -678,9 +764,14 @@
         private System.Windows.Forms.Label paginacionTxt;
         private System.Windows.Forms.ComboBox boxPaginacion;
         private System.Windows.Forms.Label label_paginacion;
-        private Guna.UI2.WinForms.Guna2CircleButton btn_prev_page;
-        private Guna.UI2.WinForms.Guna2CircleButton btn_FirstPage;
-        private Guna.UI2.WinForms.Guna2CircleButton btn_next_page;
-        private Guna.UI2.WinForms.Guna2CircleButton btn_last_page;
+        private Guna.UI2.WinForms.Guna2Button btn_FirstPage;
+        private Guna.UI2.WinForms.Guna2Button btn_prev_page;
+        private Guna.UI2.WinForms.Guna2Button btn_next_page;
+        private Guna.UI2.WinForms.Guna2Button btn_last_page;
+        private Guna.UI2.WinForms.Guna2Button btn_actual_page;
+        private System.Windows.Forms.Button btnVaciarFiltros;
+        private System.Windows.Forms.Label lblCon;
+        private System.Windows.Forms.Label lblCat;
+        private Guna.UI2.WinForms.Guna2TextBox filtroNombre;
     }
 }

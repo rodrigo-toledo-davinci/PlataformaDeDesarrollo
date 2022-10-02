@@ -19,6 +19,7 @@ namespace ventaVideojuegos
             InitializeComponent();
             UC_Inicio uc = new UC_Inicio();
             addUserControl(uc);
+            txtNombreUsuario.Text = "nombre"; 
             
         }
 

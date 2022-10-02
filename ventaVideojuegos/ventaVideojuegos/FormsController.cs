@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ventaVideojuegos;
 
 namespace ventaVideojuegos
 {
@@ -20,6 +21,20 @@ namespace ventaVideojuegos
                 return _form1;
             }
         }
+
+        public static Login login1
+        {
+            get
+            {
+                if (_login1 == null)
+                {
+                    _login1 = new Login();
+                }
+                return _login1;
+            }
+        }
+
+        private static Login _login1;
 
         private static Form1 _form1;
 

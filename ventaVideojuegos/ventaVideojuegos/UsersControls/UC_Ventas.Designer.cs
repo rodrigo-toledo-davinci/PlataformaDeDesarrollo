@@ -28,19 +28,358 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Consola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Conexion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModoJuego = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnComprar = new System.Windows.Forms.Button();
+            this.btn_actual_page = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_FirstPage = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_prev_page = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_next_page = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_last_page = new Guna.UI2.WinForms.Guna2Button();
+            this.filtroNombre = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblCon = new System.Windows.Forms.Label();
+            this.lblCat = new System.Windows.Forms.Label();
+            this.btnVaciarFiltros = new System.Windows.Forms.Button();
+            this.boxConsolas = new System.Windows.Forms.ComboBox();
+            this.boxCategorias = new System.Windows.Forms.ComboBox();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Nombre,
+            this.Precio,
+            this.Categoria,
+            this.Consola,
+            this.Conexion,
+            this.ModoJuego,
+            this.Imagen});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView1.Location = new System.Drawing.Point(68, 75);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridView1.Size = new System.Drawing.Size(773, 241);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // Id
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Width = 30;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            // 
+            // Consola
+            // 
+            this.Consola.HeaderText = "Consola";
+            this.Consola.Name = "Consola";
+            // 
+            // Conexion
+            // 
+            this.Conexion.HeaderText = "Conexion";
+            this.Conexion.Name = "Conexion";
+            // 
+            // ModoJuego
+            // 
+            this.ModoJuego.HeaderText = "ModoJuego";
+            this.ModoJuego.Name = "ModoJuego";
+            // 
+            // Imagen
+            // 
+            this.Imagen.HeaderText = "Imagen";
+            this.Imagen.Name = "Imagen";
+            this.Imagen.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Imagen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // btnComprar
+            // 
+            this.btnComprar.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnComprar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnComprar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnComprar.Location = new System.Drawing.Point(741, 16);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(100, 26);
+            this.btnComprar.TabIndex = 7;
+            this.btnComprar.Text = "Comprar Producto";
+            this.btnComprar.UseVisualStyleBackColor = false;
+            this.btnComprar.Click += new System.EventHandler(this.btnAñadirCarrito_Click);
+            // 
+            // btn_actual_page
+            // 
+            this.btn_actual_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_actual_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_actual_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_actual_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_actual_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_actual_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_actual_page.ForeColor = System.Drawing.Color.White;
+            this.btn_actual_page.Location = new System.Drawing.Point(464, 322);
+            this.btn_actual_page.Name = "btn_actual_page";
+            this.btn_actual_page.Size = new System.Drawing.Size(39, 21);
+            this.btn_actual_page.TabIndex = 24;
+            // 
+            // btn_FirstPage
+            // 
+            this.btn_FirstPage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_FirstPage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_FirstPage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_FirstPage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_FirstPage.FillColor = System.Drawing.Color.Silver;
+            this.btn_FirstPage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_FirstPage.ForeColor = System.Drawing.Color.Black;
+            this.btn_FirstPage.Location = new System.Drawing.Point(341, 322);
+            this.btn_FirstPage.Name = "btn_FirstPage";
+            this.btn_FirstPage.Size = new System.Drawing.Size(43, 21);
+            this.btn_FirstPage.TabIndex = 23;
+            this.btn_FirstPage.Text = "<<";
+            this.btn_FirstPage.Click += new System.EventHandler(this.btn_FirstPage_Click_1);
+            // 
+            // btn_prev_page
+            // 
+            this.btn_prev_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_prev_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_prev_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_prev_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_prev_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_prev_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_prev_page.ForeColor = System.Drawing.Color.Black;
+            this.btn_prev_page.Location = new System.Drawing.Point(403, 322);
+            this.btn_prev_page.Name = "btn_prev_page";
+            this.btn_prev_page.Size = new System.Drawing.Size(39, 21);
+            this.btn_prev_page.TabIndex = 22;
+            this.btn_prev_page.Text = " <";
+            this.btn_prev_page.Click += new System.EventHandler(this.btn_prev_page_Click_1);
+            // 
+            // btn_next_page
+            // 
+            this.btn_next_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_next_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_next_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_next_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_next_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_next_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_next_page.ForeColor = System.Drawing.Color.Black;
+            this.btn_next_page.Location = new System.Drawing.Point(531, 323);
+            this.btn_next_page.Name = "btn_next_page";
+            this.btn_next_page.Size = new System.Drawing.Size(39, 21);
+            this.btn_next_page.TabIndex = 21;
+            this.btn_next_page.Text = ">";
+            this.btn_next_page.Click += new System.EventHandler(this.btn_next_page_Click_1);
+            // 
+            // btn_last_page
+            // 
+            this.btn_last_page.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_last_page.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_last_page.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_last_page.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_last_page.FillColor = System.Drawing.Color.Silver;
+            this.btn_last_page.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_last_page.ForeColor = System.Drawing.Color.Black;
+            this.btn_last_page.Location = new System.Drawing.Point(591, 323);
+            this.btn_last_page.Name = "btn_last_page";
+            this.btn_last_page.Size = new System.Drawing.Size(43, 21);
+            this.btn_last_page.TabIndex = 20;
+            this.btn_last_page.Text = ">>";
+            this.btn_last_page.Click += new System.EventHandler(this.btn_last_page_Click_1);
+            // 
+            // filtroNombre
+            // 
+            this.filtroNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.filtroNombre.DefaultText = "";
+            this.filtroNombre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.filtroNombre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.filtroNombre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.filtroNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.filtroNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.filtroNombre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.filtroNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.filtroNombre.Location = new System.Drawing.Point(150, 46);
+            this.filtroNombre.Name = "filtroNombre";
+            this.filtroNombre.PasswordChar = '\0';
+            this.filtroNombre.PlaceholderText = "";
+            this.filtroNombre.SelectedText = "";
+            this.filtroNombre.Size = new System.Drawing.Size(84, 23);
+            this.filtroNombre.TabIndex = 30;
+            this.filtroNombre.TextChanged += new System.EventHandler(this.filtroNombre_TextChanged_1);
+            // 
+            // lblCon
+            // 
+            this.lblCon.AutoSize = true;
+            this.lblCon.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCon.Location = new System.Drawing.Point(548, 29);
+            this.lblCon.Name = "lblCon";
+            this.lblCon.Size = new System.Drawing.Size(45, 13);
+            this.lblCon.TabIndex = 29;
+            this.lblCon.Text = "Consola";
+            // 
+            // lblCat
+            // 
+            this.lblCat.AutoSize = true;
+            this.lblCat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCat.Location = new System.Drawing.Point(447, 29);
+            this.lblCat.Name = "lblCat";
+            this.lblCat.Size = new System.Drawing.Size(52, 13);
+            this.lblCat.TabIndex = 28;
+            this.lblCat.Text = "Categoria";
+            // 
+            // btnVaciarFiltros
+            // 
+            this.btnVaciarFiltros.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnVaciarFiltros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVaciarFiltros.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnVaciarFiltros.Location = new System.Drawing.Point(741, 47);
+            this.btnVaciarFiltros.Name = "btnVaciarFiltros";
+            this.btnVaciarFiltros.Size = new System.Drawing.Size(100, 23);
+            this.btnVaciarFiltros.TabIndex = 27;
+            this.btnVaciarFiltros.Text = "reiniciar filtros";
+            this.btnVaciarFiltros.UseVisualStyleBackColor = false;
+            this.btnVaciarFiltros.Click += new System.EventHandler(this.btnVaciarFiltros_Click_1);
+            // 
+            // boxConsolas
+            // 
+            this.boxConsolas.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxConsolas.FormattingEnabled = true;
+            this.boxConsolas.Location = new System.Drawing.Point(545, 47);
+            this.boxConsolas.Name = "boxConsolas";
+            this.boxConsolas.Size = new System.Drawing.Size(84, 23);
+            this.boxConsolas.TabIndex = 26;
+            this.boxConsolas.SelectedIndexChanged += new System.EventHandler(this.boxConsolas_SelectedIndexChanged_1);
+            // 
+            // boxCategorias
+            // 
+            this.boxCategorias.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxCategorias.FormattingEnabled = true;
+            this.boxCategorias.Location = new System.Drawing.Point(444, 47);
+            this.boxCategorias.Name = "boxCategorias";
+            this.boxCategorias.Size = new System.Drawing.Size(84, 23);
+            this.boxCategorias.TabIndex = 25;
+            this.boxCategorias.SelectedIndexChanged += new System.EventHandler(this.boxCategorias_SelectedIndexChanged_1);
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataSource = typeof(ventaVideojuegos.Modelo.Producto);
             // 
             // UC_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Controls.Add(this.filtroNombre);
+            this.Controls.Add(this.lblCon);
+            this.Controls.Add(this.lblCat);
+            this.Controls.Add(this.btnVaciarFiltros);
+            this.Controls.Add(this.boxConsolas);
+            this.Controls.Add(this.boxCategorias);
+            this.Controls.Add(this.btn_actual_page);
+            this.Controls.Add(this.btn_FirstPage);
+            this.Controls.Add(this.btn_prev_page);
+            this.Controls.Add(this.btn_next_page);
+            this.Controls.Add(this.btn_last_page);
+            this.Controls.Add(this.btnComprar);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "UC_Ventas";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Size = new System.Drawing.Size(911, 411);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnComprar;
+        private Guna.UI2.WinForms.Guna2Button btn_actual_page;
+        private Guna.UI2.WinForms.Guna2Button btn_FirstPage;
+        private Guna.UI2.WinForms.Guna2Button btn_prev_page;
+        private Guna.UI2.WinForms.Guna2Button btn_next_page;
+        private Guna.UI2.WinForms.Guna2Button btn_last_page;
+        private Guna.UI2.WinForms.Guna2TextBox filtroNombre;
+        private System.Windows.Forms.Label lblCon;
+        private System.Windows.Forms.Label lblCat;
+        private System.Windows.Forms.Button btnVaciarFiltros;
+        private System.Windows.Forms.ComboBox boxConsolas;
+        private System.Windows.Forms.ComboBox boxCategorias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Consola;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Conexion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModoJuego;
+        private System.Windows.Forms.DataGridViewImageColumn Imagen;
+        private System.Windows.Forms.BindingSource productoBindingSource;
     }
 }

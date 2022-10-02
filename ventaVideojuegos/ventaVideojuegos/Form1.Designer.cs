@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtNombreUsuario = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2ImageCheckBox1 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -55,7 +55,7 @@
             this.Panel.BorderColor = System.Drawing.Color.Aqua;
             this.Panel.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
             this.Panel.Controls.Add(this.guna2GradientButton4);
-            this.Panel.Controls.Add(this.guna2HtmlLabel2);
+            this.Panel.Controls.Add(this.txtNombreUsuario);
             this.Panel.Controls.Add(this.guna2CirclePictureBox1);
             this.Panel.Controls.Add(this.guna2ImageCheckBox1);
             this.Panel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -90,18 +90,18 @@
             this.guna2GradientButton4.Text = "Cerrar sesion";
             this.guna2GradientButton4.UseTransparentBackground = true;
             // 
-            // guna2HtmlLabel2
+            // txtNombreUsuario
             // 
-            this.guna2HtmlLabel2.AutoSize = false;
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Open Sans Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(608, 33);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(65, 24);
-            this.guna2HtmlLabel2.TabIndex = 2;
-            this.guna2HtmlLabel2.Text = "Grupo 4";
-            this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.txtNombreUsuario.AutoSize = false;
+            this.txtNombreUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Open Sans Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNombreUsuario.Location = new System.Drawing.Point(608, 33);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(65, 24);
+            this.txtNombreUsuario.TabIndex = 2;
+            this.txtNombreUsuario.Text = "Grupo 4";
+            this.txtNombreUsuario.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
             // guna2CirclePictureBox1
             // 
@@ -292,7 +292,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnVentas;
         private Guna.UI2.WinForms.Guna2GradientButton btnInicio;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtNombreUsuario;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2ImageCheckBox guna2ImageCheckBox1;
         private Guna.UI2.WinForms.Guna2GradientButton btnStats;

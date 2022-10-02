@@ -14,7 +14,7 @@ namespace ventaVideojuegos.UsersControls
     public partial class UC_Admin : UserControl
     {
 
-        private static Producto filtro = new Producto();      
+        private static Producto filtro = new Producto();
         private List<Producto> Productos_Completo = new List<Producto>();
         private List<Producto> Productos_Filtrado = new List<Producto>();
         private List<Producto> Productos_Paginados = new List<Producto>();
@@ -23,7 +23,7 @@ namespace ventaVideojuegos.UsersControls
         private static int paginador = 10;
         private static int total = 0;
         private static int last_pag = 0;
-        private static int current_pag = 0;
+        private static int current_pag = 1;
 
         public UC_Admin()
         {
@@ -31,29 +31,22 @@ namespace ventaVideojuegos.UsersControls
             ControladorCategorias.IniciarRepositorio();
             ControladorConsola.IniciarRepositorio();
             ControladorProductos.IniciarRepositorio();
+            paginar(Productos_Completo);
             Productos_Completo = ControladorProductos.Productos;
             Productos_Completo = ControladorProductos.Productos;
             Productos_Filtrado = ControladorProductos.Productos;
-            
             total = Productos_Completo.Count(prod => prod.Vista == true);
-              
-        
-            
-            
             last_pag = total / paginador;
-            paginar(Productos_Completo);
-
             llenarCombos();
-
             VisualizarCategorias();
             VisualizarConsolas();
-            VisualizarProductos();
+          //  VisualizarProductos(Productos_Completo);
         }
 
-        private void VisualizarProductos()
+        private void VisualizarProductos(List<Producto> listaProductos)
         {
             dataGridView1.Rows.Clear();
-            foreach (Producto prod in ControladorProductos.Productos)
+            foreach (Producto prod in listaProductos)
             {
                 if (prod.Vista == true)
                 {
@@ -115,7 +108,7 @@ namespace ventaVideojuegos.UsersControls
             }
             VisualizarCategorias();
             VisualizarConsolas();
-            VisualizarProductos();
+           VisualizarProductos(Productos_Completo);
         }
 
         private void btnNuevaCat_Click(object sender, EventArgs e)
@@ -129,7 +122,10 @@ namespace ventaVideojuegos.UsersControls
             }
             VisualizarCategorias();
             VisualizarConsolas();
-            VisualizarProductos();
+
+            vaciarCombos();
+            llenarCombos();
+            //   VisualizarProductos();
         }
 
         private void btnNuevaCon_Click(object sender, EventArgs e)
@@ -142,13 +138,16 @@ namespace ventaVideojuegos.UsersControls
                 ControladorConsola.AñadirConsola(conForm.consolaNueva);
                 VisualizarCategorias();
                 VisualizarConsolas();
-                VisualizarProductos();
+                //   VisualizarProductos();
+
+                vaciarCombos();
+                llenarCombos();
             }
         }
 
         private void btnEditarCat_Click(object sender, EventArgs e)
         {
-            if(dataGridViewCat.SelectedRows.Count > 0)
+            if (dataGridViewCat.SelectedRows.Count > 0)
             {
                 string idCatEditar = dataGridViewCat.SelectedRows[0].Cells[0].Value.ToString();
                 string nombreCatEditar = dataGridViewCat.SelectedRows[0].Cells[1].Value.ToString();
@@ -162,12 +161,15 @@ namespace ventaVideojuegos.UsersControls
                 FormCategoria formCategoria = new FormCategoria(catEditar);
                 DialogResult dialogResult = formCategoria.ShowDialog();
 
-                if(dialogResult == DialogResult.OK)
+                if (dialogResult == DialogResult.OK)
                 {
                     ControladorCategorias.ActualizarCategoria(int.Parse(idCatEditar), formCategoria.categoriaNueva);
                     VisualizarCategorias();
                     VisualizarConsolas();
-                    VisualizarProductos();
+
+                    vaciarCombos();
+                    llenarCombos();
+                   // VisualizarProductos(Productos_Complet);
                 }
             }
             else
@@ -175,7 +177,7 @@ namespace ventaVideojuegos.UsersControls
                 MessageBox.Show("Debes seleccionar una categoria para Editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-           
+
         }
 
         private void btnEditarCon_Click(object sender, EventArgs e)
@@ -198,10 +200,13 @@ namespace ventaVideojuegos.UsersControls
                 {
                     ControladorConsola.ActualizarConsola(int.Parse(idConEditar), formConsola.consolaNueva);
 
+                    vaciarCombos();
+                    llenarCombos();
+
                 }
                 VisualizarCategorias();
                 VisualizarConsolas();
-                VisualizarProductos();
+             //   VisualizarProductos();
             }
             else
             {
@@ -218,6 +223,9 @@ namespace ventaVideojuegos.UsersControls
                 string idCatEliminar = dataGridViewCat.SelectedRows[0].Cells[0].Value.ToString();
                 ControladorCategorias.EliminarCategoria(int.Parse(idCatEliminar));
                 VisualizarCategorias();
+
+                vaciarCombos();
+                llenarCombos();
             }
             else
             {
@@ -232,6 +240,8 @@ namespace ventaVideojuegos.UsersControls
                 string idConEliminar = dataGridViewCon.SelectedRows[0].Cells[0].Value.ToString();
                 ControladorConsola.EliminarConsola(int.Parse(idConEliminar));
                 VisualizarConsolas();
+                vaciarCombos();
+                llenarCombos();
             }
             else
             {
@@ -272,7 +282,7 @@ namespace ventaVideojuegos.UsersControls
                     ControladorProductos.ActualizarProductos(int.Parse(idProdEditar), formProducto.productoNuevo);
                     VisualizarCategorias();
                     VisualizarConsolas();
-                    VisualizarProductos();
+                    VisualizarProductos(Productos_Completo);
                 }
             }
             else
@@ -289,17 +299,17 @@ namespace ventaVideojuegos.UsersControls
                 ControladorProductos.EliminarProducto(int.Parse(idProdEliminar));
                 VisualizarCategorias();
                 VisualizarConsolas();
-                VisualizarProductos();
+              //  VisualizarProductos();
             }
             else
             {
                 MessageBox.Show("Debes seleccionar un producto para Eliminar", "Error", MessageBoxButtons.OK);
             }
         }
-        
-        private void llenarBoxCategorias()
+
+        private void llenarBoxCategorias(List<Categoria> listaCategorias)
         {
-            foreach(Categoria cat in ControladorCategorias.Categorias)
+            foreach (Categoria cat in listaCategorias)
             {
                 if (cat.Vista == true)
                 {
@@ -308,9 +318,9 @@ namespace ventaVideojuegos.UsersControls
             }
         }
 
-        private void llenarBoxConsolas()
+        private void llenarBoxConsolas(List<Consola> listaConsolas)
         {
-            foreach (Consola con in ControladorConsola.Consolas)
+            foreach (Consola con in listaConsolas)
             {
                 if (con.Vista == true)
                 {
@@ -321,9 +331,20 @@ namespace ventaVideojuegos.UsersControls
 
         private void llenarCombos()
         {
-            llenarBoxCategorias();
-            llenarBoxConsolas();
+            List<Categoria> listCat = new List<Categoria>();
+            listCat = ControladorCategorias.Categorias.Where(x => x.Id != 0).ToList();
+            llenarBoxCategorias(listCat);
+            List<Consola> listCon = new List<Consola>();
+            listCon = ControladorConsola.Consolas.Where(x => x.Id != 0).ToList();
+
+            llenarBoxConsolas(listCon);
             llenarBoxPaginacion();
+        }
+
+        private void vaciarCombos()
+        {
+            boxCategorias.Items.Clear();
+            boxConsolas.Items.Clear();
         }
 
         private void llenarBoxPaginacion()
@@ -336,16 +357,18 @@ namespace ventaVideojuegos.UsersControls
             boxPaginacion.SelectedItem = "10";
         }
 
-        private void paginar (List<Producto> prodMostrar)
+        private void paginar(List<Producto> prodMostrar)
         {
             Productos_Paginados = prodMostrar.Skip(current).Take(paginador).ToList();
-            VisualizarProductos();
-            label_paginacion.Text = "Mostrando " + (current + 1) + "-" + (current + paginador) + "de " + total;
+            VisualizarProductos(Productos_Paginados);
+            label_paginacion.Text = "Mostrando " + (current + 1) + " - " + (current + paginador) + "de " + total;
+            
 
             if (current_pag == 1)
             {
                 btn_FirstPage.Hide();
                 btn_prev_page.Hide();
+
             }
             else
             {
@@ -355,19 +378,164 @@ namespace ventaVideojuegos.UsersControls
                 btn_prev_page.Text = (current_pag - 1).ToString();
             }
 
-            if(current_pag == last_pag)
+            if (current_pag == last_pag)
             {
                 btn_last_page.Hide();
+                btn_next_page.Hide();
             }
             else
             {
                 btn_last_page.Show();
+                btn_next_page.Show();
+            }
+
+            if (btn_FirstPage.Text == btn_prev_page.Text)
+            {
+                btn_FirstPage.Hide();
+            }
+
+            if(btn_last_page.Text == btn_next_page.Text)
+            {
+                btn_last_page.Hide();
             }
 
             btn_next_page.Text = (current_pag + 1).ToString();
-            btn_last_page.Text = (current_pag - 1).ToString();
+            btn_prev_page.Text = (current_pag - 1).ToString();
+            btn_actual_page.Text = (current_pag).ToString();
+
+        }
+
+        private void btn_FirstPage_Click(object sender, EventArgs e)
+        {
+            current = 0;
+            current_pag = 1;
+            paginar(Productos_Filtrado);
+            btn_actual_page.Text = current_pag.ToString();
+        }
+
+        private void btn_prev_page_Click(object sender, EventArgs e)
+        {
+
+                current = current - paginador;
+                current_pag = (current_pag - 1);
+                btn_actual_page.Text = current_pag.ToString();
+    
+            paginar(Productos_Filtrado);
+        }
+
+        private void btn_next_page_Click(object sender, EventArgs e)
+        {
+            current = current + paginador;
+            current_pag = (current_pag + 1);
+            btn_actual_page.Text = current_pag.ToString();
+            paginar(Productos_Filtrado);
+        }
+
+        private void btn_last_page_Click(object sender, EventArgs e)
+        {
+            current = last_pag + paginador;
+            current_pag = last_pag;
+            btn_actual_page.Text = current_pag.ToString();
+            paginar(Productos_Filtrado);
+        }
+
+        private void boxPaginacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            paginador = int.Parse(boxPaginacion.SelectedItem.ToString());
+            current = 0;
+            last_pag = (total / paginador) + 1;
+            paginar(Productos_Filtrado);
+        }
+
+        private void boxCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (boxCategorias.SelectedItem != null)
+            {
+                Categoria seleccionado = ControladorCategorias.GetCategoriaByName(boxCategorias.SelectedItem.ToString());
+                filtro.Categoria = seleccionado;
+                lblCat.Text = seleccionado.Nombre;
+                filtrar();
+            }
+        }
+
+        private void boxConsolas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (boxConsolas.SelectedItem != null)
+            {
+                Consola seleccionado = ControladorConsola.GetConsolaByName(boxConsolas.SelectedItem.ToString());
+                filtro.Consola = seleccionado;
+                lblCon.Text = seleccionado.Nombre;
+                filtrar();
+            }
+        }
+
+        private void filtrar()
+        {
+            //  Productos_Filtrado = Productos_Completo;
+
+            if (filtro.Nombre != null)
+            {
+                Productos_Filtrado = Productos_Completo.Where(x => x.Nombre.ToLower().Contains(filtro.Nombre)).ToList();
+
+
+            }
+
+            if (filtro.Categoria != null)
+            {
+                Productos_Filtrado = Productos_Completo.Where(x => x.Categoria == filtro.Categoria).ToList();
+            }
+
+
+
+            if (filtro.Consola != null)
+            {
+                Productos_Filtrado = Productos_Completo.Where(x => x.Consola == filtro.Consola).ToList();
+            }
+ 
+            total = Productos_Filtrado.Count();
+            last_pag = (total / paginador) + 1;
+            current = 0;
+            current_pag = 1;
+
+            paginar(Productos_Filtrado);
+
         }
 
     
+
+        private void btnVaciarFiltros_Click(object sender, EventArgs e)
+        {
+            boxCategorias.SelectedItem = null;
+            boxConsolas.SelectedItem = null;
+            filtroNombre.Text = null;
+            
+            filtro.Nombre = null;
+            filtro.Categoria = null;
+            filtro.Consola = null;
+
+            lblCon.Text = "Consola";
+            lblCat.Text = "Categoria";
+
+            Productos_Filtrado = Productos_Completo;
+
+            paginar(Productos_Filtrado);
+        }
+
+        private void filtroNombre_TextChanged(object sender, EventArgs e)
+        {
+            string nombreFiltrar = filtroNombre.Text.ToString().ToLower();
+
+            if(string.IsNullOrEmpty(filtroNombre.Text))
+            {
+                filtro.Nombre = null;
+            }
+            else
+            {
+                filtro.Nombre = nombreFiltrar;
+                filtrar();
+            }
+
+
+        }
     }
 }

@@ -1,0 +1,42 @@
+1,Mafia (Definitive Edition),2559,1,1,Online,Un jugador,true
+2,Red Dead Redemption II,2499,1,1,Offline,Un jugador,true
+3,Spider-Man Remastered,4999,1,2,Offline,Un jugador,true
+4,Far Cry 5,2999,1,2,Offline,Un jugador,true
+5,Fallout 4,799,1,3,Online,Multijugador,true
+6,Call of Duty Modern Warfare II,6990,1,4,Online,Multijugador,true
+7,Call of Duty Black Ops III,999,1,1,Online,Multijugador,true
+8,TEKKEN 7,1990,1,5,Online,Un jugador,true
+9,Destiny 2,2499,1,3,Offline,Un jugador,true
+10,Tom Clancy’s Rainbow Six Siege,999,1,1,Offline,Un jugador,true
+11,FIFA 23,11999,2,2,Online,Multijugador,true
+12,NBA 2K23,9999,2,5,Online,Multijugador,true
+13,Forza Horizon 4,2999,2,4,Offline,Un jugador,true
+14,MADDEN NFL 23,6399,2,1,Online,Multijugador,true
+15,F1 22,6.000,2,2,7999,Online,Un jugador,true
+16,WWW 2K22,5999,2,1,Offline,Multijugador,true
+17,UFC 4,7899,2,3,Online,Un jugador,true
+18,The crew 2,2599,Offline,Un jugador,true
+19,CAPTAIN TSUBASA,2499,2,1,Offline,Un jugador,true
+20,Tennis World Tour 2,2099,2,2,Offline,Multijugador,true
+21,Microsoft Flight Simulator Game of the Year,3999,3,1,Offline,Un jugador,true
+22,The Sims 4,2000,3,5,Online,Un jugador,true
+23,Tropico 6,999,3,3,Offline,Un jugador,true
+24,Cities Skylines,499,3,4,Offline,Un jugador,true
+25,Railway Empire,700,3,5,Offline, Un jugador,true
+26,F1 Manager 22,3499,3,1,Offline,Un jugador,true
+27,Farthest Frontier,1200,3,5,Offline,Un jugador,true
+28,Port Royale 3,999,3,1,Offline,Un jugador,true
+29,Snow Runner,1499,3,5,Onlline,Multijugador,true
+30,Stardew Valley,179,3,5,Offline,Un jugador,true
+31,Tomb Raider,220,4,5,Offline,Un jugador,true
+32,GTA V,2799,4,2,Online,Un jugador,true
+33,Minecraft Dungeons,2900,4,5,Online,Un jugador,true
+34,The last of us part 2,7999,4,2,Offline,Un jugador,true
+35,Batman Arkham Knigh,200,4,5,Offline,Un jugador,true
+36,Assassin's Creed Origins,2999,4,3,Offline,Un jugador,true
+37,Stray,1300,4,5,Offline,Un jugador,true
+38,God of War Ragnarok,10000,4,1,Offline,Un jugador,true
+39,Dishonored,230,4,5,Offline,Un jugador,true,
+40,Sherlock Holmes chapter one,1999,4,4,Offline,Un jugador,true
+
+

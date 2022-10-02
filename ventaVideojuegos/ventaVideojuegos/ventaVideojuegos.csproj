@@ -39,6 +39,9 @@
     <Reference Include="Guna.UI2, Version=2.0.3.5, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.5\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Paginacion, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PaginadorNET.1.0.2\lib\netstandard2.0\Paginacion.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Buttons.XForms, Version=20.2451.0.50, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Xamarin.Buttons.20.2.0.50\lib\netstandard2.0\Syncfusion.Buttons.XForms.dll</HintPath>
     </Reference>
@@ -97,6 +100,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlers\controladorUsuarios.cs" />
+    <Compile Include="Controlers\ControladorVentas.cs" />
+    <Compile Include="FormVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVenta.Designer.cs">
+      <DependentUpon>FormVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVentaDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVentaDatos.Designer.cs">
+      <DependentUpon>FormVentaDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaUsuarios.cs" />
+    <Compile Include="ListaVenta.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Consola.cs" />
     <Compile Include="Controlers\ControladorCategorias.cs" />
@@ -131,6 +156,8 @@
     <Compile Include="ListaConsola.cs" />
     <Compile Include="ListaProducto.cs" />
     <Compile Include="Modelo\Producto.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="Modelo\Venta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersControls\UC_Admin.cs">
@@ -169,6 +196,15 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormVenta.resx">
+      <DependentUpon>FormVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVentaDatos.resx">
+      <DependentUpon>FormVentaDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -191,6 +227,7 @@
       <DependentUpon>UC_Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ventaVideojuegos.Modelo.Producto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
