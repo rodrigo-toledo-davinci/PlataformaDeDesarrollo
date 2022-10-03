@@ -78,6 +78,19 @@ namespace ventaVideojuegos
             GuardarEnMemoriaLista();
         }
 
+
+        public static Producto GetProductoById(int id)
+        {
+            Producto prod = Productos.FirstOrDefault(x => x.Id == id);
+            return prod;
+        }
+
+        public static Producto GetProductoByName(string name)
+        {
+            Producto prod = Productos.FirstOrDefault(x => x.Nombre == name);
+            return prod;
+        }
+
         private static void GuardarEnMemoria(Producto prod)
         {
             StreamWriter archivo = new StreamWriter("productos.txt", true);

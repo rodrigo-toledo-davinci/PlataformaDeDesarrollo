@@ -12,8 +12,9 @@ namespace ventaVideojuegos.Modelo
         public string nombreCliente { get; set; }   
         public string nombreEmpleado { get; set; }  
         public string nombreProducto { get; set; }
+        public int precioProducto { get; set; }
         public int cantidadProducto { get; set; }
-        public int precioProducto { get; set; } 
+        
         public int valorTotal { get; set; }
     }
 }

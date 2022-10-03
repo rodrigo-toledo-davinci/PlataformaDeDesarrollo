@@ -24,8 +24,9 @@ namespace ventaVideojuegos
             archivo.WriteLine(vta.Id);
             archivo.WriteLine(vta.nombreCliente);
             archivo.WriteLine(vta.nombreEmpleado);
-            archivo.WriteLine(vta.cantidadProducto);
+            archivo.WriteLine(vta.nombreProducto);
             archivo.WriteLine(vta.precioProducto);
+            archivo.WriteLine(vta.cantidadProducto);
             archivo.WriteLine(vta.valorTotal);
             archivo.Close();
         }

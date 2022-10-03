@@ -32,7 +32,6 @@
             this.Panel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txtNombreUsuario = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2ImageCheckBox1 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnStats = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -41,7 +40,6 @@
             this.btnAdmin = new Guna.UI2.WinForms.Guna2GradientButton();
             this.panelContainer = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +54,6 @@
             this.Panel.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
             this.Panel.Controls.Add(this.guna2GradientButton4);
             this.Panel.Controls.Add(this.txtNombreUsuario);
-            this.Panel.Controls.Add(this.guna2CirclePictureBox1);
             this.Panel.Controls.Add(this.guna2ImageCheckBox1);
             this.Panel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Panel.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
@@ -96,25 +93,12 @@
             this.txtNombreUsuario.BackColor = System.Drawing.Color.Transparent;
             this.txtNombreUsuario.Font = new System.Drawing.Font("Open Sans Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(608, 33);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(576, 28);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(65, 24);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(97, 29);
             this.txtNombreUsuario.TabIndex = 2;
             this.txtNombreUsuario.Text = "Grupo 4";
             this.txtNombreUsuario.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(555, 16);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(47, 47);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 1;
-            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // guna2ImageCheckBox1
             // 
@@ -278,7 +262,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.guna2GradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -293,7 +276,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnInicio;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtNombreUsuario;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2ImageCheckBox guna2ImageCheckBox1;
         private Guna.UI2.WinForms.Guna2GradientButton btnStats;
     }

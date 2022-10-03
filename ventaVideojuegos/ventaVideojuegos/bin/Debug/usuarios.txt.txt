@@ -1,2 +1,0 @@
-1,nombre,contraseña,false
-2,nnombre,ccontraseña,true

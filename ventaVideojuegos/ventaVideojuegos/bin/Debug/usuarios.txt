@@ -1,1 +1,2 @@
 1,nombre,apellido,false
+2,root,root,true

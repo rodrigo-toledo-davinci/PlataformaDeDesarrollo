@@ -47,5 +47,4 @@ C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVid
 C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.UsersControls.UC_Ventas.resources
 C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\bin\Debug\Paginacion.dll
 C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.FormVenta.resources
-C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.FormVentaDatos.resources
 C:\Users\franc\source\repos\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.Login.resources

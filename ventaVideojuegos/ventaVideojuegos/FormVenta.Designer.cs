@@ -43,7 +43,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(4, 58);
+            this.lblCantidad.Location = new System.Drawing.Point(4, 61);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(141, 13);
             this.lblCantidad.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(192, 51);
+            this.numCantidad.Location = new System.Drawing.Point(192, 54);
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(43, 20);
             this.numCantidad.TabIndex = 1;
@@ -65,7 +65,7 @@
             this.btnFinalCompra.FillColor = System.Drawing.Color.White;
             this.btnFinalCompra.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFinalCompra.ForeColor = System.Drawing.Color.Black;
-            this.btnFinalCompra.Location = new System.Drawing.Point(77, 157);
+            this.btnFinalCompra.Location = new System.Drawing.Point(73, 167);
             this.btnFinalCompra.Name = "btnFinalCompra";
             this.btnFinalCompra.Size = new System.Drawing.Size(141, 30);
             this.btnFinalCompra.TabIndex = 9;
@@ -83,7 +83,7 @@
             this.txtEmpleado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmpleado.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEmpleado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmpleado.Location = new System.Drawing.Point(160, 113);
+            this.txtEmpleado.Location = new System.Drawing.Point(160, 116);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.PasswordChar = '\0';
             this.txtEmpleado.PlaceholderText = "";
@@ -102,7 +102,7 @@
             this.txtCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCliente.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCliente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCliente.Location = new System.Drawing.Point(160, 80);
+            this.txtCliente.Location = new System.Drawing.Point(160, 83);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.PasswordChar = '\0';
             this.txtCliente.PlaceholderText = "";
@@ -113,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 119);
+            this.label2.Location = new System.Drawing.Point(4, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 13);
             this.label2.TabIndex = 6;
@@ -122,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 88);
+            this.label1.Location = new System.Drawing.Point(4, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 13);
             this.label1.TabIndex = 5;
@@ -145,6 +145,7 @@
             this.txtID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtID.Enabled = false;
             this.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -160,7 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 199);
+            this.ClientSize = new System.Drawing.Size(291, 220);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnFinalCompra);

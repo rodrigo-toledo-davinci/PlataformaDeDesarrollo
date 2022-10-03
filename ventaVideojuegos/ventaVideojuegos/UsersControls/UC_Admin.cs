@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ventaVideojuegos.Controlers;
 using ventaVideojuegos.Modelo;
 
 namespace ventaVideojuegos.UsersControls
@@ -31,6 +32,7 @@ namespace ventaVideojuegos.UsersControls
             ControladorCategorias.IniciarRepositorio();
             ControladorConsola.IniciarRepositorio();
             ControladorProductos.IniciarRepositorio();
+            ControladorVentas.IniciarRepositorio();
             paginar(Productos_Completo);
             Productos_Completo = ControladorProductos.Productos;
             Productos_Completo = ControladorProductos.Productos;
@@ -40,7 +42,28 @@ namespace ventaVideojuegos.UsersControls
             llenarCombos();
             VisualizarCategorias();
             VisualizarConsolas();
+            VisualizarVentas();
+
           //  VisualizarProductos(Productos_Completo);
+        }
+
+        private void VisualizarVentas()
+        {
+            dataGridViewCVentas.Rows.Clear();
+            foreach (Venta vta in ControladorVentas.Ventas)
+            {
+
+                    int rowIndex = dataGridViewCVentas.Rows.Add();
+                dataGridViewCVentas.Rows[rowIndex].Cells[0].Value = vta.Id.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[1].Value = vta.nombreEmpleado.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[2].Value = vta.nombreCliente.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[3].Value = vta.nombreProducto.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[4].Value = vta.precioProducto.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[5].Value = vta.cantidadProducto.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[6].Value = vta.valorTotal.ToString();
+
+
+            }
         }
 
         private void VisualizarProductos(List<Producto> listaProductos)
@@ -108,7 +131,7 @@ namespace ventaVideojuegos.UsersControls
             }
             VisualizarCategorias();
             VisualizarConsolas();
-           VisualizarProductos(Productos_Completo);
+            paginar(Productos_Completo);
         }
 
         private void btnNuevaCat_Click(object sender, EventArgs e)
@@ -206,7 +229,6 @@ namespace ventaVideojuegos.UsersControls
                 }
                 VisualizarCategorias();
                 VisualizarConsolas();
-             //   VisualizarProductos();
             }
             else
             {
@@ -282,7 +304,7 @@ namespace ventaVideojuegos.UsersControls
                     ControladorProductos.ActualizarProductos(int.Parse(idProdEditar), formProducto.productoNuevo);
                     VisualizarCategorias();
                     VisualizarConsolas();
-                    VisualizarProductos(Productos_Completo);
+                    paginar(Productos_Completo);
                 }
             }
             else
@@ -299,7 +321,7 @@ namespace ventaVideojuegos.UsersControls
                 ControladorProductos.EliminarProducto(int.Parse(idProdEliminar));
                 VisualizarCategorias();
                 VisualizarConsolas();
-              //  VisualizarProductos();
+                paginar(Productos_Completo);
             }
             else
             {
@@ -471,18 +493,19 @@ namespace ventaVideojuegos.UsersControls
 
         private void filtrar()
         {
-            //  Productos_Filtrado = Productos_Completo;
 
             if (filtro.Nombre != null)
             {
                 Productos_Filtrado = Productos_Completo.Where(x => x.Nombre.ToLower().Contains(filtro.Nombre)).ToList();
-
+                vaciarCombos();
+                llenarCombos();
 
             }
 
             if (filtro.Categoria != null)
             {
                 Productos_Filtrado = Productos_Completo.Where(x => x.Categoria == filtro.Categoria).ToList();
+                
             }
 
 
@@ -490,6 +513,7 @@ namespace ventaVideojuegos.UsersControls
             if (filtro.Consola != null)
             {
                 Productos_Filtrado = Productos_Completo.Where(x => x.Consola == filtro.Consola).ToList();
+                
             }
  
             total = Productos_Filtrado.Count();

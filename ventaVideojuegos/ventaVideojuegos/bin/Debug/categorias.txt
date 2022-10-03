@@ -2,4 +2,4 @@
 2,Deporte,True
 3,Simulacion,True
 4,Aventura,True
-5,pepe,False
+5,asd,False

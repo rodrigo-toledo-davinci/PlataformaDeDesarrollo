@@ -19,7 +19,6 @@ namespace ventaVideojuegos.UsersControls
         private List<Producto> Productos_Completo = new List<Producto>();
         private List<Producto> Productos_Filtrado = new List<Producto>();
         private List<Producto> Productos_Paginados = new List<Producto>();
-        private List<Producto> Carrito = new List<Producto>();
 
         private static int current = 0;
         private static int paginador = 10;
@@ -27,15 +26,17 @@ namespace ventaVideojuegos.UsersControls
         private static int last_pag = 0;
         private static int current_pag = 1;
 
-        public static string nombreProdCompra;
-        public static int precioProdCompra;
+        public static string NombreProdComprar;
+        public static string PrecioProdComprar;
+        public static string StockProdComprar;
 
         public UC_Ventas()
         {
             InitializeComponent();
+            ControladorCategorias.IniciarRepositorio();
+            ControladorConsola.IniciarRepositorio();
             ControladorProductos.IniciarRepositorio();
             ControladorVentas.IniciarRepositorio();
-            paginar(Productos_Completo);
             Productos_Completo = ControladorProductos.Productos;
             Productos_Completo = ControladorProductos.Productos;
             Productos_Filtrado = ControladorProductos.Productos;
@@ -43,6 +44,9 @@ namespace ventaVideojuegos.UsersControls
             last_pag = total / paginador;
             llenarCombos();
             VisualizarProductos(Productos_Completo);
+            paginar(Productos_Completo);
+
+
         }
 
         private void VisualizarProductos(List<Producto> listaProductos)
@@ -63,8 +67,7 @@ namespace ventaVideojuegos.UsersControls
                     // Bitmap img;
                     // img = new Bitmap("RUTA" + prod.Imagen + ".jpg");
                     // dataGridView1.Rows[rowIndex].Cells[8].Value = img;
-                    nombreProdCompra = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
-                    precioProdCompra = int.Parse(dataGridView1.Rows[rowIndex].Cells[2].Value.ToString());
+         
                 }
             }
         }
@@ -75,7 +78,7 @@ namespace ventaVideojuegos.UsersControls
 
         private void filtrar()
         {
-            //  Productos_Filtrado = Productos_Completo;
+            // Productos_Filtrado = Productos_Completo;
 
             if (filtro.Nombre != null)
             {
@@ -277,33 +280,31 @@ namespace ventaVideojuegos.UsersControls
 
         private void btnAñadirCarrito_Click(object sender, EventArgs e)
         {
-            FormVenta formCantVenta = new FormVenta();
-            DialogResult dialogResult = formCantVenta.ShowDialog();
-
-            if (dialogResult == DialogResult.OK)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                NombreProdComprar = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                PrecioProdComprar= dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                StockProdComprar = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+
+                FormVenta formCantVenta = new FormVenta();
+                DialogResult dialogResult = formCantVenta.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
                 {
-                    string idProdComprar = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
+                    ControladorVentas.AñadirVenta(formCantVenta.ventaNueva);
+                }
 
 
-                }
-                else
-                {
-                    MessageBox.Show("Debes seleccionar un producto para comprar", "Error", MessageBoxButtons.OK);
-                }
-                ControladorVentas.AñadirVenta(formCantVenta.ventaNueva);
+
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar un producto para comprar", "Error", MessageBoxButtons.OK);
             }
 
         }
 
     }
 }
-
-/*
-
-
             
-                
-            
-*/

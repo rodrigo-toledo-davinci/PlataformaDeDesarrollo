@@ -35,13 +35,12 @@ namespace ventaVideojuegos.Controlers
                         nombreCliente = datos[1],
                         nombreEmpleado = datos[2],
                         nombreProducto = datos[3],
-                        cantidadProducto = int.Parse(datos[4]),
-                        precioProducto = int.Parse(datos[5]),
-                        valorTotal = int.Parse(datos[6])
+                        precioProducto = int.Parse(datos[4]),
+                        cantidadProducto = int.Parse(datos[5]),
+                        valorTotal = int.Parse(datos[6]),
                     };
                     Ventas.Add(vta);
-                    lastId = int.Parse(datos[0]);
-
+                    lastId= int.Parse(datos[0]);
 
                 }
                 archivo.Close();
@@ -59,7 +58,7 @@ namespace ventaVideojuegos.Controlers
         private static void GuardarEnMemoria(Venta vta)
         {
             StreamWriter archivo = new StreamWriter("ventas.txt", true);
-            archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.cantidadProducto + "," + vta.precioProducto + "," + vta.valorTotal);
+            archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.precioProducto + "," + vta.cantidadProducto + "," + vta.valorTotal);
             archivo.Close();
         }
 
@@ -68,7 +67,7 @@ namespace ventaVideojuegos.Controlers
             StreamWriter archivo = new StreamWriter("vemtas.txt");
             foreach (Venta vta in Ventas)
             {
-                archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.cantidadProducto + "," + vta.precioProducto + "," + vta.valorTotal);
+                archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.precioProducto + "," + vta.cantidadProducto  + "," + vta.valorTotal);
             }
             archivo.Close();
         }
@@ -95,8 +94,8 @@ namespace ventaVideojuegos.Controlers
                             string nombrecliente = archivo.ReadLine();
                             string nombreempleado = archivo.ReadLine();
                             string nombreproducto = archivo.ReadLine();
-                            string cantidadproducto = archivo.ReadLine();
                             string precioproducto = archivo.ReadLine();
+                            string cantidadproducto = archivo.ReadLine();
                             string valortotal = archivo.ReadLine();
 
 
@@ -106,8 +105,8 @@ namespace ventaVideojuegos.Controlers
                                 nombreCliente = nombrecliente,
                                 nombreEmpleado = nombreempleado,
                                 nombreProducto = nombreproducto,
-                                cantidadProducto = int.Parse(cantidadproducto),
                                 precioProducto = int.Parse(precioproducto),
+                                cantidadProducto = int.Parse(cantidadproducto),
                                 valorTotal = int.Parse(valortotal),
 
 
