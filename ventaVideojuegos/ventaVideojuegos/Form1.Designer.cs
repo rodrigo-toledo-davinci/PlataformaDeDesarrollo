@@ -69,7 +69,7 @@
             // guna2GradientButton4
             // 
             this.guna2GradientButton4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton4.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.guna2GradientButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -77,28 +77,31 @@
             this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton4.FillColor = System.Drawing.Color.Transparent;
             this.guna2GradientButton4.FillColor2 = System.Drawing.Color.Transparent;
-            this.guna2GradientButton4.Font = new System.Drawing.Font("Open Sans", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton4.ForeColor = System.Drawing.Color.Black;
             this.guna2GradientButton4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientButton4.Location = new System.Drawing.Point(760, 50);
+            this.guna2GradientButton4.Location = new System.Drawing.Point(775, 28);
             this.guna2GradientButton4.Name = "guna2GradientButton4";
             this.guna2GradientButton4.Size = new System.Drawing.Size(118, 24);
             this.guna2GradientButton4.TabIndex = 4;
             this.guna2GradientButton4.Text = "Cerrar sesion";
             this.guna2GradientButton4.UseTransparentBackground = true;
+            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click);
             // 
             // txtNombreUsuario
             // 
+            this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombreUsuario.AutoSize = false;
             this.txtNombreUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Open Sans Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(576, 28);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(544, 31);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(97, 29);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(162, 32);
             this.txtNombreUsuario.TabIndex = 2;
             this.txtNombreUsuario.Text = "Grupo 4";
-            this.txtNombreUsuario.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.txtNombreUsuario.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtNombreUsuario.Click += new System.EventHandler(this.txtNombreUsuario_Click);
             // 
             // guna2ImageCheckBox1
             // 
@@ -148,7 +151,7 @@
             this.btnStats.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnStats.FillColor = System.Drawing.Color.Transparent;
             this.btnStats.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnStats.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStats.ForeColor = System.Drawing.Color.Black;
             this.btnStats.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnStats.Location = new System.Drawing.Point(325, 0);
@@ -170,7 +173,7 @@
             this.btnVentas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnVentas.FillColor = System.Drawing.Color.Transparent;
             this.btnVentas.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnVentas.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.Black;
             this.btnVentas.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnVentas.Location = new System.Drawing.Point(219, 0);
@@ -192,7 +195,7 @@
             this.btnInicio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnInicio.FillColor = System.Drawing.Color.Transparent;
             this.btnInicio.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnInicio.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.Black;
             this.btnInicio.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnInicio.Location = new System.Drawing.Point(13, 0);
@@ -214,7 +217,7 @@
             this.btnAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAdmin.FillColor = System.Drawing.Color.Transparent;
             this.btnAdmin.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnAdmin.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdmin.ForeColor = System.Drawing.Color.Black;
             this.btnAdmin.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnAdmin.Location = new System.Drawing.Point(113, 0);

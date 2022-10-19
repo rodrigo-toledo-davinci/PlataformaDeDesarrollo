@@ -33,6 +33,7 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.errNombre = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SuspendLayout();
             // 
             // Aceptar
@@ -104,7 +105,6 @@
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtID.Location = new System.Drawing.Point(93, 26);
-            this.txtID.Modified = true;
             this.txtID.Name = "txtID";
             this.txtID.PasswordChar = '\0';
             this.txtID.PlaceholderText = "";
@@ -112,11 +112,23 @@
             this.txtID.Size = new System.Drawing.Size(89, 28);
             this.txtID.TabIndex = 5;
             // 
+            // errNombre
+            // 
+            this.errNombre.BackColor = System.Drawing.Color.Transparent;
+            this.errNombre.Font = new System.Drawing.Font("Open Sans Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errNombre.ForeColor = System.Drawing.Color.Red;
+            this.errNombre.Location = new System.Drawing.Point(23, 105);
+            this.errNombre.Name = "errNombre";
+            this.errNombre.Size = new System.Drawing.Size(134, 17);
+            this.errNombre.TabIndex = 10;
+            this.errNombre.Text = "Debe ingresar el nombre";
+            // 
             // FormConsola
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(194, 194);
+            this.Controls.Add(this.errNombre);
             this.Controls.Add(this.Aceptar);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2HtmlLabel1);
@@ -137,5 +149,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2TextBox txtNombre;
         private Guna.UI2.WinForms.Guna2TextBox txtID;
+        private Guna.UI2.WinForms.Guna2HtmlLabel errNombre;
     }
 }

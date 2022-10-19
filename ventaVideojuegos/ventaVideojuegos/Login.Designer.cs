@@ -36,6 +36,7 @@
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.errLogin = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             // bttnAcceder
             // 
             this.bttnAcceder.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnAcceder.Location = new System.Drawing.Point(86, 192);
+            this.bttnAcceder.Location = new System.Drawing.Point(83, 226);
             this.bttnAcceder.Name = "bttnAcceder";
             this.bttnAcceder.Size = new System.Drawing.Size(154, 33);
             this.bttnAcceder.TabIndex = 6;
@@ -68,6 +69,7 @@
             // 
             // guna2GradientPanel1
             // 
+            this.guna2GradientPanel1.Controls.Add(this.errLogin);
             this.guna2GradientPanel1.Controls.Add(this.bttnAcceder);
             this.guna2GradientPanel1.Controls.Add(this.txtContrasenaLogin);
             this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel4);
@@ -122,6 +124,17 @@
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Bienvenido!";
             // 
+            // errLogin
+            // 
+            this.errLogin.BackColor = System.Drawing.Color.Transparent;
+            this.errLogin.Font = new System.Drawing.Font("Open Sans Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errLogin.ForeColor = System.Drawing.Color.Red;
+            this.errLogin.Location = new System.Drawing.Point(91, 175);
+            this.errLogin.Name = "errLogin";
+            this.errLogin.Size = new System.Drawing.Size(142, 20);
+            this.errLogin.TabIndex = 10;
+            this.errLogin.Text = "Credenciales invalidas";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,5 +159,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel errLogin;
     }
 }

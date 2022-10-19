@@ -15,11 +15,20 @@ namespace ventaVideojuegos
 {
     public partial class Login : Form
     {
+        private String usuario = String.Empty;
+
         public Login()
         {
             InitializeComponent();
+            limpiarErrores();
         }
 
+
+        private void limpiarErrores()
+        {
+            errLogin.Text = "";
+            errLogin.Hide();
+        }
 
         private void bttnAcceder_Click_1(object sender, EventArgs e)
         {
@@ -51,6 +60,7 @@ namespace ventaVideojuegos
 
                 if (valido)
                 {
+                    usuario = txtUsuarioLogin.Text;
                     this.Hide();
                     Form1 form = new Form1();
                     form.Show();
@@ -59,9 +69,16 @@ namespace ventaVideojuegos
                 }
                 else
                 {
-                    MessageBox.Show("Credenciales no validas");
+                    string error = "Credenciales invalidas";
+                    errLogin.Text = error;
+                    errLogin.Show();
                 }
             }
+        }
+
+        public string getUsuario() 
+        { 
+            return usuario;
         }
 
         private void txtUsuarioLogin_TextChanged(object sender, EventArgs e)

@@ -89,14 +89,14 @@ namespace ventaVideojuegos.UsersControls
 
             if (filtro.Categoria != null)
             {
-                Productos_Filtrado = Productos_Completo.Where(x => x.Categoria == filtro.Categoria).ToList();
+                Productos_Filtrado = Productos_Filtrado.Where(x => x.Categoria == filtro.Categoria).ToList();
             }
 
 
 
             if (filtro.Consola != null)
             {
-                Productos_Filtrado = Productos_Completo.Where(x => x.Consola == filtro.Consola).ToList();
+                Productos_Filtrado = Productos_Filtrado.Where(x => x.Consola == filtro.Consola).ToList();
             }
 
             total = Productos_Filtrado.Count();
@@ -241,7 +241,9 @@ namespace ventaVideojuegos.UsersControls
 
             Productos_Filtrado = Productos_Completo;
 
-            paginar(Productos_Filtrado);
+            paginar(Productos_Completo);
+            btn_last_page.Show();
+            btn_next_page.Show();
         }
 
         private void btn_FirstPage_Click_1(object sender, EventArgs e)

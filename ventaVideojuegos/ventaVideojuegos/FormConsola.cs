@@ -18,15 +18,22 @@ namespace ventaVideojuegos
         public FormConsola()
         {
             InitializeComponent();
+            limpiarErrores();
             txtID.Text = (ControladorConsola.lastId + 1).ToString();
         }
 
         public FormConsola(Consola con)
         {
             InitializeComponent();
-
+            limpiarErrores();
             txtID.Text = con.Id.ToString();
             txtNombre.Text = con.Nombre.ToString();
+        }
+
+        private void limpiarErrores()
+        {
+            errNombre.Text = "";
+            errNombre.Hide();
         }
 
         private void GuardarConsola()
@@ -44,24 +51,26 @@ namespace ventaVideojuegos
 
         }
 
-        private bool ValidarConsola(out string errorMsg)
+        private bool ValidarConsola(out bool errorMsg)
         {
-            errorMsg = String.Empty;
-            if (string.IsNullOrEmpty(txtID.Text))
-            {
-                errorMsg += "Debe indicar el Id de la consola" + Environment.NewLine;
-            }
+
+            errorMsg = true;
+
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
-                errorMsg += "Debe indicar el Nombre de la consola" + Environment.NewLine;
+                errorMsg = false;
+                string error = "Debe ingresar el nombre";
+                errNombre.Text = error;
+                errNombre.Show();
+
             }
-            return errorMsg == String.Empty;
+            return errorMsg;
         }
 
 
         private void Aceptar_Click_1(object sender, EventArgs e)
         {
-            bool consolaValidada = ValidarConsola(out string errorMsg);
+            bool consolaValidada = ValidarConsola(out bool errorMsg);
 
             if (consolaValidada)
             {
@@ -75,8 +84,8 @@ namespace ventaVideojuegos
             }
             else
             {
-                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.DialogResult = DialogResult.Cancel;
+                //    MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    this.DialogResult = DialogResult.Cancel;
             }
 
         }

@@ -1,0 +1,4 @@
+1,tm,fr,Red Dead Redemption II,2500,1,2500
+2,Tomas,fjeewf,Red Dead Redemption II,2500,4,10000
+3,d,d,Spider-Man Remastered,4999,1,4999
+4,asd,sd,Spider-Man Remastered,4999,99,494901

@@ -43,7 +43,8 @@ namespace ventaVideojuegos
                         Consola = ControladorConsola.GetConsolaById(int.Parse(datos[5])),
                         Conexion = datos[6],
                         ModoJuego = datos[7],
-                        Vista = bool.Parse(datos[8])
+                        Imagen = datos[8],
+                        Vista = bool.Parse(datos[9])
                        
                     };
                     lastId = int.Parse(datos[0]);
@@ -94,7 +95,7 @@ namespace ventaVideojuegos
         private static void GuardarEnMemoria(Producto prod)
         {
             StreamWriter archivo = new StreamWriter("productos.txt", true);
-            archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego + "," + prod.Vista);
+            archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego + "," + prod.Imagen + "," + prod.Vista);
             archivo.Close();
         }
 
@@ -103,7 +104,7 @@ namespace ventaVideojuegos
             StreamWriter archivo = new StreamWriter("productos.txt");
             foreach (Producto prod in Productos)
             {
-                archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego + "," + prod.Vista);
+                archivo.WriteLine(prod.Id + "," + prod.Nombre + "," + prod.Precio + "," + prod.Stock + "," + prod.Categoria.Id + "," + prod.Consola.Id + "," + prod.Conexion + "," + prod.ModoJuego + "," + prod.Imagen + "," + prod.Vista);
             }
             archivo.Close();
         }
@@ -135,6 +136,7 @@ namespace ventaVideojuegos
                             string consola = archivo.ReadLine();
                             string conexion = archivo.ReadLine();
                             string modojuego = archivo.ReadLine();
+                            string imagen = archivo.ReadLine();
                             string vista = archivo.ReadLine();
 
                             Producto prod = new Producto()
@@ -147,6 +149,7 @@ namespace ventaVideojuegos
                                 Consola = ControladorConsola.GetConsolaByName(consola),
                                 Conexion = conexion,
                                 ModoJuego = modojuego,
+                                Imagen = imagen,
                                 Vista = bool.Parse(vista),
                             };
 

@@ -28,6 +28,7 @@ namespace ventaVideojuegos.Modelo
             archivo.WriteLine(prod.Consola);
             archivo.WriteLine(prod.Conexion);
             archivo.WriteLine(prod.ModoJuego);
+            archivo.WriteLine(prod.Imagen);
             archivo.WriteLine(prod.Vista);
             archivo.Close();
         }

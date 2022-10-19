@@ -25,7 +25,7 @@ namespace ventaVideojuegos
         {
 
             InitializeComponent();
-
+            limpiarErrores();
             txtID.Text = (ControladorVentas.lastId + 1).ToString();
 
         }
@@ -33,7 +33,7 @@ namespace ventaVideojuegos
         private void btnFinalCompra_Click(object sender, EventArgs e)
         {
 
-            bool ventaValidada = ValidarVenta(out string errorMsg);
+            bool ventaValidada = ValidarVenta(out bool errorMsg);
 
             if (ventaValidada)
             {
@@ -55,44 +55,94 @@ namespace ventaVideojuegos
             }
             else
             {
-                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.DialogResult = DialogResult.Cancel;
+                //MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //this.DialogResult = DialogResult.Cancel;
             }
 
-            this.Hide();
          }
 
          public void descontarStock(int cantStock)
         {
             Producto auxiliar = ControladorProductos.GetProductoByName(UC_Ventas.NombreProdComprar);
-            auxiliar.Stock = auxiliar.Stock - cantStock;
-            ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
-           
+            if (validarStock(auxiliar.Stock, cantStock))
+            {
+                auxiliar.Stock = auxiliar.Stock - cantStock;
+                ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
+            }
+            //auxiliar.Stock = auxiliar.Stock - cantStock;
+            //ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
 
         }
-       
-        private bool ValidarVenta(out string errorMsg)
+
+        public bool validarStock(int stock, int cantidad)
+        {
+
+            if (cantidad > stock)
             {
-                errorMsg = String.Empty;
-                if (string.IsNullOrEmpty(txtEmpleado.Text))
-                {
-                    errorMsg += "Debe indicar el Nombre del empleado" + Environment.NewLine;
-                }
+
+                //MessageBox.Show("La cantidad solicitada excede al stock disponible");
+                MessageBox.Show("La cantidad solicitada excede al stock disponible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+        private void limpiarErrores()
+        {
+            errCantidad.Text = "";
+            errCliente.Text = "";
+            errEmpleado.Text = "";
+    
+            errCantidad.Hide();
+            errCliente.Hide();
+            errEmpleado.Hide();
+
+        }
+
+        private bool ValidarVenta(out bool errorMsg)
+            {
+                errorMsg = true;
                 if (string.IsNullOrEmpty(txtCliente.Text))
                 {
-                    errorMsg += "Debe indicar el Nombre del cliente" + Environment.NewLine;
+                    string error = "Debe ingresar el nombre del cliente";
+                    errCliente.Text = error;
+                    errCliente.Show();
+                    errorMsg = false;
+                }
+                else
+                {
+                    errCliente.Hide();
+                }
+                if (string.IsNullOrEmpty(txtEmpleado.Text))
+                {
+                    string error = "Debe ingresar el nombre del empleado";
+                    errEmpleado.Text = error;
+                    errEmpleado.Show();
+                    errorMsg = false;
+                }
+                else
+                {
+                    errEmpleado.Hide();
                 }
 
-                if (string.IsNullOrEmpty(numCantidad.Text))
-                {
-                    errorMsg += "Debe indicar la cantidad de productos" + Environment.NewLine;
-                }
 
                 if (int.Parse(numCantidad.Text) <= 0)
                 {
-                    errorMsg += "Cantidad incorrecta" + Environment.NewLine;
+
+                    string error = "Debe ingresar la cantidad deseada";
+                    errCantidad.Text = error;
+                    errCantidad.Show();
+                    errorMsg = false;
                 }
-            return errorMsg == String.Empty;
+                else
+                {
+                    errCantidad.Hide();
+                }
+       
+            return errorMsg;
             }
 
       

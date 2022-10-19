@@ -1,9 +1,9 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +15,11 @@ namespace ventaVideojuegos
     public partial class FormProducto : Form
     {
         public Producto productoNuevo;
+        public string filePath = string.Empty;
         public FormProducto()
         {
             InitializeComponent();
+            limpiarErrores();
             txtId.Text = (ControladorProductos.lastId + 1).ToString();
             llenarBoxCategoria();
             llenarBoxConsola();
@@ -28,7 +30,7 @@ namespace ventaVideojuegos
             InitializeComponent();
             llenarBoxCategoria();
             llenarBoxConsola();
-
+            limpiarErrores();
             txtId.Text = prod.Id.ToString();
             txtNombre.Text = prod.Nombre.ToString();
             txtPrecio.Text = prod.Precio.ToString();
@@ -39,6 +41,8 @@ namespace ventaVideojuegos
             txtModoJuego.Text = prod.ModoJuego.ToString();
 
         }
+
+
 
         private void llenarBoxCategoria()
         {
@@ -56,7 +60,7 @@ namespace ventaVideojuegos
 
             foreach (Consola con in ControladorConsola.Consolas)
             {
-                if(con.Vista == true)
+                if (con.Vista == true)
                 {
                     boxConsola.Items.Add(con.Nombre);
                 }
@@ -67,7 +71,7 @@ namespace ventaVideojuegos
         {
             Producto prod = new Producto()
             {
-                Id= int.Parse(txtId.Text),
+                Id = int.Parse(txtId.Text),
                 Nombre = txtNombre.Text,
                 Precio = int.Parse(txtPrecio.Text),
                 Stock = int.Parse(txtStock.Text),
@@ -83,48 +87,114 @@ namespace ventaVideojuegos
 
         }
 
-        private bool ValidarProducto(out string errorMsg)
+        private void limpiarErrores()
         {
-            errorMsg = String.Empty;
-            if (string.IsNullOrEmpty(txtId.Text))
-            {
-                errorMsg += "Debe indicar el Id del producto" + Environment.NewLine;
-            }
+            errNombre.Text = "";
+            errPrecio.Text = "";
+            errStock.Text = "";
+            errConsola.Text = "";
+            errCategoria.Text = "";
+            errConexion.Text = "";
+            errMDJ.Text = "";
+
+            errNombre.Hide();
+            errPrecio.Hide();
+            errStock.Hide();
+            errConsola.Hide();
+            errCategoria.Hide();
+            errConexion.Hide();
+            errMDJ.Hide();
+
+        }
+
+        private bool ValidarProducto(out bool errorMsg)
+        {
+            errorMsg = true;
+
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
-                errorMsg += "Debe indicar el Nombre del producto" + Environment.NewLine; 
+                string error = "Debe ingresar el nombre";
+                errNombre.Text = error;
+                errNombre.Show();
+                errorMsg = false;
+            }
+            else
+            {
+                errNombre.Hide();
             }
             if (string.IsNullOrEmpty(txtPrecio.Text))
             {
-                errorMsg += "Debe indicar el Precio del producto" + Environment.NewLine;
+                string error = "Debe ingresar el precio";
+                errPrecio.Text = error;
+                errPrecio.Show();
+                errorMsg = false;
+            }
+            else
+            {
+                errPrecio.Hide();
             }
             if (string.IsNullOrEmpty(txtStock.Text))
             {
-                errorMsg += "Debe indicar el Stock del producto" + Environment.NewLine;
+                string error = "Debe ingresar el stock";
+                errStock.Text = error;
+                errStock.Show();
+                errorMsg = false;
+            }
+            else
+            {
+                errStock.Hide();
             }
             if (boxCategoria.SelectedItem == null)
             {
-                errorMsg += "Debe indicar la Categoria del producto" + Environment.NewLine;
+                string error = "Debe seleccionar la categoria";
+                errCategoria.Text = error;
+                errCategoria.Show();
+                errorMsg = false;
             }
+            else
+            {
+                errCategoria.Hide();
+            }   
             if (boxConsola.SelectedItem == null)
             {
-                errorMsg += "Debe indicar la Consola del producto" + Environment.NewLine;
+                string error = "Debe seleccionar la consola";
+                errConsola.Text = error;
+                errConsola.Show();
+                errorMsg = false;
+            }
+            else
+            {
+                errConsola.Hide();
             }
             if (string.IsNullOrEmpty(txtModoJuego.Text))
             {
-                errorMsg += "Debe indicar el Modo de Juego del producto" + Environment.NewLine;
+                string error = "Debe ingresar el Modo de juego";
+                errMDJ.Text = error;
+                errMDJ.Show();
+                errorMsg = false;
             }
+            else
+            {
+                errMDJ.Hide();
+            }   
             if (string.IsNullOrEmpty(txtConexion.Text))
             {
-                errorMsg += "Debe indicar la Conexion del producto" + Environment.NewLine;
+                string error = "Debe ingresar la conexion";
+                errConexion.Text = error;
+                errConexion.Show();
+                errorMsg = false;
             }
+            else
+            {
+                errConexion.Hide();
+            }   
 
-            return errorMsg == String.Empty;
+            return errorMsg;
         }
 
-        private void btnAceptar_Click_1(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool productoValidado = ValidarProducto(out string errorMsg);
+            bool productoValidado = ValidarProducto(out bool errorMsg);
 
             if (productoValidado)
             {
@@ -137,17 +207,81 @@ namespace ventaVideojuegos
                     Categoria = ControladorCategorias.GetCategoriaByName(boxCategoria.SelectedItem.ToString()),
                     Consola = ControladorConsola.GetConsolaByName(boxConsola.SelectedItem.ToString()),
                     Conexion = txtConexion.Text,
-                    ModoJuego = txtModoJuego.Text
+                    ModoJuego = txtModoJuego.Text,
+                    Imagen = getRuta(),
                 };
 
                 this.DialogResult = DialogResult.OK;
             }
             else
             {
-                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.DialogResult = DialogResult.Cancel;
+                //MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //this.DialogResult = DialogResult.Cancel;
             }
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+            var fileContent = string.Empty;
+            //var filePath = string.Empty;
+            var fileName = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+                    fileName = openFileDialog.SafeFileName;
+                    txtImagen.Text = fileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+
+
+            //string source = filePath;
+
+            //string test = @"Videos_Desktop\";
+
+            //Console.WriteLine(filePath);
+            //Console.WriteLine(fileName);
+
+            // Replace one substring with another with String.Replace.
+            // Only exact matches are supported.
+
+            //var replacement = source.Replace(@"Videos_Desktop\", "Videos_Desktop&&");
+            //Console.WriteLine(replacement);
+
+            //String argumentos = $"/C cd {replacement} && ffmpeg -i {fileName} -r 1/1 ImagenPorFrame.bmp";
+            //Console.WriteLine(argumento);
+            //System.Diagnostics.Process process = new System.Diagnostics.Process();
+            //System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            //startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+            //startInfo.FileName = "cmd.exe";
+            //startInfo.Arguments = argumentos;
+            //startInfo.Arguments = "/C notepad";
+            //process.StartInfo = startInfo;
+            //process.Start();
+
+        }
+        public string getRuta()
+        {
+            return filePath;
+        }
+
     }
 }

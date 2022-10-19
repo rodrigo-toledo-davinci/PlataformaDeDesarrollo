@@ -33,6 +33,7 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Aceptar = new Guna.UI2.WinForms.Guna2Button();
+            this.errNombre = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SuspendLayout();
             // 
             // txtID
@@ -111,16 +112,28 @@
             this.Aceptar.Text = "Aceptar";
             this.Aceptar.Click += new System.EventHandler(this.Aceptar_Click);
             // 
+            // errNombre
+            // 
+            this.errNombre.BackColor = System.Drawing.Color.Transparent;
+            this.errNombre.Font = new System.Drawing.Font("Open Sans Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errNombre.Location = new System.Drawing.Point(20, 102);
+            this.errNombre.Name = "errNombre";
+            this.errNombre.Size = new System.Drawing.Size(134, 17);
+            this.errNombre.TabIndex = 5;
+            this.errNombre.Text = "Debe ingresar el nombre";
+            // 
             // FormCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(193, 194);
+            this.Controls.Add(this.errNombre);
             this.Controls.Add(this.Aceptar);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtID);
+            this.ForeColor = System.Drawing.Color.Red;
             this.Name = "FormCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCategoria";
@@ -136,5 +149,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Button Aceptar;
+        private Guna.UI2.WinForms.Guna2HtmlLabel errNombre;
     }
 }

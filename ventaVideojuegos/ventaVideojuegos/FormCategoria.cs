@@ -18,17 +18,23 @@ namespace ventaVideojuegos
         public FormCategoria()
         {
             InitializeComponent();
+            limpiarErrores();
             txtID.Text = (ControladorCategorias.lastId + 1).ToString();
         }
 
         public FormCategoria(Categoria cat)
         {
             InitializeComponent();
-
+            limpiarErrores();
             txtID.Text = cat.Id.ToString();
             txtNombre.Text = cat.Nombre.ToString();
         }
 
+        private void limpiarErrores()
+        {
+            errNombre.Text = "";
+            errNombre.Hide();
+        }
         private void GuardarCategoria()
         {
             Categoria cat = new Categoria()
@@ -45,23 +51,24 @@ namespace ventaVideojuegos
         }
 
 
-        private bool ValidarCategoria(out string errorMsg)
+        private bool ValidarCategoria(out bool errorMsg)
         {
-            errorMsg = String.Empty;
-            if (string.IsNullOrEmpty(txtID.Text))
-            {
-                errorMsg += "Debe indicar el Id de la categoria" + Environment.NewLine;
-            }
+            errorMsg = true;
+
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
-                errorMsg += "Debe indicar el Nombre de la categoria" + Environment.NewLine;
+                errorMsg = false;
+                string error = "Debe ingresar el nombre";
+                errNombre.Text = error;
+                errNombre.Show();
+                
             }
-            return errorMsg == String.Empty;
+            return errorMsg;
         }
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
-            bool categoriaValidada = ValidarCategoria(out string errorMsg);
+            bool categoriaValidada = ValidarCategoria(out bool errorMsg);
 
             if (categoriaValidada)
             {
@@ -75,8 +82,8 @@ namespace ventaVideojuegos
             }
             else
             {
-                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.DialogResult = DialogResult.Cancel;
+                //MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // this.DialogResult = DialogResult.Cancel;
             }
         }
     }

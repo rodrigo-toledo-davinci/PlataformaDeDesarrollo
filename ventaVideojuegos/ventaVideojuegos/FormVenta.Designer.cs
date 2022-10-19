@@ -37,13 +37,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.errCantidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.errCliente = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.errEmpleado = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(4, 61);
+            this.lblCantidad.Location = new System.Drawing.Point(4, 71);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(141, 13);
             this.lblCantidad.TabIndex = 0;
@@ -51,7 +54,7 @@
             // 
             // numCantidad
             // 
-            this.numCantidad.Location = new System.Drawing.Point(192, 54);
+            this.numCantidad.Location = new System.Drawing.Point(192, 64);
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(43, 20);
             this.numCantidad.TabIndex = 1;
@@ -65,7 +68,7 @@
             this.btnFinalCompra.FillColor = System.Drawing.Color.White;
             this.btnFinalCompra.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFinalCompra.ForeColor = System.Drawing.Color.Black;
-            this.btnFinalCompra.Location = new System.Drawing.Point(73, 167);
+            this.btnFinalCompra.Location = new System.Drawing.Point(78, 249);
             this.btnFinalCompra.Name = "btnFinalCompra";
             this.btnFinalCompra.Size = new System.Drawing.Size(141, 30);
             this.btnFinalCompra.TabIndex = 9;
@@ -83,7 +86,7 @@
             this.txtEmpleado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmpleado.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEmpleado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmpleado.Location = new System.Drawing.Point(160, 116);
+            this.txtEmpleado.Location = new System.Drawing.Point(160, 175);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.PasswordChar = '\0';
             this.txtEmpleado.PlaceholderText = "";
@@ -102,7 +105,7 @@
             this.txtCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCliente.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCliente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCliente.Location = new System.Drawing.Point(160, 83);
+            this.txtCliente.Location = new System.Drawing.Point(160, 120);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.PasswordChar = '\0';
             this.txtCliente.PlaceholderText = "";
@@ -113,7 +116,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 122);
+            this.label2.Location = new System.Drawing.Point(4, 181);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 13);
             this.label2.TabIndex = 6;
@@ -122,7 +125,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 91);
+            this.label1.Location = new System.Drawing.Point(4, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 13);
             this.label1.TabIndex = 5;
@@ -157,11 +160,47 @@
             this.txtID.Size = new System.Drawing.Size(119, 27);
             this.txtID.TabIndex = 11;
             // 
+            // errCantidad
+            // 
+            this.errCantidad.BackColor = System.Drawing.Color.Transparent;
+            this.errCantidad.Font = new System.Drawing.Font("Open Sans Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errCantidad.ForeColor = System.Drawing.Color.Red;
+            this.errCantidad.Location = new System.Drawing.Point(7, 87);
+            this.errCantidad.Name = "errCantidad";
+            this.errCantidad.Size = new System.Drawing.Size(182, 17);
+            this.errCantidad.TabIndex = 34;
+            this.errCantidad.Text = "Debe ingresar la cantidad deseada";
+            // 
+            // errCliente
+            // 
+            this.errCliente.BackColor = System.Drawing.Color.Transparent;
+            this.errCliente.Font = new System.Drawing.Font("Open Sans Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errCliente.ForeColor = System.Drawing.Color.Red;
+            this.errCliente.Location = new System.Drawing.Point(7, 147);
+            this.errCliente.Name = "errCliente";
+            this.errCliente.Size = new System.Drawing.Size(190, 17);
+            this.errCliente.TabIndex = 35;
+            this.errCliente.Text = "Debe ingresar el nombre del cliente";
+            // 
+            // errEmpleado
+            // 
+            this.errEmpleado.BackColor = System.Drawing.Color.Transparent;
+            this.errEmpleado.Font = new System.Drawing.Font("Open Sans Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errEmpleado.ForeColor = System.Drawing.Color.Red;
+            this.errEmpleado.Location = new System.Drawing.Point(7, 202);
+            this.errEmpleado.Name = "errEmpleado";
+            this.errEmpleado.Size = new System.Drawing.Size(209, 17);
+            this.errEmpleado.TabIndex = 36;
+            this.errEmpleado.Text = "Debe ingresar el nombre del empleado";
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 220);
+            this.ClientSize = new System.Drawing.Size(291, 303);
+            this.Controls.Add(this.errEmpleado);
+            this.Controls.Add(this.errCliente);
+            this.Controls.Add(this.errCantidad);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnFinalCompra);
@@ -191,5 +230,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txtID;
+        private Guna.UI2.WinForms.Guna2HtmlLabel errCantidad;
+        private Guna.UI2.WinForms.Guna2HtmlLabel errCliente;
+        private Guna.UI2.WinForms.Guna2HtmlLabel errEmpleado;
     }
 }

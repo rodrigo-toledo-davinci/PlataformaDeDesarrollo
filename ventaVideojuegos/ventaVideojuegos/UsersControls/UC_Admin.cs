@@ -82,9 +82,9 @@ namespace ventaVideojuegos.UsersControls
                     dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
                     dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
-                    // Bitmap img;
-                    // img = new Bitmap("RUTA" + prod.Imagen + ".jpg");
-                    // dataGridView1.Rows[rowIndex].Cells[8].Value = img;
+                    //Bitmap img;
+                    //img = new Bitmap(prod.Imagen);
+                    //dataGridView1.Rows[rowIndex].Cells[8].Value = img;
                 }
             }
 
@@ -504,7 +504,7 @@ namespace ventaVideojuegos.UsersControls
 
             if (filtro.Categoria != null)
             {
-                Productos_Filtrado = Productos_Completo.Where(x => x.Categoria == filtro.Categoria).ToList();
+                Productos_Filtrado = Productos_Filtrado.Where(x => x.Categoria == filtro.Categoria).ToList();
                 
             }
 
@@ -512,7 +512,7 @@ namespace ventaVideojuegos.UsersControls
 
             if (filtro.Consola != null)
             {
-                Productos_Filtrado = Productos_Completo.Where(x => x.Consola == filtro.Consola).ToList();
+                Productos_Filtrado = Productos_Filtrado.Where(x => x.Consola == filtro.Consola).ToList();
                 
             }
  
@@ -542,7 +542,9 @@ namespace ventaVideojuegos.UsersControls
 
             Productos_Filtrado = Productos_Completo;
 
-            paginar(Productos_Filtrado);
+            paginar(Productos_Completo);
+            btn_last_page.Show();
+            btn_next_page.Show();
         }
 
         private void filtroNombre_TextChanged(object sender, EventArgs e)
