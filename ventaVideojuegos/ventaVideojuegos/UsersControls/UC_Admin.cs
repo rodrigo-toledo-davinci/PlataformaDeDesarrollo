@@ -71,8 +71,7 @@ namespace ventaVideojuegos.UsersControls
             dataGridView1.Rows.Clear();
             foreach (Producto prod in listaProductos)
             {
-                if (prod.Vista == true)
-                {
+                
                     int rowIndex = dataGridView1.Rows.Add();
                     dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
                     dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
@@ -82,10 +81,11 @@ namespace ventaVideojuegos.UsersControls
                     dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
                     dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
-                    //Bitmap img;
-                    //img = new Bitmap(prod.Imagen);
-                    //dataGridView1.Rows[rowIndex].Cells[8].Value = img;
-                }
+                //Bitmap img;
+                //img = new Bitmap(prod.Imagen);
+                //dataGridView1.Rows[rowIndex].Cells[8].Value = img;
+                     dataGridView1.Rows[rowIndex].Cells[8].Value = prod.Vista.ToString();
+
             }
 
 
@@ -96,13 +96,12 @@ namespace ventaVideojuegos.UsersControls
             dataGridViewCat.Rows.Clear();
             foreach (Categoria cat in ControladorCategorias.Categorias)
             {
+                int rowIndex = dataGridViewCat.Rows.Add();
+                dataGridViewCat.Rows[rowIndex].Cells[0].Value = cat.Id.ToString();
+                dataGridViewCat.Rows[rowIndex].Cells[1].Value = cat.Nombre.ToString();
+                dataGridViewCat.Rows[rowIndex].Cells[2].Value = cat.Vista.ToString();
+                
 
-                if (cat.Vista == true)
-                {
-                    int rowIndex = dataGridViewCat.Rows.Add();
-                    dataGridViewCat.Rows[rowIndex].Cells[0].Value = cat.Id.ToString();
-                    dataGridViewCat.Rows[rowIndex].Cells[1].Value = cat.Nombre.ToString();
-                }
             }
         }
 
@@ -111,12 +110,11 @@ namespace ventaVideojuegos.UsersControls
             dataGridViewCon.Rows.Clear();
             foreach (Consola con in ControladorConsola.Consolas)
             {
-                if (con.Vista == true)
-                {
-                    int rowIndex = dataGridViewCon.Rows.Add();
-                    dataGridViewCon.Rows[rowIndex].Cells[0].Value = con.Id.ToString();
-                    dataGridViewCon.Rows[rowIndex].Cells[1].Value = con.Nombre.ToString();
-                }
+                int rowIndex = dataGridViewCon.Rows.Add();
+                dataGridViewCon.Rows[rowIndex].Cells[0].Value = con.Id.ToString();
+                dataGridViewCon.Rows[rowIndex].Cells[1].Value = con.Nombre.ToString();
+                dataGridViewCon.Rows[rowIndex].Cells[2].Value = con.Vista.ToString();
+
             }
         }
 

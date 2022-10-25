@@ -23,6 +23,7 @@ namespace ventaVideojuegos
             txtId.Text = (ControladorProductos.lastId + 1).ToString();
             llenarBoxCategoria();
             llenarBoxConsola();
+            boxEstado.Text = "True";
         }
 
         public FormProducto(Producto prod)
@@ -39,6 +40,7 @@ namespace ventaVideojuegos
             txtConexion.Text = prod.Conexion.ToString();
             boxConsola.SelectedItem = prod.Consola.Nombre.ToString();
             txtModoJuego.Text = prod.ModoJuego.ToString();
+            boxEstado.Text = prod.Vista.ToString();
 
         }
 
@@ -78,7 +80,8 @@ namespace ventaVideojuegos
                 Categoria = ControladorCategorias.GetCategoriaByName(boxCategoria.SelectedItem.ToString()),
                 Consola = ControladorConsola.GetConsolaByName(boxConsola.SelectedItem.ToString()),
                 Conexion = txtConexion.Text,
-                ModoJuego = txtModoJuego.Text
+                ModoJuego = txtModoJuego.Text,
+                Vista = bool.Parse(boxEstado.Text)
             };
 
             ListaProducto lista = ControladorProductos.ListaProducto;
@@ -209,6 +212,7 @@ namespace ventaVideojuegos
                     Conexion = txtConexion.Text,
                     ModoJuego = txtModoJuego.Text,
                     Imagen = getRuta(),
+                    Vista = bool.Parse(boxEstado.Text)
                 };
 
                 this.DialogResult = DialogResult.OK;

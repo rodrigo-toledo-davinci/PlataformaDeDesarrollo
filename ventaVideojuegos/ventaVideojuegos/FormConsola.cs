@@ -19,15 +19,19 @@ namespace ventaVideojuegos
         {
             InitializeComponent();
             limpiarErrores();
+            llenarBoxEstado();
             txtID.Text = (ControladorConsola.lastId + 1).ToString();
+            boxEstado.Text = "True";
         }
 
         public FormConsola(Consola con)
         {
             InitializeComponent();
             limpiarErrores();
+            llenarBoxEstado();
             txtID.Text = con.Id.ToString();
             txtNombre.Text = con.Nombre.ToString();
+            boxEstado.Text = con.Vista.ToString();
         }
 
         private void limpiarErrores()
@@ -42,6 +46,7 @@ namespace ventaVideojuegos
             {
                 Id = int.Parse(txtID.Text),
                 Nombre = txtNombre.Text,
+                Vista = bool.Parse(boxEstado.Text)
 
             };
 
@@ -77,7 +82,9 @@ namespace ventaVideojuegos
                 consolaNueva = new Consola()
                 {
                     Id = int.Parse(txtID.Text),
-                    Nombre = txtNombre.Text
+                    Nombre = txtNombre.Text,
+                    Vista = bool.Parse(boxEstado.Text)
+                    
                 };
 
                 this.DialogResult = DialogResult.OK;
@@ -87,6 +94,13 @@ namespace ventaVideojuegos
                 //    MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //    this.DialogResult = DialogResult.Cancel;
             }
+
+        }
+
+        private void llenarBoxEstado()
+        {
+            boxEstado.Items.Add("True");
+            boxEstado.Items.Add("False");
 
         }
     }

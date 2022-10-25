@@ -19,15 +19,19 @@ namespace ventaVideojuegos
         {
             InitializeComponent();
             limpiarErrores();
+            llenarBoxEstado();
             txtID.Text = (ControladorCategorias.lastId + 1).ToString();
+            boxEstado.Text = "True";
         }
 
         public FormCategoria(Categoria cat)
         {
             InitializeComponent();
+            llenarBoxEstado();
             limpiarErrores();
             txtID.Text = cat.Id.ToString();
             txtNombre.Text = cat.Nombre.ToString();
+            boxEstado.Text = cat.Vista.ToString();
         }
 
         private void limpiarErrores()
@@ -41,6 +45,7 @@ namespace ventaVideojuegos
             {
                 Id = int.Parse(txtID.Text),
                 Nombre = txtNombre.Text,
+                Vista = bool.Parse(boxEstado.Text),
 
             };
 
@@ -75,7 +80,9 @@ namespace ventaVideojuegos
                 categoriaNueva = new Categoria()
                 {
                     Id = int.Parse(txtID.Text),
-                    Nombre = txtNombre.Text
+                    Nombre = txtNombre.Text,
+                    Vista = bool.Parse(boxEstado.Text)
+                   
                 };
 
                 this.DialogResult = DialogResult.OK;
@@ -85,6 +92,18 @@ namespace ventaVideojuegos
                 //MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                // this.DialogResult = DialogResult.Cancel;
             }
+        }
+
+        private void llenarBoxEstado()
+        {
+            boxEstado.Items.Add("True");
+            boxEstado.Items.Add("False");
+
+        }
+
+        private void boxConsola_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

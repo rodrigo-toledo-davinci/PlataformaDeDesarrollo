@@ -55,6 +55,8 @@
             this.errMDJ = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.errStock = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.errConsola = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.boxEstado = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -225,7 +227,7 @@
             this.btnAceptar.FillColor = System.Drawing.Color.LightSteelBlue;
             this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAceptar.ForeColor = System.Drawing.Color.Black;
-            this.btnAceptar.Location = new System.Drawing.Point(378, 280);
+            this.btnAceptar.Location = new System.Drawing.Point(378, 282);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(80, 25);
             this.btnAceptar.TabIndex = 30;
@@ -333,11 +335,32 @@
             this.errConsola.TabIndex = 39;
             this.errConsola.Text = "Debe seleccionar la consola";
             // 
+            // guna2HtmlLabel10
+            // 
+            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(270, 258);
+            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(35, 17);
+            this.guna2HtmlLabel10.TabIndex = 40;
+            this.guna2HtmlLabel10.Text = "Activo";
+            // 
+            // boxEstado
+            // 
+            this.boxEstado.FormattingEnabled = true;
+            this.boxEstado.Location = new System.Drawing.Point(358, 255);
+            this.boxEstado.Name = "boxEstado";
+            this.boxEstado.Size = new System.Drawing.Size(100, 21);
+            this.boxEstado.TabIndex = 41;
+            // 
             // FormProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 353);
+            this.Controls.Add(this.boxEstado);
+            this.Controls.Add(this.guna2HtmlLabel10);
             this.Controls.Add(this.errConsola);
             this.Controls.Add(this.errStock);
             this.Controls.Add(this.errMDJ);
@@ -401,5 +424,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel errMDJ;
         private Guna.UI2.WinForms.Guna2HtmlLabel errStock;
         private Guna.UI2.WinForms.Guna2HtmlLabel errConsola;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
+        private System.Windows.Forms.ComboBox boxEstado;
     }
 }

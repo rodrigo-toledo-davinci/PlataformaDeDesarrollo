@@ -34,6 +34,8 @@
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtID = new Guna.UI2.WinForms.Guna2TextBox();
             this.errNombre = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.boxEstado = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // Aceptar
@@ -46,7 +48,7 @@
             this.Aceptar.FillColor = System.Drawing.Color.LightSteelBlue;
             this.Aceptar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Aceptar.ForeColor = System.Drawing.Color.Black;
-            this.Aceptar.Location = new System.Drawing.Point(102, 150);
+            this.Aceptar.Location = new System.Drawing.Point(99, 194);
             this.Aceptar.Name = "Aceptar";
             this.Aceptar.Size = new System.Drawing.Size(80, 25);
             this.Aceptar.TabIndex = 9;
@@ -123,11 +125,32 @@
             this.errNombre.TabIndex = 10;
             this.errNombre.Text = "Debe ingresar el nombre";
             // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(20, 144);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(35, 17);
+            this.guna2HtmlLabel3.TabIndex = 11;
+            this.guna2HtmlLabel3.Text = "Activo";
+            // 
+            // boxEstado
+            // 
+            this.boxEstado.FormattingEnabled = true;
+            this.boxEstado.Location = new System.Drawing.Point(89, 144);
+            this.boxEstado.Name = "boxEstado";
+            this.boxEstado.Size = new System.Drawing.Size(90, 21);
+            this.boxEstado.TabIndex = 22;
+            // 
             // FormConsola
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(194, 194);
+            this.ClientSize = new System.Drawing.Size(193, 248);
+            this.Controls.Add(this.boxEstado);
+            this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.errNombre);
             this.Controls.Add(this.Aceptar);
             this.Controls.Add(this.guna2HtmlLabel2);
@@ -150,5 +173,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtNombre;
         private Guna.UI2.WinForms.Guna2TextBox txtID;
         private Guna.UI2.WinForms.Guna2HtmlLabel errNombre;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private System.Windows.Forms.ComboBox boxEstado;
     }
 }
