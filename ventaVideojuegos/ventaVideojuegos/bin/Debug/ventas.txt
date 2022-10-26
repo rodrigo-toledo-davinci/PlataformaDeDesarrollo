@@ -2,3 +2,4 @@
 2,Tomas,fjeewf,Red Dead Redemption II,2500,4,10000
 3,d,d,Spider-Man Remastered,4999,1,4999
 4,asd,sd,Spider-Man Remastered,4999,99,494901
+5,Yo,cliente comun,Mafia (Definitive Edition),259,4,1036

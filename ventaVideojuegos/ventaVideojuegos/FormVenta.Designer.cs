@@ -32,14 +32,13 @@
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnFinalCompra = new Guna.UI2.WinForms.Guna2Button();
             this.txtEmpleado = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtCliente = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new Guna.UI2.WinForms.Guna2TextBox();
             this.errCantidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.errCliente = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.errEmpleado = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.boxClientes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,25 +93,6 @@
             this.txtEmpleado.Size = new System.Drawing.Size(119, 27);
             this.txtEmpleado.TabIndex = 8;
             // 
-            // txtCliente
-            // 
-            this.txtCliente.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCliente.DefaultText = "";
-            this.txtCliente.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCliente.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCliente.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCliente.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCliente.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtCliente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCliente.Location = new System.Drawing.Point(160, 120);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.PasswordChar = '\0';
-            this.txtCliente.PlaceholderText = "";
-            this.txtCliente.SelectedText = "";
-            this.txtCliente.Size = new System.Drawing.Size(119, 27);
-            this.txtCliente.TabIndex = 7;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -127,9 +107,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(4, 128);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 13);
+            this.label1.Size = new System.Drawing.Size(105, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Ingrese nombre del cliente";
+            this.label1.Text = "Seleccione el cliente";
             // 
             // label3
             // 
@@ -171,17 +151,6 @@
             this.errCantidad.TabIndex = 34;
             this.errCantidad.Text = "Debe ingresar la cantidad deseada";
             // 
-            // errCliente
-            // 
-            this.errCliente.BackColor = System.Drawing.Color.Transparent;
-            this.errCliente.Font = new System.Drawing.Font("Open Sans Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errCliente.ForeColor = System.Drawing.Color.Red;
-            this.errCliente.Location = new System.Drawing.Point(7, 147);
-            this.errCliente.Name = "errCliente";
-            this.errCliente.Size = new System.Drawing.Size(190, 17);
-            this.errCliente.TabIndex = 35;
-            this.errCliente.Text = "Debe ingresar el nombre del cliente";
-            // 
             // errEmpleado
             // 
             this.errEmpleado.BackColor = System.Drawing.Color.Transparent;
@@ -193,19 +162,27 @@
             this.errEmpleado.TabIndex = 36;
             this.errEmpleado.Text = "Debe ingresar el nombre del empleado";
             // 
+            // boxClientes
+            // 
+            this.boxClientes.FormattingEnabled = true;
+            this.boxClientes.Location = new System.Drawing.Point(160, 125);
+            this.boxClientes.Name = "boxClientes";
+            this.boxClientes.Size = new System.Drawing.Size(121, 21);
+            this.boxClientes.TabIndex = 37;
+            this.boxClientes.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(291, 303);
+            this.Controls.Add(this.boxClientes);
             this.Controls.Add(this.errEmpleado);
-            this.Controls.Add(this.errCliente);
             this.Controls.Add(this.errCantidad);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnFinalCompra);
             this.Controls.Add(this.txtEmpleado);
-            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numCantidad);
@@ -225,13 +202,12 @@
         private System.Windows.Forms.NumericUpDown numCantidad;
         private Guna.UI2.WinForms.Guna2Button btnFinalCompra;
         private Guna.UI2.WinForms.Guna2TextBox txtEmpleado;
-        private Guna.UI2.WinForms.Guna2TextBox txtCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txtID;
         private Guna.UI2.WinForms.Guna2HtmlLabel errCantidad;
-        private Guna.UI2.WinForms.Guna2HtmlLabel errCliente;
         private Guna.UI2.WinForms.Guna2HtmlLabel errEmpleado;
+        private System.Windows.Forms.ComboBox boxClientes;
     }
 }

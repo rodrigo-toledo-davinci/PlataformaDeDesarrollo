@@ -15,13 +15,15 @@ namespace ventaVideojuegos
 {
     public partial class Login : Form
     {
-        private String usuario = String.Empty;
 
+        private String usuario = string.Empty;
         public Login()
         {
+
             InitializeComponent();
             limpiarErrores();
-        }
+             
+    }
 
 
         private void limpiarErrores()
@@ -52,6 +54,7 @@ namespace ventaVideojuegos
                     if (datos[1].Equals(txtUsuarioLogin.Text) && datos[2].Equals(txtContrasenaLogin.Text))
                     {
                         valido = true;
+                        
                     }
 
                 }

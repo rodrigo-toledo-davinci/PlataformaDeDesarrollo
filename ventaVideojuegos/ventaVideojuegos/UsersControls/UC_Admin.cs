@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ventaVideojuegos.Controlers;
 using ventaVideojuegos.Modelo;
 
+
 namespace ventaVideojuegos.UsersControls
 {
     public partial class UC_Admin : UserControl
@@ -33,6 +34,8 @@ namespace ventaVideojuegos.UsersControls
             ControladorConsola.IniciarRepositorio();
             ControladorProductos.IniciarRepositorio();
             ControladorVentas.IniciarRepositorio();
+            ControladorClientes.IniciarRepositorio();
+
             paginar(Productos_Completo);
             Productos_Completo = ControladorProductos.Productos;
             Productos_Completo = ControladorProductos.Productos;
@@ -43,10 +46,27 @@ namespace ventaVideojuegos.UsersControls
             VisualizarCategorias();
             VisualizarConsolas();
             VisualizarVentas();
+            VisualizarClientes();
+
 
           //  VisualizarProductos(Productos_Completo);
         }
 
+        public void VisualizarClientes()
+        {
+            dataGridViewCte.Rows.Clear();
+            foreach (Cliente cte in ControladorClientes.Clientes)
+            {
+                int rowIndex = dataGridViewCte.Rows.Add();
+                dataGridViewCte.Rows[rowIndex].Cells[0].Value = cte.Id.ToString();
+                dataGridViewCte.Rows[rowIndex].Cells[1].Value = cte.Nombre.ToString();
+                dataGridViewCte.Rows[rowIndex].Cells[2].Value = cte.Apellido.ToString();
+                dataGridViewCte.Rows[rowIndex].Cells[3].Value = cte.NUsuario.ToString();
+                dataGridViewCte.Rows[rowIndex].Cells[4].Value = cte.Email.ToString();
+                dataGridViewCte.Rows[rowIndex].Cells[5].Value = cte.Vista.ToString();
+
+            }
+        }
         private void VisualizarVentas()
         {
             dataGridViewCVentas.Rows.Clear();
@@ -560,6 +580,71 @@ namespace ventaVideojuegos.UsersControls
             }
 
 
+        }
+
+        private void NuevoCliente_Click(object sender, EventArgs e)
+        {
+            FormCliente clientForm = new FormCliente();
+            DialogResult dialogResult = clientForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                ControladorClientes.AñadirCliente(clientForm.clienteNuevo);
+            }
+
+            VisualizarClientes();
+        }
+
+        private void EditarCliente_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewCte.SelectedRows.Count > 0)
+            {
+                string idCteEditar = dataGridViewCte.SelectedRows[0].Cells[0].Value.ToString();
+                string nombreCteEditar = dataGridViewCte.SelectedRows[0].Cells[1].Value.ToString();
+                string apellidoCteEditar = dataGridViewCte.SelectedRows[0].Cells[2].Value.ToString();
+                string usuarioCteEditar = dataGridViewCte.SelectedRows[0].Cells[3].Value.ToString();
+                string emailCteEditar = dataGridViewCte.SelectedRows[0].Cells[4].Value.ToString();
+                string vistaCteEditar = dataGridViewCte.SelectedRows[0].Cells[5].Value.ToString();
+
+                Cliente cteEditar = new Cliente()
+                {
+                    Id = int.Parse(idCteEditar),
+                    Nombre = nombreCteEditar,
+                    Apellido = apellidoCteEditar,
+                    NUsuario = usuarioCteEditar,
+                    Email = emailCteEditar,
+                    Vista = bool.Parse(vistaCteEditar)
+                };
+
+                FormCliente formCliente = new FormCliente(cteEditar);
+                DialogResult dialogResult = formCliente.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    ControladorClientes.ActualizarCliente(int.Parse(idCteEditar), formCliente.clienteNuevo);
+                    VisualizarClientes();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar una cliente para Editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void EliminarCliente_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewCte.SelectedRows.Count > 0)
+            {
+                string idCteEliminar = dataGridViewCte.SelectedRows[0].Cells[0].Value.ToString();
+                ControladorClientes.EliminarCliente(int.Parse(idCteEliminar));
+                VisualizarClientes();
+
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar un producto para Eliminar", "Error", MessageBoxButtons.OK);
+            }
         }
     }
 }

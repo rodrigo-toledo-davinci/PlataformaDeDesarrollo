@@ -4,26 +4,30 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ventaVideojuegos.Modelo;
 using ventaVideojuegos.UsersControls;
-
 namespace ventaVideojuegos
 {
     public partial class Form1 : Form
     {
-        Login login = new Login();
+
+        Login log = new Login();
+        
 
         public Form1()
         {
             InitializeComponent();
             UC_Inicio uc = new UC_Inicio();
             addUserControl(uc);
-            setNombreUsuario(login.getUsuario());
-            //txtNombreUsuario.Text = login.getUsuario();
-            txtNombreUsuario.Text = "usuario"; 
+            
+            //setNombreUsuario();
+            // txtNombreUsuario.Text = login.getUsuario();
+             txtNombreUsuario.Text = "usuario";
+           
 
         }
 
@@ -72,9 +76,10 @@ namespace ventaVideojuegos
             login.Show();
         }
 
-        private void setNombreUsuario(String usuario) 
+        private void setNombreUsuario() 
         {
-            txtNombreUsuario.Text = usuario;
+          // txtNombreUsuario.Text = ;
+
         }
 
         private void txtNombreUsuario_Click(object sender, EventArgs e)

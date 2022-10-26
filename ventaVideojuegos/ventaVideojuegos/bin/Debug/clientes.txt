@@ -1,0 +1,2 @@
+1,cliente,cliente,cliente comun,asd,True
+2,fran,asd,asdd,asd,True

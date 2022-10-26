@@ -26,6 +26,7 @@ namespace ventaVideojuegos
 
             InitializeComponent();
             limpiarErrores();
+            llenarBox();
             txtID.Text = (ControladorVentas.lastId + 1).ToString();
 
         }
@@ -40,7 +41,7 @@ namespace ventaVideojuegos
                 ventaNueva = new Venta()
                 {
                     Id = int.Parse(txtID.Text),
-                    nombreCliente = txtCliente.Text,
+                    nombreCliente = boxClientes.Text,
                     nombreEmpleado = txtEmpleado.Text,
                     nombreProducto = UC_Ventas.NombreProdComprar,
                     precioProducto = int.Parse(UC_Ventas.PrecioProdComprar),
@@ -93,11 +94,9 @@ namespace ventaVideojuegos
         private void limpiarErrores()
         {
             errCantidad.Text = "";
-            errCliente.Text = "";
             errEmpleado.Text = "";
     
             errCantidad.Hide();
-            errCliente.Hide();
             errEmpleado.Hide();
 
         }
@@ -105,17 +104,7 @@ namespace ventaVideojuegos
         private bool ValidarVenta(out bool errorMsg)
             {
                 errorMsg = true;
-                if (string.IsNullOrEmpty(txtCliente.Text))
-                {
-                    string error = "Debe ingresar el nombre del cliente";
-                    errCliente.Text = error;
-                    errCliente.Show();
-                    errorMsg = false;
-                }
-                else
-                {
-                    errCliente.Hide();
-                }
+
                 if (string.IsNullOrEmpty(txtEmpleado.Text))
                 {
                     string error = "Debe ingresar el nombre del empleado";
@@ -145,7 +134,28 @@ namespace ventaVideojuegos
             return errorMsg;
             }
 
-      
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
+
+        private void llenarBox()
+        {
+            List<Cliente> listCte = new List<Cliente>();
+            listCte = ControladorClientes.Clientes.Where(x => x.Id != 0).ToList();
+            llenarBoxClientes(listCte);
+        }
+
+        private void llenarBoxClientes(List<Cliente> listaClientes)
+        {
+            foreach (Cliente cte in listaClientes)
+            {
+                if (cte.Vista == true)
+                {
+                    boxClientes.Items.Add(cte.NUsuario);
+                }
+            }
+        }
+    }
 }
      

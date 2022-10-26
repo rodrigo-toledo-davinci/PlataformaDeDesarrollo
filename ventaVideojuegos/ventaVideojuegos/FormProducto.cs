@@ -23,6 +23,7 @@ namespace ventaVideojuegos
             txtId.Text = (ControladorProductos.lastId + 1).ToString();
             llenarBoxCategoria();
             llenarBoxConsola();
+            llenarBoxEstado();
             boxEstado.Text = "True";
         }
 
@@ -225,6 +226,13 @@ namespace ventaVideojuegos
 
         }
 
+        private void llenarBoxEstado()
+        {
+            boxEstado.Items.Add("True");
+            boxEstado.Items.Add("False");
+
+        }
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
@@ -255,6 +263,8 @@ namespace ventaVideojuegos
                     }
                 }
             }
+
+
 
 
             //string source = filePath;

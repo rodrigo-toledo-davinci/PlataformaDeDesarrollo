@@ -100,14 +100,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlers\ControladorClientes.cs" />
     <Compile Include="Controlers\controladorUsuarios.cs" />
     <Compile Include="Controlers\ControladorVentas.cs" />
+    <Compile Include="FormCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormVenta.Designer.cs">
       <DependentUpon>FormVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaClientes.cs" />
     <Compile Include="ListaUsuarios.cs" />
     <Compile Include="ListaVenta.cs" />
     <Compile Include="Login.cs">
@@ -117,6 +125,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Categoria.cs" />
+    <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Modelo\Consola.cs" />
     <Compile Include="Controlers\ControladorCategorias.cs" />
     <Compile Include="Controlers\ControladorConsola.cs" />
@@ -180,6 +189,9 @@
     </Compile>
     <EmbeddedResource Include="FormCategoria.resx">
       <DependentUpon>FormCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCliente.resx">
+      <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConsola.resx">
       <DependentUpon>FormConsola.cs</DependentUpon>

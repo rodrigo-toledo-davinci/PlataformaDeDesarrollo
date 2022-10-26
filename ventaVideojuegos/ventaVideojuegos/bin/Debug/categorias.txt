@@ -1,4 +1,4 @@
-1,Accion,True
+1,Accion,False
 2,Deporte,True
 3,Simulacion,True
 4,Aventura,True
