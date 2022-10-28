@@ -35,6 +35,7 @@ namespace ventaVideojuegos.UsersControls
             ControladorProductos.IniciarRepositorio();
             ControladorVentas.IniciarRepositorio();
             ControladorClientes.IniciarRepositorio();
+            controladorUsuarios.IniciarRepositorio();
 
             paginar(Productos_Completo);
             Productos_Completo = ControladorProductos.Productos;
@@ -47,9 +48,29 @@ namespace ventaVideojuegos.UsersControls
             VisualizarConsolas();
             VisualizarVentas();
             VisualizarClientes();
+            VisualizarEmpleados();
 
 
           //  VisualizarProductos(Productos_Completo);
+        }
+
+        public void VisualizarEmpleados()
+        {
+            dataGridViewEmp.Rows.Clear();
+            foreach (Usuario usr in controladorUsuarios.Usuarios)
+            {
+                int rowIndex = dataGridViewEmp.Rows.Add();
+                dataGridViewEmp.Rows[rowIndex].Cells[0].Value = usr.Id.ToString();
+                dataGridViewEmp.Rows[rowIndex].Cells[1].Value = usr.Nombre.ToString();
+                if(usr.EsAdmin == true)
+                {
+                    dataGridViewEmp.Rows[rowIndex].Cells[2].Value = "Administrador";
+                }
+                else
+                {
+                    dataGridViewEmp.Rows[rowIndex].Cells[2].Value = "Vendedor";
+                }
+            }
         }
 
         public void VisualizarClientes()

@@ -13,9 +13,11 @@ using ventaVideojuegos.UsersControls;
 namespace ventaVideojuegos
 {
     public partial class Form1 : Form
+
     {
 
         Login log = new Login();
+        
         
 
         public Form1()
@@ -23,10 +25,10 @@ namespace ventaVideojuegos
             InitializeComponent();
             UC_Inicio uc = new UC_Inicio();
             addUserControl(uc);
+           // setNombreUsuario();
             
-            //setNombreUsuario();
             // txtNombreUsuario.Text = login.getUsuario();
-             txtNombreUsuario.Text = "usuario";
+
            
 
         }
@@ -78,7 +80,8 @@ namespace ventaVideojuegos
 
         private void setNombreUsuario() 
         {
-          // txtNombreUsuario.Text = ;
+          
+            txtNombreUsuario.Text = log.getUsuario();
 
         }
 

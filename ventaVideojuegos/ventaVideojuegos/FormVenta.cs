@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,11 @@ namespace ventaVideojuegos
             InitializeComponent();
             limpiarErrores();
             llenarBox();
+            txtPw.Hide();
+            lblPw.Hide();
+
             txtID.Text = (ControladorVentas.lastId + 1).ToString();
+            boxClientes.Text = "cliente comun";
 
         }
 
@@ -42,7 +47,7 @@ namespace ventaVideojuegos
                 {
                     Id = int.Parse(txtID.Text),
                     nombreCliente = boxClientes.Text,
-                    nombreEmpleado = txtEmpleado.Text,
+                    nombreEmpleado = boxEmpleados.Text,
                     nombreProducto = UC_Ventas.NombreProdComprar,
                     precioProducto = int.Parse(UC_Ventas.PrecioProdComprar),
                     cantidadProducto = int.Parse(numCantidad.Text),   
@@ -95,9 +100,11 @@ namespace ventaVideojuegos
         {
             errCantidad.Text = "";
             errEmpleado.Text = "";
+            errPw.Text = "";
     
             errCantidad.Hide();
             errEmpleado.Hide();
+            errPw.Hide();
 
         }
 
@@ -105,9 +112,9 @@ namespace ventaVideojuegos
             {
                 errorMsg = true;
 
-                if (string.IsNullOrEmpty(txtEmpleado.Text))
+                if (string.IsNullOrEmpty(boxEmpleados.Text))
                 {
-                    string error = "Debe ingresar el nombre del empleado";
+                    string error = "Debe seleccionar el vendedor";
                     errEmpleado.Text = error;
                     errEmpleado.Show();
                     errorMsg = false;
@@ -115,6 +122,7 @@ namespace ventaVideojuegos
                 else
                 {
                     errEmpleado.Hide();
+                   
                 }
 
 
@@ -130,7 +138,30 @@ namespace ventaVideojuegos
                 {
                     errCantidad.Hide();
                 }
-       
+
+                StreamReader archivo = new StreamReader("usuarios.txt");
+                while (!archivo.EndOfStream)
+                {
+                    string usuario = archivo.ReadLine();
+                    string[] datos = usuario.Split(',');
+
+                    if (datos[1].Equals(boxEmpleados.Text) && datos[2] != txtPw.Text)
+                    {
+                        string error = "Contraseña incorrecta";
+                        errPw.Text = error;
+                        errPw.Show();
+                        errorMsg = false;
+                    }
+                    else 
+                    {
+                        errPw.Hide();
+                    }
+
+                }
+
+
+
+
             return errorMsg;
             }
 
@@ -144,6 +175,10 @@ namespace ventaVideojuegos
             List<Cliente> listCte = new List<Cliente>();
             listCte = ControladorClientes.Clientes.Where(x => x.Id != 0).ToList();
             llenarBoxClientes(listCte);
+
+            List<Usuario> listUsu = new List<Usuario>();
+            listUsu = controladorUsuarios.Usuarios.Where(x => x.Id != 0).ToList();
+            llenarBoxEmpleados(listUsu);
         }
 
         private void llenarBoxClientes(List<Cliente> listaClientes)
@@ -155,6 +190,28 @@ namespace ventaVideojuegos
                     boxClientes.Items.Add(cte.NUsuario);
                 }
             }
+        }
+
+        private void llenarBoxEmpleados(List<Usuario> listaUsuarios)
+        {
+            foreach (Usuario usu in listaUsuarios)
+            {
+                if (usu.EsAdmin == false)
+                {
+                    boxEmpleados.Items.Add(usu.Nombre);
+                }
+            }
+        }
+
+        private void liberarContraseña()
+        {
+            txtPw.Show();
+            lblPw.Show();
+        }
+
+        private void boxEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            liberarContraseña();
         }
     }
 }

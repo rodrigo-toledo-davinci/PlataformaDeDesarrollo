@@ -16,7 +16,7 @@ namespace ventaVideojuegos
     public partial class Login : Form
     {
 
-        private String usuario = string.Empty;
+        private string usuario = "";
         public Login()
         {
 
@@ -54,6 +54,7 @@ namespace ventaVideojuegos
                     if (datos[1].Equals(txtUsuarioLogin.Text) && datos[2].Equals(txtContrasenaLogin.Text))
                     {
                         valido = true;
+                       
                         
                     }
 

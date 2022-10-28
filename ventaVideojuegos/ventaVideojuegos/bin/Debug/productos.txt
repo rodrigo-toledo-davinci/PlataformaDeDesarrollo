@@ -1,12 +1,12 @@
-1,Mafia (Definitive Edition),259,96,1,1,Online,Un Jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
-2,Red Dead Redemption II,2500,95,1,1,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
+1,Mafia (Definitive Edition),259,94,1,1,Online,Un Jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
+2,Red Dead Redemption II,2500,93,1,1,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
 3,Spider-Man Remastered,4999,46,1,2,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
-4,Far Cry 5,2999,98,1,5,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
+4,Far Cry 5,2999,97,1,5,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
 5,Fallout 4,799,100,1,3,Online,Multijugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
-6,Call of Duty Modern Warfare II,6990,100,1,4,Online,Multijugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs,True
+6,Call of Duty Modern Warfare II,6990,99,1,4,Online,Multijugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs,True
 7,TEKKEN 7,1990,100,1,5,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs,True
 8,Call of Duty Black Ops III,990,100,1,1,Online,Multijugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs,True
-9,Destyny 2,2499,99,1,5,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
+9,Destyny 2,2499,97,1,5,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
 10,Tom Clancy´s Rainbow Six Siege,999,100,1,3,Offline,Un jugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
 11,FIFA 23,11999,80,2,2,Online,Multijugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True
 12,NBA 2K23,9999,100,2,4,Online,Multijugador,C:\Users\tomi-\source\repos\TP_PlataformasDeDesarrollo_Grupo4\ventaVideojuegos\ventaVideojuegos\Imgs\placeholder.jpg,True

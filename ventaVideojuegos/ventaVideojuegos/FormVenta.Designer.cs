@@ -31,7 +31,6 @@
             this.lblCantidad = new System.Windows.Forms.Label();
             this.numCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnFinalCompra = new Guna.UI2.WinForms.Guna2Button();
-            this.txtEmpleado = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,6 +38,10 @@
             this.errCantidad = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.errEmpleado = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.boxClientes = new System.Windows.Forms.ComboBox();
+            this.boxEmpleados = new System.Windows.Forms.ComboBox();
+            this.txtPw = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblPw = new System.Windows.Forms.Label();
+            this.errPw = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,40 +70,21 @@
             this.btnFinalCompra.FillColor = System.Drawing.Color.White;
             this.btnFinalCompra.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFinalCompra.ForeColor = System.Drawing.Color.Black;
-            this.btnFinalCompra.Location = new System.Drawing.Point(78, 249);
+            this.btnFinalCompra.Location = new System.Drawing.Point(78, 294);
             this.btnFinalCompra.Name = "btnFinalCompra";
             this.btnFinalCompra.Size = new System.Drawing.Size(141, 30);
             this.btnFinalCompra.TabIndex = 9;
             this.btnFinalCompra.Text = "Finalizar Compra";
             this.btnFinalCompra.Click += new System.EventHandler(this.btnFinalCompra_Click);
             // 
-            // txtEmpleado
-            // 
-            this.txtEmpleado.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEmpleado.DefaultText = "";
-            this.txtEmpleado.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtEmpleado.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtEmpleado.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmpleado.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmpleado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmpleado.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtEmpleado.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmpleado.Location = new System.Drawing.Point(160, 175);
-            this.txtEmpleado.Name = "txtEmpleado";
-            this.txtEmpleado.PasswordChar = '\0';
-            this.txtEmpleado.PlaceholderText = "";
-            this.txtEmpleado.SelectedText = "";
-            this.txtEmpleado.Size = new System.Drawing.Size(119, 27);
-            this.txtEmpleado.TabIndex = 8;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(4, 181);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 13);
+            this.label2.Size = new System.Drawing.Size(119, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Ingrese nombre del empleado";
+            this.label2.Text = "Seleccione el vendedor";
             // 
             // label1
             // 
@@ -158,9 +142,9 @@
             this.errEmpleado.ForeColor = System.Drawing.Color.Red;
             this.errEmpleado.Location = new System.Drawing.Point(7, 202);
             this.errEmpleado.Name = "errEmpleado";
-            this.errEmpleado.Size = new System.Drawing.Size(209, 17);
+            this.errEmpleado.Size = new System.Drawing.Size(157, 17);
             this.errEmpleado.TabIndex = 36;
-            this.errEmpleado.Text = "Debe ingresar el nombre del empleado";
+            this.errEmpleado.Text = "Debe seleccionar el vendedor";
             // 
             // boxClientes
             // 
@@ -171,18 +155,70 @@
             this.boxClientes.TabIndex = 37;
             this.boxClientes.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // boxEmpleados
+            // 
+            this.boxEmpleados.FormattingEnabled = true;
+            this.boxEmpleados.Location = new System.Drawing.Point(160, 175);
+            this.boxEmpleados.Name = "boxEmpleados";
+            this.boxEmpleados.Size = new System.Drawing.Size(121, 21);
+            this.boxEmpleados.TabIndex = 38;
+            this.boxEmpleados.SelectedIndexChanged += new System.EventHandler(this.boxEmpleados_SelectedIndexChanged);
+            // 
+            // txtPw
+            // 
+            this.txtPw.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPw.DefaultText = "";
+            this.txtPw.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPw.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPw.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPw.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPw.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPw.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPw.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPw.Location = new System.Drawing.Point(160, 225);
+            this.txtPw.Name = "txtPw";
+            this.txtPw.PasswordChar = '●';
+            this.txtPw.PlaceholderText = "";
+            this.txtPw.SelectedText = "";
+            this.txtPw.Size = new System.Drawing.Size(121, 27);
+            this.txtPw.TabIndex = 39;
+            this.txtPw.UseSystemPasswordChar = true;
+            // 
+            // lblPw
+            // 
+            this.lblPw.AutoSize = true;
+            this.lblPw.Location = new System.Drawing.Point(55, 233);
+            this.lblPw.Name = "lblPw";
+            this.lblPw.Size = new System.Drawing.Size(61, 13);
+            this.lblPw.TabIndex = 40;
+            this.lblPw.Text = "Contraseña";
+            // 
+            // errPw
+            // 
+            this.errPw.BackColor = System.Drawing.Color.Transparent;
+            this.errPw.Font = new System.Drawing.Font("Open Sans Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errPw.ForeColor = System.Drawing.Color.Red;
+            this.errPw.Location = new System.Drawing.Point(100, 258);
+            this.errPw.Name = "errPw";
+            this.errPw.Size = new System.Drawing.Size(119, 17);
+            this.errPw.TabIndex = 41;
+            this.errPw.Text = "Contraseña incorrecta";
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 303);
+            this.ClientSize = new System.Drawing.Size(291, 341);
+            this.Controls.Add(this.errPw);
+            this.Controls.Add(this.lblPw);
+            this.Controls.Add(this.txtPw);
+            this.Controls.Add(this.boxEmpleados);
             this.Controls.Add(this.boxClientes);
             this.Controls.Add(this.errEmpleado);
             this.Controls.Add(this.errCantidad);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnFinalCompra);
-            this.Controls.Add(this.txtEmpleado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numCantidad);
@@ -201,7 +237,6 @@
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.NumericUpDown numCantidad;
         private Guna.UI2.WinForms.Guna2Button btnFinalCompra;
-        private Guna.UI2.WinForms.Guna2TextBox txtEmpleado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
@@ -209,5 +244,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel errCantidad;
         private Guna.UI2.WinForms.Guna2HtmlLabel errEmpleado;
         private System.Windows.Forms.ComboBox boxClientes;
+        private System.Windows.Forms.ComboBox boxEmpleados;
+        private Guna.UI2.WinForms.Guna2TextBox txtPw;
+        private System.Windows.Forms.Label lblPw;
+        private Guna.UI2.WinForms.Guna2HtmlLabel errPw;
     }
 }

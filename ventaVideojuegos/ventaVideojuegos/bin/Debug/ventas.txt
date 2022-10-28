@@ -2,4 +2,9 @@
 2,Tomas,fjeewf,Red Dead Redemption II,2500,4,10000
 3,d,d,Spider-Man Remastered,4999,1,4999
 4,asd,sd,Spider-Man Remastered,4999,99,494901
-5,Yo,cliente comun,Mafia (Definitive Edition),259,4,1036
+5,Yo,cliente comun,Mafia (Definitive Edition),259,4,10366,fff,cliente comun,Mafia (Definitive Edition),259,2,518
+6,ddd,asdd,Red Dead Redemption II,2500,2,5000
+7,root,cliente comun,Destyny 2,2499,1,2499
+8,root,cliente comun,Destyny 2,2499,1,2499
+9,root,cliente comun,Far Cry 5,2999,1,2999
+10,nombre,cliente comun,Call of Duty Modern Warfare II,6990,1,6990
