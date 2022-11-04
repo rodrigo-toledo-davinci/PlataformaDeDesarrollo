@@ -37,13 +37,15 @@ namespace ventaVideojuegos.UsersControls
             ControladorConsola.IniciarRepositorio();
             ControladorProductos.IniciarRepositorio();
             ControladorVentas.IniciarRepositorio();
-            Productos_Completo = ControladorProductos.Productos;
+
             Productos_Completo = ControladorProductos.Productos;
             Productos_Filtrado = ControladorProductos.Productos;
+
             total = Productos_Completo.Count(prod => prod.Vista == true);
+
             last_pag = total / paginador;
             llenarCombos();
-            VisualizarProductos(Productos_Completo);
+            
             paginar(Productos_Completo);
 
 
@@ -56,18 +58,37 @@ namespace ventaVideojuegos.UsersControls
             {
                 if (prod.Vista == true && prod.Stock > 0)
                 {
-                    int rowIndex = dataGridView1.Rows.Add();
-                    dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Categoria.Nombre.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Consola.Nombre.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Conexion.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[6].Value = prod.ModoJuego.ToString();
-                    // Bitmap img;
-                    // img = new Bitmap("RUTA" + prod.Imagen + ".jpg");
-                    // dataGridView1.Rows[rowIndex].Cells[8].Value = img;
-         
+                    if (prod.Categoria.Vista == true)
+                    {
+
+                        int rowIndex = dataGridView1.Rows.Add();
+                        dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Categoria.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Consola.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Conexion.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[6].Value = prod.ModoJuego.ToString();
+                        // Bitmap img;
+                        // img = new Bitmap("RUTA" + prod.Imagen + ".jpg");
+                        // dataGridView1.Rows[rowIndex].Cells[8].Value = img;
+                    }
+                    else
+                    {
+
+                        int rowIndex = dataGridView1.Rows.Add();
+                        dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[3].Value = "Categoria no existente";
+                        dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Consola.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Conexion.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[6].Value = prod.ModoJuego.ToString();
+                        // Bitmap img;
+                        // img = new Bitmap("RUTA" + prod.Imagen + ".jpg");
+                        // dataGridView1.Rows[rowIndex].Cells[8].Value = img;
+                    }
+
                 }
             }
         }
@@ -112,7 +133,8 @@ namespace ventaVideojuegos.UsersControls
         {
             Productos_Paginados = prodMostrar.Skip(current).Take(paginador).ToList();
             VisualizarProductos(Productos_Paginados);
-           
+            
+
 
             if (current_pag == 1)
             {

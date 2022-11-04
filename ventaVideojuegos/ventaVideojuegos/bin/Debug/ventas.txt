@@ -8,3 +8,4 @@
 8,root,cliente comun,Destyny 2,2499,1,2499
 9,root,cliente comun,Far Cry 5,2999,1,2999
 10,nombre,cliente comun,Call of Duty Modern Warfare II,6990,1,6990
+11,root,cliente comun,Far Cry 5,2999,2,5998

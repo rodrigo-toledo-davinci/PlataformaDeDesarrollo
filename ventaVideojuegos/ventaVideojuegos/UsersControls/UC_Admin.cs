@@ -37,11 +37,13 @@ namespace ventaVideojuegos.UsersControls
             ControladorClientes.IniciarRepositorio();
             controladorUsuarios.IniciarRepositorio();
 
-            paginar(Productos_Completo);
-            Productos_Completo = ControladorProductos.Productos;
             Productos_Completo = ControladorProductos.Productos;
             Productos_Filtrado = ControladorProductos.Productos;
-            total = Productos_Completo.Count(prod => prod.Vista == true);
+
+            total = Productos_Completo.Count();
+
+            paginar(Productos_Completo);
+
             last_pag = total / paginador;
             llenarCombos();
             VisualizarCategorias();
@@ -110,9 +112,14 @@ namespace ventaVideojuegos.UsersControls
         private void VisualizarProductos(List<Producto> listaProductos)
         {
             dataGridView1.Rows.Clear();
+
+
             foreach (Producto prod in listaProductos)
             {
-                
+                if (prod.Categoria.Vista == true)
+
+                {
+
                     int rowIndex = dataGridView1.Rows.Add();
                     dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
                     dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
@@ -122,10 +129,30 @@ namespace ventaVideojuegos.UsersControls
                     dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
                     dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
-                //Bitmap img;
-                //img = new Bitmap(prod.Imagen);
-                //dataGridView1.Rows[rowIndex].Cells[8].Value = img;
-                     dataGridView1.Rows[rowIndex].Cells[8].Value = prod.Vista.ToString();
+                    //Bitmap img;
+                    //img = new Bitmap(prod.Imagen);
+                    //dataGridView1.Rows[rowIndex].Cells[8].Value = img;
+                    dataGridView1.Rows[rowIndex].Cells[8].Value = prod.Vista.ToString();
+
+                }
+
+                else 
+                {
+
+                    int rowIndex = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Stock.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[4].Value = "Categoria no existente";
+                    dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
+                    //Bitmap img;
+                    //img = new Bitmap(prod.Imagen);
+                    //dataGridView1.Rows[rowIndex].Cells[8].Value = img;
+                    dataGridView1.Rows[rowIndex].Cells[8].Value = prod.Vista.ToString();
+                }
 
             }
 
