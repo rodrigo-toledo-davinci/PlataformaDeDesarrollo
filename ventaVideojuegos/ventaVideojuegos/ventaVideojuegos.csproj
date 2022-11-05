@@ -109,6 +109,12 @@
     <Compile Include="FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormValidarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValidarVenta.Designer.cs">
+      <DependentUpon>FormValidarVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,12 @@
     <Compile Include="Modelo\Venta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeleccionarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarProducto.Designer.cs">
+      <DependentUpon>SeleccionarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersControls\UC_Admin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,6 +214,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormValidarVenta.resx">
+      <DependentUpon>FormValidarVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormVenta.resx">
       <DependentUpon>FormVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +232,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SeleccionarProducto.resx">
+      <DependentUpon>SeleccionarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsersControls\UC_Admin.resx">
       <DependentUpon>UC_Admin.cs</DependentUpon>
     </EmbeddedResource>

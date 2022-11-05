@@ -9,3 +9,38 @@
 9,root,cliente comun,Far Cry 5,2999,1,2999
 10,nombre,cliente comun,Call of Duty Modern Warfare II,6990,1,6990
 11,root,cliente comun,Far Cry 5,2999,2,5998
+12,root,consumidor final,Call of Duty Modern Warfare II,2,6990,13980
+12,root,consumidor final,Call of Duty Modern Warfare II,2,6990,13980
+12,root,consumidor final,Call of Duty Modern Warfare II,2,6990,13980
+13,root,consumidor final,Far Cry 5,0,0,0
+13,root,consumidor final,Fallout 4,0,0,0
+14,root,consumidor final,Fallout 4,799,10,7990
+14,root,consumidor final,TEKKEN 7,1990,10,19900
+15,root,consumidor final,Fallout 4,799,10,7990
+15,root,consumidor final,Destyny 2,2499,10,24990
+16,root,consumidor final,Call of Duty Black Ops III,990,100,99000
+16,root,consumidor final,Destyny 2,2499,20,49980
+17,root,consumidor final,Fallout 4,799,100,79900
+17,root,consumidor final,TEKKEN 7,1990,100,199000
+18,root,consumidor final,Destyny 2,2499,10,24990
+18,root,consumidor final,Call of Duty Modern Warfare II,6990,80,559200
+19,root,consumidor final,Mafia (Definitive Edition),259,10,2590
+19,root,consumidor final,Red Dead Redemption II,2500,10,25000
+20,root,consumidor final,The crew 2,2699,10,26990
+20,root,consumidor final,WWW 2K22,5999,10,59990
+21,root,consumidor final,TEKKEN 7,1990,1,1990
+21,root,consumidor final,Tropico 6,999,1,999
+22,root,consumidor final,Snow Runner,1500,10,15000
+22,root,consumidor final,F1 Manager 22,3500,10,35000
+23,root,consumidor final,Spider-Man Remastered,4999,10,49990
+23,root,consumidor final,Fallout 4,799,10,7990
+24,root,consumidor final,Tom Clancy´s Rainbow Six Siege,999,2,1998
+24,root,consumidor final,Red Dead Redemption II,2500,2,5000
+25,root,consumidor final,Far Cry 5,2999,1,2999
+25,root,consumidor final,Mafia (Definitive Edition),259,1,259
+26,nombre,consumidor final,Far Cry 5,2999,10,29990
+27,root,consumidor final,Spider-Man Remastered,4999,1,4999
+27,root,consumidor final,TEKKEN 7,1990,1,1990
+28,root,consumidor final,Far Cry 5,2999,1,2999
+28,root,consumidor final,Farthest Frontier,1200,1,1200
+29,root,consumidor final,Call of Duty Modern Warfare II,6990,1,6990

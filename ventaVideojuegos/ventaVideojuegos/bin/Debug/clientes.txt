@@ -1,2 +1,2 @@
-1,cliente,cliente,cliente comun,asd,True
-2,fran,asd,asdd,asd,True
+1,cliente,cliente,consumidor final,asd,True
+2,pepe,asd,asd,asd,True
