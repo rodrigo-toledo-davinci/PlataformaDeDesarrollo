@@ -22,8 +22,8 @@ namespace ventaVideojuegos
 
             InitializeComponent();
             limpiarErrores();
-             
-    }
+
+        }
 
 
         private void limpiarErrores()
@@ -34,60 +34,90 @@ namespace ventaVideojuegos
 
         private void bttnAcceder_Click_1(object sender, EventArgs e)
         {
-            bool valido = false;
 
-            if (!File.Exists("usuarios.txt"))
+            bool usuarioValidado = ValidarUsuario(out bool errorMsg);
+
+            if (usuarioValidado)
             {
-                StreamWriter archivo = new StreamWriter("usuarios.txt");
-                archivo.Close();
-            }
-            else
-            {
+                bool valido = false;
 
-
-                StreamReader archivo = new StreamReader("usuarios.txt");
-                while (!archivo.EndOfStream)
+                if (!File.Exists("usuarios.txt"))
                 {
-                    string usuario = archivo.ReadLine();
-                    string[] datos = usuario.Split(',');
-
-                    if (datos[1].Equals(txtUsuarioLogin.Text) && datos[2].Equals(txtContrasenaLogin.Text))
-                    {
-                        valido = true;
-                       
-                        
-                    }
-
-                }
-                archivo.Close();
-
-
-                if (valido)
-                {
-                    usuario = txtUsuarioLogin.Text;
-                    this.Hide();
-                    Form1 form = new Form1();
-                    form.Show();
-
-
+                    StreamWriter archivo = new StreamWriter("usuarios.txt");
+                    archivo.Close();
                 }
                 else
                 {
-                    string error = "Credenciales invalidas";
-                    errLogin.Text = error;
-                    errLogin.Show();
+
+
+                    StreamReader archivo = new StreamReader("usuarios.txt");
+                    while (!archivo.EndOfStream)
+                    {
+                        string usuario = archivo.ReadLine();
+                        string[] datos = usuario.Split(',');
+
+                        if (datos[1].Equals(txtUsuarioLogin.Text) && datos[2].Equals(txtContrasenaLogin.Text))
+                        {
+                            valido = true;
+
+
+                        }
+
+                    }
+
+                    archivo.Close();
                 }
+
+
+                    if (valido)
+                    {
+                        usuario = txtUsuarioLogin.Text;
+                        this.Hide();
+                        Form1 form = new Form1();
+                        form.Show();
+
+
+                    }
+                    else
+                    {
+                        string error = "Credenciales invalidas";
+                        errLogin.Text = error;
+                        errLogin.Show();
+                    }
+                
             }
+            
         }
 
-        public string getUsuario() 
-        { 
+        public string getUsuario()
+        {
             return usuario;
         }
 
         private void txtUsuarioLogin_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private bool ValidarUsuario(out bool errorMsg)
+        {
+            errorMsg = true;
+            if (string.IsNullOrEmpty(txtUsuarioLogin.Text))
+            {
+                string error = "Debe ingresar el usuario";
+                errLogin.Text = error;
+                errLogin.Show();
+                errorMsg = false;
+            }
+            else
+            {
+                errLogin.Hide();
+            }
+
+
+
+
+
+            return errorMsg;
         }
     }
 }

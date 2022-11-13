@@ -75,42 +75,41 @@ namespace ventaVideojuegos.UsersControls
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
 
-            if (dataGridView1.Rows.Count > 1)
+            dataGridView1.AllowUserToAddRows = false;
+
+            if (dataGridView1.Rows.Count > 0)
             {
                 FormValidarVenta formVenta = new FormValidarVenta();
                 DialogResult dialogResult = formVenta.ShowDialog();
 
-
                 if (dialogResult == DialogResult.OK)
                 {
 
-                    foreach (DataGridViewRow row in dataGridView1.Rows )
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                            ventaNueva = new Venta
-                            {
-                                Id = formVenta.stockk,
-                                nombreCliente = formVenta.cliente,
-                                nombreEmpleado = formVenta.empleado,
-                                nombreProducto = row.Cells["Producto"].Value.ToString(),
-                                precioProducto = int.Parse(row.Cells["Precio"].Value.ToString()),
-                                cantidadProducto = int.Parse(row.Cells["Cantidad"].Value.ToString()),
-                                valorTotal = int.Parse(row.Cells["Total"].Value.ToString()),
+                        ventaNueva = new Venta
+                        {
+                            Id = formVenta.stockk,
+                            nombreCliente = formVenta.cliente,
+                            nombreEmpleado = formVenta.empleado,
+                            nombreProducto = row.Cells["Producto"].Value.ToString(),
+                            precioProducto = int.Parse(row.Cells["Precio"].Value.ToString()),
+                            cantidadProducto = int.Parse(row.Cells["Cantidad"].Value.ToString()),
+                            valorTotal = int.Parse(row.Cells["Total"].Value.ToString()),
+                            DateTime = DateTime.Now,
 
                             };
                             ControladorVentas.AñadirVenta(ventaNueva);
                             descontarStock(int.Parse(row.Cells["Cantidad"].Value.ToString()), row.Cells["Producto"].Value.ToString());
+                        
                     }
                     precioVenta = 0;
                     lblValor.Text = precioVenta.ToString();
                     dataGridView1.Rows.Clear();
+                    dataGridView1.AllowUserToAddRows = true;
 
                 }
-                else
-                {
-                    precioVenta = 0;
-                    lblValor.Text = precioVenta.ToString();
-                    dataGridView1.Rows.Clear();
-                }
+
             }
             else
             {
@@ -137,15 +136,12 @@ namespace ventaVideojuegos.UsersControls
         {
             if (dataGridView1.SelectedRows.Count == 1 )
             {
-
-
-                restar = int.Parse(dataGridView1.CurrentRow.Cells[3].ToString());
-                precioVenta = precioVenta - restar ;
+                int precioDescontar = int.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+                
+                precioVenta = precioVenta - precioDescontar;
                 lblValor.Text = precioVenta.ToString();
 
                 dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
-
-
 
             }
             else
@@ -159,6 +155,43 @@ namespace ventaVideojuegos.UsersControls
             precioVenta = 0;
             lblValor.Text = precioVenta.ToString();
             dataGridView1.Rows.Clear();
+        }
+
+        private void editarCant_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                FormVenta formEditVenta = new FormVenta();
+                DialogResult dialogResult = formEditVenta.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                {
+
+                     string editStockProdComprar = formEditVenta.cantStock.ToString();
+
+                    dataGridView1.SelectedRows[0].Cells[0].Value = SeleccionarProducto.NombreProdComprar.ToString();
+                    dataGridView1.SelectedRows[0].Cells[1].Value = SeleccionarProducto.PrecioProdComprar.ToString();
+                    dataGridView1.SelectedRows[0].Cells[2].Value = editStockProdComprar.ToString();
+                    precioParcial = int.Parse(editStockProdComprar) * int.Parse(SeleccionarProducto.PrecioProdComprar);
+                    dataGridView1.SelectedRows[0].Cells[3].Value = precioParcial.ToString();
+
+
+                    NombreProdComprar = SeleccionarProducto.NombreProdComprar.ToString();
+                    PrecioProdComprar = SeleccionarProducto.StockProdComprar.ToString();
+                    StockProdComprar = editStockProdComprar.ToString();
+
+                    precioVenta = precioVenta + precioParcial;
+
+                    lblValor.Text = precioVenta.ToString();
+
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar un producto editar", "Error", MessageBoxButtons.OK);
+            }
         }
     }
 }

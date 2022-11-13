@@ -69,9 +69,9 @@ namespace ventaVideojuegos
                         dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Consola.Nombre.ToString();
                         dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Conexion.ToString();
                         dataGridView1.Rows[rowIndex].Cells[6].Value = prod.ModoJuego.ToString();
-                        // Bitmap img;
-                        // img = new Bitmap("RUTA" + prod.Imagen + ".jpg");
-                        // dataGridView1.Rows[rowIndex].Cells[8].Value = img;
+                        Bitmap img;
+                        img = new Bitmap(prod.Imagen);
+                        dataGridView1.Rows[rowIndex].Cells[7].Value = img;
                     }
                     else
                     {

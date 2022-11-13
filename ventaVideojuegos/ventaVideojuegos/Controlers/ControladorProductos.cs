@@ -44,7 +44,7 @@ namespace ventaVideojuegos
                         Conexion = datos[6],
                         ModoJuego = datos[7],
                         Imagen = datos[8],
-                        Vista = bool.Parse(datos[9])
+                        Vista = bool.Parse(datos[9]),
                        
                     };
                     lastId = int.Parse(datos[0]);

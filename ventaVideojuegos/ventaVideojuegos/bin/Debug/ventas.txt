@@ -1,46 +1,32 @@
-1,tm,fr,Red Dead Redemption II,2500,1,2500
-2,Tomas,fjeewf,Red Dead Redemption II,2500,4,10000
-3,d,d,Spider-Man Remastered,4999,1,4999
-4,asd,sd,Spider-Man Remastered,4999,99,494901
-5,Yo,cliente comun,Mafia (Definitive Edition),259,4,10366,fff,cliente comun,Mafia (Definitive Edition),259,2,518
-6,ddd,asdd,Red Dead Redemption II,2500,2,5000
-7,root,cliente comun,Destyny 2,2499,1,2499
-8,root,cliente comun,Destyny 2,2499,1,2499
-9,root,cliente comun,Far Cry 5,2999,1,2999
-10,nombre,cliente comun,Call of Duty Modern Warfare II,6990,1,6990
-11,root,cliente comun,Far Cry 5,2999,2,5998
-12,root,consumidor final,Call of Duty Modern Warfare II,2,6990,13980
-12,root,consumidor final,Call of Duty Modern Warfare II,2,6990,13980
-12,root,consumidor final,Call of Duty Modern Warfare II,2,6990,13980
-13,root,consumidor final,Far Cry 5,0,0,0
-13,root,consumidor final,Fallout 4,0,0,0
-14,root,consumidor final,Fallout 4,799,10,7990
-14,root,consumidor final,TEKKEN 7,1990,10,19900
-15,root,consumidor final,Fallout 4,799,10,7990
-15,root,consumidor final,Destyny 2,2499,10,24990
-16,root,consumidor final,Call of Duty Black Ops III,990,100,99000
-16,root,consumidor final,Destyny 2,2499,20,49980
-17,root,consumidor final,Fallout 4,799,100,79900
-17,root,consumidor final,TEKKEN 7,1990,100,199000
-18,root,consumidor final,Destyny 2,2499,10,24990
-18,root,consumidor final,Call of Duty Modern Warfare II,6990,80,559200
-19,root,consumidor final,Mafia (Definitive Edition),259,10,2590
-19,root,consumidor final,Red Dead Redemption II,2500,10,25000
-20,root,consumidor final,The crew 2,2699,10,26990
-20,root,consumidor final,WWW 2K22,5999,10,59990
-21,root,consumidor final,TEKKEN 7,1990,1,1990
-21,root,consumidor final,Tropico 6,999,1,999
-22,root,consumidor final,Snow Runner,1500,10,15000
-22,root,consumidor final,F1 Manager 22,3500,10,35000
-23,root,consumidor final,Spider-Man Remastered,4999,10,49990
-23,root,consumidor final,Fallout 4,799,10,7990
-24,root,consumidor final,Tom Clancy´s Rainbow Six Siege,999,2,1998
-24,root,consumidor final,Red Dead Redemption II,2500,2,5000
-25,root,consumidor final,Far Cry 5,2999,1,2999
-25,root,consumidor final,Mafia (Definitive Edition),259,1,259
-26,nombre,consumidor final,Far Cry 5,2999,10,29990
-27,root,consumidor final,Spider-Man Remastered,4999,1,4999
-27,root,consumidor final,TEKKEN 7,1990,1,1990
-28,root,consumidor final,Far Cry 5,2999,1,2999
-28,root,consumidor final,Farthest Frontier,1200,1,1200
-29,root,consumidor final,Call of Duty Modern Warfare II,6990,1,6990
+1,root,consumidor final,Spider-Man Remastered,4999,2,9998,5/11/2022 00:00:00
+1,root,consumidor final,TEKKEN 7,1990,1,1990,5/11/2022 00:00:00
+2,root,consumidor final,Fallout 4,799,1,799,5/11/2022 22:09:32
+3,root,consumidor final,FIFA 23,11999,1,11999,5/11/2022 23:05:47
+3,root,consumidor final,NBA 2K23,9999,1,9999,5/11/2022 23:05:47
+3,root,consumidor final,Forza Horizon 4,2999,1,2999,5/11/2022 23:05:47
+3,root,consumidor final,RailWay Empire,700,1,700,5/11/2022 23:05:47
+3,root,consumidor final,Microsoft Flight Simulator Game Of the Year,4000,1,4000,5/11/2022 23:05:47
+3,root,consumidor final,Snow Runner,1500,1,1500,5/11/2022 23:05:47
+3,root,consumidor final,Stardew Valley,280,1,280,5/11/2022 23:05:47
+3,root,consumidor final,Tomb Raider,220,1,220,5/11/2022 23:05:47
+3,root,consumidor final,GTA V,2800,1,2800,5/11/2022 23:05:47
+3,root,consumidor final,Batman Arkham Knight,200,1,200,5/11/2022 23:05:47
+4,root,consumidor final,Far Cry 5,2999,4,11996,8/11/2022 16:47:22
+5,root,consumidor final,Call of Duty Modern Warfare II,6990,1,6990,9/11/2022 17:40:50
+6,root,consumidor final,Spider-Man Remastered,4999,1,4999,9/11/2022 20:34:42
+7,root,consumidor final,Spider-Man Remastered,4999,1,4999,9/11/2022 20:34:55
+8,root,consumidor final,Spider-Man Remastered,4999,1,4999,9/11/2022 20:35:07
+9,root,consumidor final,The sims 4,2100,1,2100,9/11/2022 20:35:23
+10,root,consumidor final,Destiny 2,2499,10,24990,9/11/2022 21:00:54
+11,root,consumidor final,F1 22,6000,20,120000,9/11/2022 21:02:03
+12,root,consumidor final,Call of Duty Black Ops III,990,10,9900,9/11/2022 21:02:38
+13,root,asd,Fallout 4,799,1,799,9/11/2022 22:19:10
+14,root1,franco,Fallout 4,799,2,1598,9/11/2022 23:15:47
+15,root2,tomas,UFC 4,7900,3,23700,9/11/2022 23:16:08
+16,root2,rodrigo,Captain TSUBASA,2599,3,7797,9/11/2022 23:16:30
+17,root,franco,Fallout 4,799,1,799,10/11/2022 16:44:37
+18,root1,franco,Fallout 4,799,1,799,12/11/2022 19:28:00
+19,,consumidor final,Call of Duty Modern Warfare II,6990,1,6990,12/11/2022 19:38:12
+20,root1,consumidor final,Tom Clancy´s Rainbow Six Siege,999,1,999,12/11/2022 19:40:22
+21,root,consumidor final,WWE 2K22,5999,2,11998,12/11/2022 19:41:35
+22,root,consumidor final,Tom Clancy´s Rainbow Six Siege,999,1,999,12/11/2022 19:45:42

@@ -25,6 +25,7 @@ namespace ventaVideojuegos
             llenarBoxConsola();
             llenarBoxEstado();
             boxEstado.Text = "True";
+       
         }
 
         public FormProducto(Producto prod)
@@ -42,6 +43,7 @@ namespace ventaVideojuegos
             boxConsola.SelectedItem = prod.Consola.Nombre.ToString();
             txtModoJuego.Text = prod.ModoJuego.ToString();
             boxEstado.Text = prod.Vista.ToString();
+
 
         }
 
@@ -99,6 +101,8 @@ namespace ventaVideojuegos
             errConsola.Text = "";
             errCategoria.Text = "";
             errConexion.Text = "";
+            errImg.Text = "";
+            errFormatoImg.Text = "";
             errMDJ.Text = "";
 
             errNombre.Hide();
@@ -107,6 +111,8 @@ namespace ventaVideojuegos
             errConsola.Hide();
             errCategoria.Hide();
             errConexion.Hide();
+            errImg.Hide();
+            errFormatoImg.Hide();
             errMDJ.Hide();
 
         }
@@ -191,8 +197,30 @@ namespace ventaVideojuegos
             else
             {
                 errConexion.Hide();
-            }   
-
+            } 
+            if (string.IsNullOrEmpty(txtImagen.Text))
+            {
+                string error = "Debe ingresar una imagen";
+                errImg.Text = error;
+                errImg.Show();
+                errorMsg = false;
+            }
+            else
+            {
+                errImg.Hide();
+            }
+            if (txtImagen.Text.Contains("png") == false)
+            {
+                string error = "Formato de imagen erroneo";
+                errFormatoImg.Text = error;
+                errFormatoImg.Show();
+                errorMsg = false;
+            }
+            else
+            {
+                errFormatoImg.Hide();
+            }
+             
             return errorMsg;
         }
 
@@ -236,6 +264,15 @@ namespace ventaVideojuegos
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
+        }
+        public string getRuta()
+        {
+            return filePath;
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+
             var fileContent = string.Empty;
             //var filePath = string.Empty;
             var fileName = string.Empty;
@@ -263,39 +300,16 @@ namespace ventaVideojuegos
                     }
                 }
             }
-
-
-
-
-            //string source = filePath;
-
-            //string test = @"Videos_Desktop\";
-
-            //Console.WriteLine(filePath);
-            //Console.WriteLine(fileName);
-
-            // Replace one substring with another with String.Replace.
-            // Only exact matches are supported.
-
-            //var replacement = source.Replace(@"Videos_Desktop\", "Videos_Desktop&&");
-            //Console.WriteLine(replacement);
-
-            //String argumentos = $"/C cd {replacement} && ffmpeg -i {fileName} -r 1/1 ImagenPorFrame.bmp";
-            //Console.WriteLine(argumento);
-            //System.Diagnostics.Process process = new System.Diagnostics.Process();
-            //System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            //startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
-            //startInfo.FileName = "cmd.exe";
-            //startInfo.Arguments = argumentos;
-            //startInfo.Arguments = "/C notepad";
-            //process.StartInfo = startInfo;
-            //process.Start();
-
         }
-        public string getRuta()
+
+        private void boxCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            return filePath;
+
         }
 
+        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

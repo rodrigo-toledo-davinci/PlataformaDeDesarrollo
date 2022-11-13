@@ -136,6 +136,8 @@ namespace ventaVideojuegos
                 string usuario = archivo.ReadLine();
                 string[] datos = usuario.Split(',');
 
+
+
                 if (datos[1].Equals(boxEmpleados.Text) && datos[2] != txtPw.Text)
                 {
                     string error = "Contraseña incorrecta";
@@ -148,11 +150,10 @@ namespace ventaVideojuegos
                     errPw.Hide();
                 }
 
+                
+
             }
-
-
-
-
+            archivo.Close();
             return errorMsg;
         }
 

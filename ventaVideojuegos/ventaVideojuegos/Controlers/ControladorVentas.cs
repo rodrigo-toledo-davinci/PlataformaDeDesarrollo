@@ -38,6 +38,7 @@ namespace ventaVideojuegos.Controlers
                         precioProducto = int.Parse(datos[4]),
                         cantidadProducto = int.Parse(datos[5]),
                         valorTotal = int.Parse(datos[6]),
+                        DateTime = DateTime.Parse(datos[7])
                     };
                     Ventas.Add(vta);
                     lastId= int.Parse(datos[0]);
@@ -58,7 +59,7 @@ namespace ventaVideojuegos.Controlers
         private static void GuardarEnMemoria(Venta vta)
         {
             StreamWriter archivo = new StreamWriter("ventas.txt", true);
-            archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.precioProducto + "," + vta.cantidadProducto + "," + vta.valorTotal);
+            archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.precioProducto + "," + vta.cantidadProducto + "," + vta.valorTotal + "," + vta.DateTime);
             archivo.Close();
         }
 
@@ -67,7 +68,7 @@ namespace ventaVideojuegos.Controlers
             StreamWriter archivo = new StreamWriter("vemtas.txt");
             foreach (Venta vta in Ventas)
             {
-                archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.precioProducto + "," + vta.cantidadProducto  + "," + vta.valorTotal);
+                archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.precioProducto + "," + vta.cantidadProducto  + "," + vta.valorTotal + "," + vta.DateTime);
             }
             archivo.Close();
         }
@@ -97,6 +98,7 @@ namespace ventaVideojuegos.Controlers
                             string precioproducto = archivo.ReadLine();
                             string cantidadproducto = archivo.ReadLine();
                             string valortotal = archivo.ReadLine();
+                            string datetime = archivo.ReadLine();
 
 
                             Venta vta = new Venta()
@@ -108,6 +110,7 @@ namespace ventaVideojuegos.Controlers
                                 precioProducto = int.Parse(precioproducto),
                                 cantidadProducto = int.Parse(cantidadproducto),
                                 valorTotal = int.Parse(valortotal),
+                                DateTime = DateTime.Parse(datetime),
 
 
                             };

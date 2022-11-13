@@ -14,7 +14,7 @@ namespace ventaVideojuegos.Modelo
         public string nombreProducto { get; set; }
         public int precioProducto { get; set; }
         public int cantidadProducto { get; set; }
-        
         public int valorTotal { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

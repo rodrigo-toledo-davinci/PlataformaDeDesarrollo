@@ -35,6 +35,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAñadir = new System.Windows.Forms.Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -43,10 +47,7 @@
             this.btnQuitarProducto = new System.Windows.Forms.Button();
             this.btnVaciarCarrito = new System.Windows.Forms.Button();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editarCant = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -100,12 +101,33 @@
             this.dataGridView1.Size = new System.Drawing.Size(604, 206);
             this.dataGridView1.TabIndex = 32;
             // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.Width = 120;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Valor Total";
+            this.Total.Name = "Total";
+            // 
             // btnAñadir
             // 
             this.btnAñadir.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnAñadir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAñadir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAñadir.Location = new System.Drawing.Point(289, 66);
+            this.btnAñadir.Location = new System.Drawing.Point(395, 66);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(100, 26);
             this.btnAñadir.TabIndex = 33;
@@ -164,7 +186,7 @@
             this.btnQuitarProducto.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnQuitarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQuitarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnQuitarProducto.Location = new System.Drawing.Point(406, 66);
+            this.btnQuitarProducto.Location = new System.Drawing.Point(395, 310);
             this.btnQuitarProducto.Name = "btnQuitarProducto";
             this.btnQuitarProducto.Size = new System.Drawing.Size(100, 26);
             this.btnQuitarProducto.TabIndex = 38;
@@ -177,7 +199,7 @@
             this.btnVaciarCarrito.BackColor = System.Drawing.SystemColors.HighlightText;
             this.btnVaciarCarrito.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVaciarCarrito.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnVaciarCarrito.Location = new System.Drawing.Point(523, 66);
+            this.btnVaciarCarrito.Location = new System.Drawing.Point(501, 310);
             this.btnVaciarCarrito.Name = "btnVaciarCarrito";
             this.btnVaciarCarrito.Size = new System.Drawing.Size(100, 26);
             this.btnVaciarCarrito.TabIndex = 39;
@@ -189,32 +211,25 @@
             // 
             this.productoBindingSource.DataSource = typeof(ventaVideojuegos.Modelo.Producto);
             // 
-            // Producto
+            // editarCant
             // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.Width = 120;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Valor Total";
-            this.Total.Name = "Total";
+            this.editarCant.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.editarCant.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editarCant.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.editarCant.Location = new System.Drawing.Point(501, 66);
+            this.editarCant.Name = "editarCant";
+            this.editarCant.Size = new System.Drawing.Size(100, 26);
+            this.editarCant.TabIndex = 40;
+            this.editarCant.Text = "Editar cantidad";
+            this.editarCant.UseVisualStyleBackColor = false;
+            this.editarCant.Click += new System.EventHandler(this.editarCant_Click);
             // 
             // UC_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Controls.Add(this.editarCant);
             this.Controls.Add(this.btnVaciarCarrito);
             this.Controls.Add(this.btnQuitarProducto);
             this.Controls.Add(this.btnFinalizarCompra);
@@ -247,5 +262,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Button editarCant;
     }
 }

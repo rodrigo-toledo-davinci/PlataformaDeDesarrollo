@@ -21,6 +21,17 @@ namespace ventaVideojuegos.UsersControls
         private List<Producto> Productos_Filtrado = new List<Producto>();
         private List<Producto> Productos_Paginados = new List<Producto>();
 
+        private List<Venta> Ventas_Completas = new List<Venta>();
+        private List<Venta> Ventas_Paginadas = new List<Venta>();
+
+        private static int current_v = 0;
+        private static int paginador_v = 10;
+        private static int total_v = 0;
+        private static int last_pag_v = 0;
+        private static int current_pag_v= 1;
+      
+
+
         private static int current = 0;
         private static int paginador = 10;
         private static int total = 0;
@@ -37,23 +48,28 @@ namespace ventaVideojuegos.UsersControls
             ControladorClientes.IniciarRepositorio();
             controladorUsuarios.IniciarRepositorio();
 
+            Ventas_Completas = ControladorVentas.Ventas;
+            Ventas_Paginadas = ControladorVentas.Ventas;
+
             Productos_Completo = ControladorProductos.Productos;
             Productos_Filtrado = ControladorProductos.Productos;
 
             total = Productos_Completo.Count();
+            total_v = Ventas_Completas.Count();
 
             paginar(Productos_Completo);
+            paginar_v(Ventas_Completas);
 
             last_pag = total / paginador;
+            last_pag_v = total_v / paginador_v;
+
             llenarCombos();
             VisualizarCategorias();
             VisualizarConsolas();
-            VisualizarVentas();
             VisualizarClientes();
             VisualizarEmpleados();
 
 
-          //  VisualizarProductos(Productos_Completo);
         }
 
         public void VisualizarEmpleados()
@@ -90,7 +106,7 @@ namespace ventaVideojuegos.UsersControls
 
             }
         }
-        private void VisualizarVentas()
+        private void VisualizarVentas(List<Venta> listaVta)
         {
             dataGridViewCVentas.Rows.Clear();
             foreach (Venta vta in ControladorVentas.Ventas)
@@ -104,6 +120,8 @@ namespace ventaVideojuegos.UsersControls
                 dataGridViewCVentas.Rows[rowIndex].Cells[4].Value = vta.precioProducto.ToString();
                 dataGridViewCVentas.Rows[rowIndex].Cells[5].Value = vta.cantidadProducto.ToString();
                 dataGridViewCVentas.Rows[rowIndex].Cells[6].Value = vta.valorTotal.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[7].Value = vta.DateTime.ToString();
+
 
 
             }
@@ -129,10 +147,10 @@ namespace ventaVideojuegos.UsersControls
                     dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
                     dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
-                    //Bitmap img;
-                    //img = new Bitmap(prod.Imagen);
-                    //dataGridView1.Rows[rowIndex].Cells[8].Value = img;
-                    dataGridView1.Rows[rowIndex].Cells[8].Value = prod.Vista.ToString();
+                    Bitmap img;
+                    img = new Bitmap(prod.Imagen);
+                    dataGridView1.Rows[rowIndex].Cells[8].Value = img; 
+                    dataGridView1.Rows[rowIndex].Cells[9].Value = prod.Vista.ToString();
 
                 }
 
@@ -148,10 +166,10 @@ namespace ventaVideojuegos.UsersControls
                     dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
                     dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
-                    //Bitmap img;
-                    //img = new Bitmap(prod.Imagen);
-                    //dataGridView1.Rows[rowIndex].Cells[8].Value = img;
-                    dataGridView1.Rows[rowIndex].Cells[8].Value = prod.Vista.ToString();
+                    Bitmap img;
+                    img = new Bitmap(prod.Imagen);
+                    dataGridView1.Rows[rowIndex].Cells[8].Value = img; 
+                    dataGridView1.Rows[rowIndex].Cells[9].Value = prod.Vista.ToString();
                 }
 
             }
@@ -214,7 +232,6 @@ namespace ventaVideojuegos.UsersControls
 
             vaciarCombos();
             llenarCombos();
-            //   VisualizarProductos();
         }
 
         private void btnNuevaCon_Click(object sender, EventArgs e)
@@ -227,7 +244,6 @@ namespace ventaVideojuegos.UsersControls
                 ControladorConsola.AñadirConsola(conForm.consolaNueva);
                 VisualizarCategorias();
                 VisualizarConsolas();
-                //   VisualizarProductos();
 
                 vaciarCombos();
                 llenarCombos();
@@ -240,11 +256,13 @@ namespace ventaVideojuegos.UsersControls
             {
                 string idCatEditar = dataGridViewCat.SelectedRows[0].Cells[0].Value.ToString();
                 string nombreCatEditar = dataGridViewCat.SelectedRows[0].Cells[1].Value.ToString();
+                string vistaCatEditar = dataGridViewCat.SelectedRows[0].Cells[2].Value.ToString();
 
                 Categoria catEditar = new Categoria()
                 {
                     Id = int.Parse(idCatEditar),
-                    Nombre = nombreCatEditar
+                    Nombre = nombreCatEditar,
+                    Vista = bool.Parse(vistaCatEditar)
                 };
 
                 FormCategoria formCategoria = new FormCategoria(catEditar);
@@ -258,7 +276,7 @@ namespace ventaVideojuegos.UsersControls
 
                     vaciarCombos();
                     llenarCombos();
-                   // VisualizarProductos(Productos_Complet);
+                    VisualizarProductos(Productos_Completo);
                 }
             }
             else
@@ -314,6 +332,8 @@ namespace ventaVideojuegos.UsersControls
 
                 vaciarCombos();
                 llenarCombos();
+
+                VisualizarProductos(Productos_Completo);
             }
             else
             {
@@ -417,16 +437,36 @@ namespace ventaVideojuegos.UsersControls
             }
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null)
+            {
+                
+                filtro.Vista = bool.Parse(comboBox1.Text);
+                filtrar();
+            }
+        }
+
         private void llenarCombos()
         {
             List<Categoria> listCat = new List<Categoria>();
             listCat = ControladorCategorias.Categorias.Where(x => x.Id != 0).ToList();
             llenarBoxCategorias(listCat);
+
             List<Consola> listCon = new List<Consola>();
             listCon = ControladorConsola.Consolas.Where(x => x.Id != 0).ToList();
-
             llenarBoxConsolas(listCon);
+
+
             llenarBoxPaginacion();
+            llenarBoxEstado();
+           // llenarBoxPaginacion_v();
+        }
+
+        private void llenarBoxEstado()
+        {
+            comboBox1.Items.Add("True");
+            comboBox1.Items.Add("False");
         }
 
         private void vaciarCombos()
@@ -444,6 +484,17 @@ namespace ventaVideojuegos.UsersControls
             boxPaginacion.Items.Add("50");
             boxPaginacion.SelectedItem = "10";
         }
+
+        private void llenarBoxPaginacion_v()
+        {
+            BoxPaginacion_v.Items.Add("10");
+            BoxPaginacion_v.Items.Add("20");
+            BoxPaginacion_v.Items.Add("30");
+            BoxPaginacion_v.Items.Add("40");
+            BoxPaginacion_v.Items.Add("50");
+            BoxPaginacion_v.SelectedItem = "10";
+        }
+       
 
         private void paginar(List<Producto> prodMostrar)
         {
@@ -581,6 +632,11 @@ namespace ventaVideojuegos.UsersControls
                 Productos_Filtrado = Productos_Filtrado.Where(x => x.Consola == filtro.Consola).ToList();
                 
             }
+
+            if(filtro.Vista != null)
+            {
+                Productos_Filtrado = Productos_Filtrado.Where(x => x.Vista == filtro.Vista).ToList();
+            }
  
             total = Productos_Filtrado.Count();
             last_pag = (total / paginador) + 1;
@@ -598,6 +654,7 @@ namespace ventaVideojuegos.UsersControls
             boxCategorias.SelectedItem = null;
             boxConsolas.SelectedItem = null;
             filtroNombre.Text = null;
+            comboBox1.Text = null;
             
             filtro.Nombre = null;
             filtro.Categoria = null;
@@ -694,5 +751,88 @@ namespace ventaVideojuegos.UsersControls
                 MessageBox.Show("Debes seleccionar un producto para Eliminar", "Error", MessageBoxButtons.OK);
             }
         }
+
+        private void prim_pag_Click(object sender, EventArgs e)
+        {
+            current_v = 0;
+            current_pag_v = 1;
+            paginar_v(Ventas_Completas);
+            btn_actual_page.Text = current_pag.ToString();
+        }
+
+        private void ant_pag_Click(object sender, EventArgs e)
+        {
+            current_v = current_v - paginador_v;
+            current_pag_v = (current_pag_v - 1);
+            ac_pag.Text = current_pag_v.ToString();
+            paginar_v(Ventas_Completas);
+        }
+
+        private void prox_pag_Click(object sender, EventArgs e)
+        {
+            current_v = current_v + paginador_v;
+            current_pag_v = (current_pag_v + 1);
+            ac_pag.Text = current_pag_v.ToString();
+            paginar_v(Ventas_Completas);
+        }
+
+        private void fin_pag_Click(object sender, EventArgs e)
+        {
+            current_v = last_pag_v + paginador_v;
+            current_pag_v = last_pag_v;
+            ac_pag.Text = current_pag_v.ToString();
+            paginar_v(Ventas_Completas);
+        }
+
+        private void paginar_v(List<Venta> ventaMostrar)
+        {
+            Ventas_Paginadas = ventaMostrar.Skip(current_v).Take(paginador_v).ToList();
+            VisualizarVentas(Ventas_Paginadas);
+
+            label2.Text = "Mostrando " + (current_v + 1) + " - " + (current_v + paginador_v) + "de " + total_v;
+
+
+            if (current_pag_v == 1)
+            {
+                prim_pag.Hide();
+                ant_pag.Hide();
+
+            }
+            else
+            {
+                prim_pag.Show();
+                prim_pag.Text = "1";
+                ant_pag.Show();
+                ant_pag.Text = (current_pag_v - 1).ToString();
+            }
+
+            if (current_pag_v == last_pag_v)
+            {
+                fin_pag.Hide();
+                prox_pag.Hide();
+            }
+            else
+            {
+                fin_pag.Show();
+                prox_pag.Show();
+            }
+
+            if (prim_pag.Text == ant_pag.Text)
+            {
+                prim_pag.Hide();
+            }
+
+            if (fin_pag.Text == prox_pag.Text)
+            {
+                fin_pag.Hide();
+            }
+
+            prox_pag.Text = (current_pag_v + 1).ToString();
+            ant_pag.Text = (current_pag_v - 1).ToString();
+            ac_pag.Text = (current_pag_v).ToString();
+
+        }
+     
+
     }
 }
