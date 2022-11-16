@@ -30,3 +30,5 @@
 20,root1,consumidor final,Tom Clancy´s Rainbow Six Siege,999,1,999,12/11/2022 19:40:22
 21,root,consumidor final,WWE 2K22,5999,2,11998,12/11/2022 19:41:35
 22,root,consumidor final,Tom Clancy´s Rainbow Six Siege,999,1,999,12/11/2022 19:45:42
+23,root,franco,Fallout 4,799,2,1598,15/11/2022 22:59:32
+24,root,consumidor final,Tropico 6,999,30,29970,15/11/2022 23:02:09
