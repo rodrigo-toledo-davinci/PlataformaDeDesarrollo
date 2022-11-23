@@ -408,5 +408,3 @@ C:\Users\franc\OneDrive\Escritorio\DP\TP-GIT GRUPAL\TP_PlatDeDesarrollo_Escritor
 C:\Users\franc\OneDrive\Escritorio\DP\TP-GIT GRUPAL\TP_PlatDeDesarrollo_Escritorio\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.csproj.CopyComplete
 C:\Users\franc\OneDrive\Escritorio\DP\TP-GIT GRUPAL\TP_PlatDeDesarrollo_Escritorio\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.exe
 C:\Users\franc\OneDrive\Escritorio\DP\TP-GIT GRUPAL\TP_PlatDeDesarrollo_Escritorio\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.pdb
-C:\Users\franc\OneDrive\Escritorio\DP\TP MI GIT\PlataformasDeDesarrollo\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.FormValidarVenta.resources
-C:\Users\franc\OneDrive\Escritorio\DP\TP MI GIT\PlataformasDeDesarrollo\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.SeleccionarProducto.resources

@@ -30,5 +30,6 @@
 20,root1,consumidor final,Tom Clancy´s Rainbow Six Siege,999,1,999,12/11/2022 19:40:22
 21,root,consumidor final,WWE 2K22,5999,2,11998,12/11/2022 19:41:35
 22,root,consumidor final,Tom Clancy´s Rainbow Six Siege,999,1,999,12/11/2022 19:45:42
-23,root,franco,Fallout 4,799,2,1598,15/11/2022 22:59:32
-24,root,consumidor final,Tropico 6,999,30,29970,15/11/2022 23:02:09
+23,root,consumidor final,Call of Duty Modern Warfare II,6990,1,6990,23/11/2022 19:00:18
+24,root,consumidor final,Spider-Man Remastered,4999,1,4999,23/11/2022 19:08:52
+25,root1,consumidor final,Fallout 4,799,1,799,23/11/2022 19:27:03

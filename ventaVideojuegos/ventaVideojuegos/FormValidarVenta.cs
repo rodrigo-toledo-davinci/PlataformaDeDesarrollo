@@ -118,46 +118,40 @@ namespace ventaVideojuegos
         {
             errorMsg = true;
 
-            if(string.IsNullOrEmpty(boxEmpleados.Text))
+            if (string.IsNullOrEmpty(boxEmpleados.Text))
             {
                 string error = "Debe seleccionar el vendedor";
                 errEmpleado.Text = error;
                 errEmpleado.Show();
-                errorMsg = false; 
+                errorMsg = false;
             }
             else
             {
                 errEmpleado.Hide();
-            }
 
-            StreamReader archivo = new StreamReader("usuarios.txt");
-            while (!archivo.EndOfStream)
-            {
-                string usuario = archivo.ReadLine();
-                string[] datos = usuario.Split(',');
-
-
-
-                if (datos[1].Equals(boxEmpleados.Text) && datos[2] != txtPw.Text)
+                foreach (Usuario usr in controladorUsuarios.Usuarios)
                 {
-                    string error = "Contraseña incorrecta";
-                    errPw.Text = error;
-                    errPw.Show();
-                    errorMsg = false;
-                }
-                else
-                {
-                    errPw.Hide();
+
+
+                    if (usr.Nombre.Equals(boxEmpleados.SelectedItem.ToString()) && usr.Contrasena != txtPw.Text)
+                    {
+                        string error = "Contraseña incorrecta";
+                        errPw.Text = error;
+                        errPw.Show();
+                        errorMsg = false;
+
+                    }
+                    else
+                    {
+                        errPw.Hide();
+                    }
+
                 }
 
                 
-
             }
-            archivo.Close();
             return errorMsg;
         }
-
-
 
     }
 }

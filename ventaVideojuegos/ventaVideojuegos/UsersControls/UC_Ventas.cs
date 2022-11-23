@@ -126,6 +126,8 @@ namespace ventaVideojuegos.UsersControls
                auxiliar.Stock = auxiliar.Stock - cantStock;
                ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
            }
+           //auxiliar.Stock = auxiliar.Stock - cantStock;
+           //ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
 
        }
 
@@ -161,14 +163,12 @@ namespace ventaVideojuegos.UsersControls
             {
                 FormVenta formEditVenta = new FormVenta();
                 DialogResult dialogResult = formEditVenta.ShowDialog();
-
                 int precioVtaAnterior = int.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
-
 
                 if (dialogResult == DialogResult.OK)
                 {
 
-                    string editStockProdComprar = formEditVenta.cantStock.ToString();
+                     string editStockProdComprar = formEditVenta.cantStock.ToString();
 
                     dataGridView1.SelectedRows[0].Cells[0].Value = SeleccionarProducto.NombreProdComprar.ToString();
                     dataGridView1.SelectedRows[0].Cells[1].Value = SeleccionarProducto.PrecioProdComprar.ToString();
