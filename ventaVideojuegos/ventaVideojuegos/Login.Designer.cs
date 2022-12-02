@@ -89,7 +89,7 @@
             this.errLogin.BackColor = System.Drawing.Color.Transparent;
             this.errLogin.Font = new System.Drawing.Font("Open Sans Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errLogin.ForeColor = System.Drawing.Color.Red;
-            this.errLogin.Location = new System.Drawing.Point(25, 184);
+            this.errLogin.Location = new System.Drawing.Point(93, 190);
             this.errLogin.Name = "errLogin";
             this.errLogin.Size = new System.Drawing.Size(142, 20);
             this.errLogin.TabIndex = 10;

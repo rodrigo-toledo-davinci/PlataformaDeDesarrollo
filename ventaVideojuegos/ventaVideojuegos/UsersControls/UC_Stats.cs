@@ -40,6 +40,8 @@ namespace ventaVideojuegos.UsersControls
             txtMasStock.Text = "";
             txtMasVendido.Text = "";
             txtProdCatalogo.Text = "";
+            lblcantStockMax.Text = "";
+            lblcantVentasMax.Text = "";
 
 
 
@@ -82,6 +84,7 @@ namespace ventaVideojuegos.UsersControls
             }
 
             txtMasStock.Text = nombreProd;
+            lblcantStockMax.Text = "(" + mayor.ToString() + ")";
         }
 
         private void calcularMasVendido()
@@ -107,6 +110,7 @@ namespace ventaVideojuegos.UsersControls
                                 vtasMax = vtaTotales;
                                 nombreProd = prod.Nombre;
                                 vtaTotales = 0;
+                                
                             }
                             else
                             {
@@ -118,6 +122,7 @@ namespace ventaVideojuegos.UsersControls
             }
 
             txtMasVendido.Text = nombreProd;
+            lblcantVentasMax.Text = "(" + vtasMax + ")";
         }
 
         private void calcularRecaudacion()

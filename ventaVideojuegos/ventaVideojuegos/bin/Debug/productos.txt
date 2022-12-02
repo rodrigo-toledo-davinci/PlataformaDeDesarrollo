@@ -1,17 +1,17 @@
 1,Mafia (Definitive Edition),259,80,2,1,Online,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\mafia.png,False
-2,Red Dead Redemption II,2500,68,2,1,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\reddeadredemption2.png,True
+2,Red Dead Redemption II,2500,66,2,1,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\reddeadredemption2.png,True
 3,Spider-Man Remastered,4999,33,2,2,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\spiderman.png,True
 4,Far Cry 5,2999,82,2,5,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\farcry5.png,True
 5,Fallout 4,799,90,2,3,Online,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\fallout4.png,True
 6,Call of Duty Modern Warfare II,6990,7,2,4,Online,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\modernwarfare2.png,True
 7,TEKKEN 7,1990,97,2,5,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\tekken7.png,True
 8,Call of Duty Black Ops III,990,99,2,1,Online,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\blackops3.png,False
-9,Destiny 2,2499,95,2,5,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\destiny2.png,True
+9,Destiny 2,2499,92,2,5,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\destiny2.png,True
 10,Tom Clancy´s Rainbow Six Siege,999,98,2,3,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\rainbowsix.png,True
 11,FIFA 23,11999,80,3,2,Online,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\fifa23.png,True
 12,NBA 2K23,9999,100,3,4,Online,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\nba23.png,True
 13,Forza Horizon 4,2999,100,3,5,Offline,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\forzahorizon4.png,True
-14,MADDEN NFL 23,6400,100,3,1,Online,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\madden23.png,True
+14,MADDEN NFL 23,6400,70,3,1,Online,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\madden23.png,True
 15,F1 22,6000,100,3,2,Online,Un jugador,C:\Users\franc\OneDrive\Escritorio\Imgs\f122.png,True
 16,WWE 2K22,5999,90,3,3,Offline,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\wwe22.png,True
 17,UFC 4,7900,100,3,1,Offline,Multijugador,C:\Users\franc\OneDrive\Escritorio\Imgs\ufc4.png,True

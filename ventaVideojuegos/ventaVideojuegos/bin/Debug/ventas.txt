@@ -55,3 +55,6 @@
 38,root,consumidor final,Spider-Man Remastered,4999,1,4999,1/12/2022 00:34:11
 39,root,consumidor final,Far Cry 5,2999,1,2999,2/12/2022 00:38:16
 39,root,consumidor final,Call of Duty Black Ops III,990,1,990,2/12/2022 00:38:16
+40,root,franco,Red Dead Redemption II,2500,2,5000,2/12/2022 16:14:06
+40,root,franco,Destiny 2,2499,3,7497,2/12/2022 16:14:06
+41,root,consumidor final,MADDEN NFL 23,6400,30,192000,2/12/2022 16:22:23

@@ -517,3 +517,7 @@ C:\Users\franc\OneDrive\Escritorio\DP\TP-GIT-RODRIGO\PlataformaDeDesarrollo\vent
 C:\Users\franc\OneDrive\Escritorio\DP\TP-GIT-RODRIGO\PlataformaDeDesarrollo\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.exe
 C:\Users\franc\OneDrive\Escritorio\DP\TP-GIT-RODRIGO\PlataformaDeDesarrollo\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.pdb
 C:\Users\franc\OneDrive\Escritorio\DP\TP-GIT-RODRIGO\PlataformaDeDesarrollo\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.VerDetalles.resources
+C:\Users\franc\OneDrive\Escritorio\DP\TP MI GIT\PlataformasDeDesarrollo\ventaVideojuegos\ventaVideojuegos\bin\Debug\iTextSharp.dll
+C:\Users\franc\OneDrive\Escritorio\DP\TP MI GIT\PlataformasDeDesarrollo\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.FormValidarVenta.resources
+C:\Users\franc\OneDrive\Escritorio\DP\TP MI GIT\PlataformasDeDesarrollo\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.SeleccionarProducto.resources
+C:\Users\franc\OneDrive\Escritorio\DP\TP MI GIT\PlataformasDeDesarrollo\ventaVideojuegos\ventaVideojuegos\obj\Debug\ventaVideojuegos.VerDetalles.resources
