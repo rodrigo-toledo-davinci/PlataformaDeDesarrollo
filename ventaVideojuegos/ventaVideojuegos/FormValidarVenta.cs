@@ -89,10 +89,6 @@ namespace ventaVideojuegos
             lblPw.Show();
         }
 
-        private void txtPw_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void boxEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {

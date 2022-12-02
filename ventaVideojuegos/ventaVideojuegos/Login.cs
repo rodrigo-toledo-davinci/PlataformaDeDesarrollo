@@ -10,13 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using ventaVideojuegos;
+using ventaVideojuegos.Modelo;
 
 namespace ventaVideojuegos
 {
     public partial class Login : Form
     {
+        
 
-        private string usuario = "";
+        public static string usuario = "";
         public Login()
         {
 
@@ -58,6 +60,7 @@ namespace ventaVideojuegos
 
                         if (datos[1].Equals(txtUsuarioLogin.Text) && datos[2].Equals(txtContrasenaLogin.Text))
                         {
+                            usuario = txtUsuarioLogin.Text;
                             valido = true;
 
 
@@ -101,9 +104,24 @@ namespace ventaVideojuegos
         private bool ValidarUsuario(out bool errorMsg)
         {
             errorMsg = true;
-            if (string.IsNullOrEmpty(txtUsuarioLogin.Text))
+
+            if (string.IsNullOrEmpty(txtUsuarioLogin.Text) && string.IsNullOrEmpty(txtContrasenaLogin.Text))
+            {
+                string error = "Debe ingresar usuario y contraseña";
+                errLogin.Text = error;
+                errLogin.Show();
+                errorMsg = false;
+            }
+            else if (string.IsNullOrEmpty(txtUsuarioLogin.Text))
             {
                 string error = "Debe ingresar el usuario";
+                errLogin.Text = error;
+                errLogin.Show();
+                errorMsg = false;
+            }
+            else if (string.IsNullOrEmpty(txtContrasenaLogin.Text))
+            {
+                string error = "Debe ingresar la contraseña";
                 errLogin.Text = error;
                 errLogin.Show();
                 errorMsg = false;
@@ -113,8 +131,17 @@ namespace ventaVideojuegos
                 errLogin.Hide();
             }
 
-
-
+            /*if (txtContrasenaLogin.Text)
+            {
+                string error = "Debe ingresar el usuario";
+                errLogin.Text = error;
+                errLogin.Show();
+                errorMsg = false;
+            }
+            else
+            {
+                errLogin.Hide();
+            }*/
 
 
             return errorMsg;

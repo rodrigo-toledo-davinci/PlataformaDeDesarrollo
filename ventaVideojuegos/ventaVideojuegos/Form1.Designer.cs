@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Panel = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txtNombreUsuario = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ImageCheckBox1 = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnStats = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnVentas = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.btnInicio = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnAdmin = new Guna.UI2.WinForms.Guna2GradientButton();
             this.panelContainer = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel
@@ -52,8 +52,7 @@
             this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel.BorderColor = System.Drawing.Color.Aqua;
             this.Panel.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
-            this.Panel.Controls.Add(this.guna2GradientButton4);
-            this.Panel.Controls.Add(this.txtNombreUsuario);
+            this.Panel.Controls.Add(this.pictureBox1);
             this.Panel.Controls.Add(this.guna2ImageCheckBox1);
             this.Panel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Panel.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
@@ -66,28 +65,6 @@
             this.Panel.Size = new System.Drawing.Size(911, 125);
             this.Panel.TabIndex = 5;
             // 
-            // guna2GradientButton4
-            // 
-            this.guna2GradientButton4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton4.FillColor2 = System.Drawing.Color.Transparent;
-            this.guna2GradientButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton4.ForeColor = System.Drawing.Color.Black;
-            this.guna2GradientButton4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientButton4.Location = new System.Drawing.Point(775, 28);
-            this.guna2GradientButton4.Name = "guna2GradientButton4";
-            this.guna2GradientButton4.Size = new System.Drawing.Size(118, 24);
-            this.guna2GradientButton4.TabIndex = 4;
-            this.guna2GradientButton4.Text = "Cerrar sesion";
-            this.guna2GradientButton4.UseTransparentBackground = true;
-            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click);
-            // 
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -95,13 +72,12 @@
             this.txtNombreUsuario.BackColor = System.Drawing.Color.Transparent;
             this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(544, 31);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(737, 13);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(162, 32);
             this.txtNombreUsuario.TabIndex = 2;
             this.txtNombreUsuario.Text = "Grupo 4";
             this.txtNombreUsuario.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtNombreUsuario.Click += new System.EventHandler(this.txtNombreUsuario_Click);
             // 
             // guna2ImageCheckBox1
             // 
@@ -126,8 +102,8 @@
             this.guna2GradientPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
             this.guna2GradientPanel1.Controls.Add(this.btnStats);
+            this.guna2GradientPanel1.Controls.Add(this.txtNombreUsuario);
             this.guna2GradientPanel1.Controls.Add(this.btnVentas);
-            this.guna2GradientPanel1.Controls.Add(this.btnInicio);
             this.guna2GradientPanel1.Controls.Add(this.btnAdmin);
             this.guna2GradientPanel1.CustomBorderColor = System.Drawing.Color.White;
             this.guna2GradientPanel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 2);
@@ -154,7 +130,7 @@
             this.btnStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStats.ForeColor = System.Drawing.Color.Black;
             this.btnStats.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnStats.Location = new System.Drawing.Point(325, 0);
+            this.btnStats.Location = new System.Drawing.Point(212, 3);
             this.btnStats.Name = "btnStats";
             this.btnStats.Size = new System.Drawing.Size(100, 45);
             this.btnStats.TabIndex = 4;
@@ -176,35 +152,13 @@
             this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.Black;
             this.btnVentas.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnVentas.Location = new System.Drawing.Point(219, 0);
+            this.btnVentas.Location = new System.Drawing.Point(106, 3);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(100, 45);
             this.btnVentas.TabIndex = 3;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseTransparentBackground = true;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.BackColor = System.Drawing.Color.Transparent;
-            this.btnInicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInicio.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnInicio.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnInicio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnInicio.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnInicio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnInicio.FillColor = System.Drawing.Color.Transparent;
-            this.btnInicio.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInicio.ForeColor = System.Drawing.Color.Black;
-            this.btnInicio.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnInicio.Location = new System.Drawing.Point(13, 0);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(94, 45);
-            this.btnInicio.TabIndex = 2;
-            this.btnInicio.Text = "Inicio";
-            this.btnInicio.UseTransparentBackground = true;
-            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // btnAdmin
             // 
@@ -220,7 +174,7 @@
             this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdmin.ForeColor = System.Drawing.Color.Black;
             this.btnAdmin.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnAdmin.Location = new System.Drawing.Point(113, 0);
+            this.btnAdmin.Location = new System.Drawing.Point(0, 3);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(100, 45);
             this.btnAdmin.TabIndex = 1;
@@ -250,6 +204,19 @@
             this.panelContainer.UseTransparentBackground = true;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::ventaVideojuegos.Properties.Resources.exit2;
+            this.pictureBox1.Location = new System.Drawing.Point(857, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +233,7 @@
             this.Text = "Form1";
             this.Panel.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,11 +244,10 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnAdmin;
         private Guna.UI2.WinForms.Guna2GradientPanel panelContainer;
         private Guna.UI2.WinForms.Guna2GradientButton btnVentas;
-        private Guna.UI2.WinForms.Guna2GradientButton btnInicio;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtNombreUsuario;
         private Guna.UI2.WinForms.Guna2ImageCheckBox guna2ImageCheckBox1;
         private Guna.UI2.WinForms.Guna2GradientButton btnStats;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

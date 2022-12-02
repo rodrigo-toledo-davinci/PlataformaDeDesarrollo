@@ -63,30 +63,31 @@ namespace ventaVideojuegos
 
                         int rowIndex = dataGridView1.Rows.Add();
                         dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Categoria.Nombre.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Consola.Nombre.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Conexion.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[6].Value = prod.ModoJuego.ToString();
                         Bitmap img;
                         img = new Bitmap(prod.Imagen);
-                        dataGridView1.Rows[rowIndex].Cells[7].Value = img;
+                        dataGridView1.Rows[rowIndex].Cells[1].Value = img;
+                        dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Categoria.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
+
                     }
                     else
                     {
 
                         int rowIndex = dataGridView1.Rows.Add();
                         dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[3].Value = "Categoria no existente";
-                        dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Consola.Nombre.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Conexion.ToString();
-                        dataGridView1.Rows[rowIndex].Cells[6].Value = prod.ModoJuego.ToString();
-                        // Bitmap img;
-                        // img = new Bitmap("RUTA" + prod.Imagen + ".jpg");
-                        // dataGridView1.Rows[rowIndex].Cells[8].Value = img;
+                        Bitmap img;
+                        img = new Bitmap(prod.Imagen);
+                        dataGridView1.Rows[rowIndex].Cells[1].Value = img;
+                        dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[4].Value = "Categoria no existente";
+                        dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
+                        dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
                     }
 
                 }
@@ -268,14 +269,14 @@ namespace ventaVideojuegos
         {
              if (dataGridView1.SelectedRows.Count == 1 )
             {
-                NombreProdComprar = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                NombreProdComprar = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 FormVenta formCantVenta = new FormVenta();
                 DialogResult dialogResult = formCantVenta.ShowDialog();
 
              if (dialogResult == DialogResult.OK)
              {
                     
-                    PrecioProdComprar = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                    PrecioProdComprar = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                     StockProdComprar = formCantVenta.cantStock.ToString();
                     this.DialogResult = DialogResult.OK;
                     this.Hide();

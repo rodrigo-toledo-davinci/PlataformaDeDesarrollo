@@ -39,6 +39,9 @@
     <Reference Include="Guna.UI2, Version=2.0.3.5, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.3.5\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Paginacion, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PaginadorNET.1.0.2\lib\netstandard2.0\Paginacion.dll</HintPath>
     </Reference>
@@ -103,6 +106,7 @@
     <Compile Include="Controlers\ControladorClientes.cs" />
     <Compile Include="Controlers\controladorUsuarios.cs" />
     <Compile Include="Controlers\ControladorVentas.cs" />
+    <Compile Include="Controlers\ControladorVentaUnificada.cs" />
     <Compile Include="FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,9 +125,10 @@
     <Compile Include="FormVenta.Designer.cs">
       <DependentUpon>FormVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListaClientes.cs" />
-    <Compile Include="ListaUsuarios.cs" />
-    <Compile Include="ListaVenta.cs" />
+    <Compile Include="Listas\ListaClientes.cs" />
+    <Compile Include="Listas\ListaUsuarios.cs" />
+    <Compile Include="Listas\ListaVenta.cs" />
+    <Compile Include="Listas\ListaVentaUnificada.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,13 +165,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsController.cs" />
-    <Compile Include="ListaCategoria.cs" />
-    <Compile Include="ListaConsola.cs" />
-    <Compile Include="ListaProducto.cs" />
+    <Compile Include="Controlers\FormsController.cs" />
+    <Compile Include="Listas\ListaCategoria.cs" />
+    <Compile Include="Listas\ListaConsola.cs" />
+    <Compile Include="Listas\ListaProducto.cs" />
     <Compile Include="Modelo\Producto.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Modelo\Venta.cs" />
+    <Compile Include="Modelo\VentaUnificada.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleccionarProducto.cs">
@@ -198,6 +204,12 @@
     </Compile>
     <Compile Include="UsersControls\UC_Ventas.Designer.cs">
       <DependentUpon>UC_Ventas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerDetalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerDetalles.Designer.cs">
+      <DependentUpon>VerDetalles.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormCategoria.resx">
       <DependentUpon>FormCategoria.cs</DependentUpon>
@@ -231,6 +243,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SeleccionarProducto.resx">
       <DependentUpon>SeleccionarProducto.cs</DependentUpon>
@@ -246,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsersControls\UC_Ventas.resx">
       <DependentUpon>UC_Ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerDetalles.resx">
+      <DependentUpon>VerDetalles.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ventaVideojuegos.Modelo.Producto.datasource" />
@@ -265,7 +281,9 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\exit2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -33,3 +33,25 @@
 23,root,consumidor final,Call of Duty Modern Warfare II,6990,1,6990,23/11/2022 19:00:18
 24,root,consumidor final,Spider-Man Remastered,4999,1,4999,23/11/2022 19:08:52
 25,root1,consumidor final,Fallout 4,799,1,799,23/11/2022 19:27:03
+26,root,consumidor final,Mafia (Definitive Edition),259,1,259,28/11/2022 11:57:30
+27,root,consumidor final,Mafia (Definitive Edition),259,1,259,28/11/2022 12:01:09
+28,root,consumidor final,Mafia (Definitive Edition),259,1,259,28/11/2022 12:05:05
+28,root,consumidor final,Spider-Man Remastered,4999,2,9998,28/11/2022 12:05:05
+29,root,rodrigo,TEKKEN 7,1990,1,1990,28/11/2022 13:05:19
+29,root,rodrigo,Tom Clancy´s Rainbow Six Siege,999,2,1998,28/11/2022 13:05:19
+29,root,rodrigo,Fallout 4,799,1,799,28/11/2022 13:05:19
+30,root,tomas,Mafia (Definitive Edition),259,1,259,28/11/2022 13:43:23
+30,root,tomas,Call of Duty Modern Warfare II,6990,2,13980,28/11/2022 13:43:23
+30,root,tomas,Tom Clancy´s Rainbow Six Siege,999,1,999,28/11/2022 13:43:23
+31,root,consumidor final,Call of Duty Modern Warfare II,6990,1,6990,28/11/2022 13:46:19
+32,root,consumidor final,Mafia (Definitive Edition),259,1,259,28/11/2022 13:51:34
+33,nombre,consumidor final,Red Dead Redemption II,2500,1,2500,30/11/2022 15:53:21
+34,root,consumidor final,Red Dead Redemption II,2500,2,5000,30/11/2022 20:54:13
+34,root,consumidor final,TEKKEN 7,1990,1,1990,30/11/2022 20:54:13
+35,nombre,consumidor final,Call of Duty Modern Warfare II,6990,1,6990,30/11/2022 20:56:03
+35,nombre,consumidor final,Destiny 2,2499,1,2499,30/11/2022 20:56:03
+36,root1,consumidor final,Destiny 2,2499,1,2499,30/11/2022 20:57:18
+37,root1,consumidor final,Spider-Man Remastered,4999,1,4999,30/11/2022 21:10:25
+38,root,consumidor final,Spider-Man Remastered,4999,1,4999,1/12/2022 00:34:11
+39,root,consumidor final,Far Cry 5,2999,1,2999,2/12/2022 00:38:16
+39,root,consumidor final,Call of Duty Black Ops III,990,1,990,2/12/2022 00:38:16

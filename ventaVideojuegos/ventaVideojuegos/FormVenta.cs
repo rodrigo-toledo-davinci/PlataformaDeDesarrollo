@@ -26,12 +26,6 @@ namespace ventaVideojuegos
 
             InitializeComponent();
             limpiarErrores();
-           // llenarBox();
-           // txtPw.Hide();
-           // lblPw.Hide();
-
-           // txtID.Text = (ControladorVentas.lastId + 1).ToString();
-           // boxClientes.Text = "consumidor final";
 
         }
 
@@ -55,19 +49,6 @@ namespace ventaVideojuegos
 
         }
 
-        /*    public void descontarStock(int cantStock)
-            {
-                Producto auxiliar = ControladorProductos.GetProductoByName(UC_Ventas.NombreProdComprar);
-                if (validarStock(auxiliar.Stock, cantStock))
-                {
-                    auxiliar.Stock = auxiliar.Stock - cantStock;
-                    ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
-                }
-                //auxiliar.Stock = auxiliar.Stock - cantStock;
-                //ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
-
-            }
-        */
         public bool validarStock(out bool errorMssg)
         {
             errorMssg = true;
@@ -76,8 +57,6 @@ namespace ventaVideojuegos
             if (auxiliar.Stock < cantStock)
             {
 
-
-                //MessageBox.Show("La cantidad solicitada excede al stock disponible");
                 MessageBox.Show("La cantidad solicitada excede al stock disponible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 errorMssg = false;
 
@@ -90,12 +69,10 @@ namespace ventaVideojuegos
         private void limpiarErrores()
         {
             errCantidad.Text = "";
-          //  errEmpleado.Text = "";
-          // errPw.Text = "";
+
     
             errCantidad.Hide();
-           // errEmpleado.Hide();
-           // errPw.Hide();
+
 
         }
       
@@ -117,27 +94,6 @@ namespace ventaVideojuegos
                     errCantidad.Hide();
                 }
 
-            /*  StreamReader archivo = new StreamReader("usuarios.txt");
-              while (!archivo.EndOfStream)
-              {
-                  string usuario = archivo.ReadLine();
-                  string[] datos = usuario.Split(',');
-
-                  if (datos[1].Equals(boxEmpleados.Text) && datos[2] != txtPw.Text)
-                  {
-                      string error = "Contraseña incorrecta";
-                      errPw.Text = error;
-                      errPw.Show();
-                      errorMsg = false;
-                  }
-                  else 
-                  {
-                      errPw.Hide();
-                  }
-
-
-              }
-              */
 
 
 
@@ -145,51 +101,6 @@ namespace ventaVideojuegos
             }
 
 
-     /*   private void llenarBox()
-        {
-            List<Cliente> listCte = new List<Cliente>();
-            listCte = ControladorClientes.Clientes.Where(x => x.Id != 0).ToList();
-            llenarBoxClientes(listCte);
-
-            List<Usuario> listUsu = new List<Usuario>();
-            listUsu = controladorUsuarios.Usuarios.Where(x => x.Id != 0).ToList();
-            llenarBoxEmpleados(listUsu);
-        }
-
-        private void llenarBoxClientes(List<Cliente> listaClientes)
-        {
-            foreach (Cliente cte in listaClientes)
-            {
-                if (cte.Vista == true)
-                {
-                    boxClientes.Items.Add(cte.NUsuario);
-                }
-            }
-        }
-
-        private void llenarBoxEmpleados(List<Usuario> listaUsuarios)
-        {
-            foreach (Usuario usu in listaUsuarios)
-            {
-                if (usu.EsAdmin == false)
-                {
-                    boxEmpleados.Items.Add(usu.Nombre);
-                }
-            }
-        }
-
-        private void liberarContraseña()
-        {
-            txtPw.Show();
-            lblPw.Show();
-        }
-
-        private void boxEmpleados_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            liberarContraseña();
-        }
-
-        */
 
         private void numCantidad_ValueChanged(object sender, EventArgs e)
         {

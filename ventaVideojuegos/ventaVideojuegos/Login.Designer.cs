@@ -32,11 +32,11 @@
             this.txtUsuarioLogin = new System.Windows.Forms.TextBox();
             this.bttnAcceder = new System.Windows.Forms.Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.errLogin = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.errLogin = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +84,17 @@
             this.guna2GradientPanel1.Size = new System.Drawing.Size(302, 274);
             this.guna2GradientPanel1.TabIndex = 12;
             // 
+            // errLogin
+            // 
+            this.errLogin.BackColor = System.Drawing.Color.Transparent;
+            this.errLogin.Font = new System.Drawing.Font("Open Sans Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errLogin.ForeColor = System.Drawing.Color.Red;
+            this.errLogin.Location = new System.Drawing.Point(25, 184);
+            this.errLogin.Name = "errLogin";
+            this.errLogin.Size = new System.Drawing.Size(142, 20);
+            this.errLogin.TabIndex = 10;
+            this.errLogin.Text = "Credenciales invalidas";
+            // 
             // guna2HtmlLabel4
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
@@ -123,17 +134,6 @@
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(109, 28);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Bienvenido!";
-            // 
-            // errLogin
-            // 
-            this.errLogin.BackColor = System.Drawing.Color.Transparent;
-            this.errLogin.Font = new System.Drawing.Font("Open Sans Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errLogin.ForeColor = System.Drawing.Color.Red;
-            this.errLogin.Location = new System.Drawing.Point(91, 175);
-            this.errLogin.Name = "errLogin";
-            this.errLogin.Size = new System.Drawing.Size(142, 20);
-            this.errLogin.TabIndex = 10;
-            this.errLogin.Text = "Credenciales invalidas";
             // 
             // Login
             // 

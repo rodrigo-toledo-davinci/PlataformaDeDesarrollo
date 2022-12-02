@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using ventaVideojuegos.Modelo;
@@ -65,13 +66,22 @@ namespace ventaVideojuegos.Controlers
 
         private static void GuardarEnMemoriaLista()
         {
-            StreamWriter archivo = new StreamWriter("vemtas.txt");
+            StreamWriter archivo = new StreamWriter("ventas.txt");
             foreach (Venta vta in Ventas)
             {
                 archivo.WriteLine(vta.Id + "," + vta.nombreEmpleado + "," + vta.nombreCliente + "," + vta.nombreProducto + "," + vta.precioProducto + "," + vta.cantidadProducto  + "," + vta.valorTotal + "," + vta.DateTime);
             }
             archivo.Close();
         }
+
+        //metodo que busca la venta x id
+        public static List<Venta> GetVentaById(int id)
+        {
+            List<Venta> listaVentasDeUnId = Ventas.FindAll(x => x.Id == id);
+            return listaVentasDeUnId;
+        }
+
+        
 
         public static ListaVenta ListaVenta
         {

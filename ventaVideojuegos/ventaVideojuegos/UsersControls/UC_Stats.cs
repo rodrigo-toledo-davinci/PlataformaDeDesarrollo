@@ -31,8 +31,7 @@ namespace ventaVideojuegos.UsersControls
             calcularCantidadVentas();
             calcularRecaudacion();
 
-            rankClientes();
-            rankEmpleados();
+            
 
         }
 
@@ -47,14 +46,7 @@ namespace ventaVideojuegos.UsersControls
             txtCantVentas.Text = "";
             txtTotalRecaudado.Text = "";
 
-            txtCliente1.Text = "";
-            txtGastado1.Text = "";
-
-            txtCliente2.Text = "";
-            txtGastado2.Text = "";
-
-            txtCliente3.Text = "";
-            txtGastado3.Text = "";
+            
         }
 
         private void calcularProductos()
@@ -161,19 +153,6 @@ namespace ventaVideojuegos.UsersControls
 
             txtCantVentas.Text = cantidadVentas.ToString();
         }
-
-        private void rankClientes()
-        {
-            
-        }
-
-        private void rankEmpleados()
-        {
-
-        }
-
-
-
 
     }
 }

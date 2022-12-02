@@ -3,4 +3,4 @@
 3,Simulacion,True
 4,Aventura,True
 5,asd,False
-6,d,False
+6,d,True

@@ -155,7 +155,7 @@
             this.txtPw.Size = new System.Drawing.Size(121, 21);
             this.txtPw.TabIndex = 44;
             this.txtPw.UseSystemPasswordChar = true;
-            this.txtPw.TextChanged += new System.EventHandler(this.txtPw_TextChanged);
+            
             // 
             // btnFinalCompra
             // 

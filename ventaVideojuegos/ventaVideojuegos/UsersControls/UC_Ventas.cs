@@ -1,10 +1,13 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -22,6 +25,7 @@ namespace ventaVideojuegos.UsersControls
 
        public FormValidarVenta datos;
         public Venta ventaNueva;
+        public VentaUnificada ventaUnueva;
         public static string NombreProdComprar;
         public static string PrecioProdComprar;
         public static string StockProdComprar;
@@ -36,6 +40,7 @@ namespace ventaVideojuegos.UsersControls
         {
             InitializeComponent();
             ControladorVentas.IniciarRepositorio();
+            ControladorVentaUnificada.IniciarRepositorio();
             lblValor.Text = precioVenta.ToString();
         }
 
@@ -85,6 +90,16 @@ namespace ventaVideojuegos.UsersControls
                 if (dialogResult == DialogResult.OK)
                 {
 
+                    ventaUnueva = new VentaUnificada
+                    {
+                        Id = formVenta.stockk,
+                        nombreCliente = formVenta.cliente,
+                        nombreEmpleado = formVenta.empleado,
+                        valorTotal = precioVenta,
+                        DateTime = DateTime.Now,
+                    };
+                    ControladorVentaUnificada.AñadirVentaUnificada(ventaUnueva);
+
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         ventaNueva = new Venta
@@ -103,13 +118,16 @@ namespace ventaVideojuegos.UsersControls
                             descontarStock(int.Parse(row.Cells["Cantidad"].Value.ToString()), row.Cells["Producto"].Value.ToString());
                         
                     }
+
+
+                    
                     precioVenta = 0;
                     lblValor.Text = precioVenta.ToString();
                     dataGridView1.Rows.Clear();
                     dataGridView1.AllowUserToAddRows = true;
 
                 }
-
+                generarPDF(ventaNueva);
             }
             else
             {
@@ -194,6 +212,57 @@ namespace ventaVideojuegos.UsersControls
             {
                 MessageBox.Show("Debes seleccionar un producto editar", "Error", MessageBoxButtons.OK);
             }
+        }
+
+        public void generarPDF(Venta venta)
+        {
+            List<Venta> lista = ControladorVentas.GetVentaById(venta.Id);
+            int total = 0;
+           
+
+            //ruta y nombre  //a esta ruta cambiarla segun el usuario
+            System.IO.FileStream fs = new FileStream("C:/Users/franc/OneDrive/Escritorio/Facturas/" + "Factura_" + venta.Id + ".pdf", FileMode.Create);
+
+            // tamaño del pdf
+            Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+
+            // metadata
+            document.AddAuthor("K Racer");
+            document.AddTitle("Factura_" + venta.Id);
+
+            document.Open();
+            // escribimos en el pdf
+
+            document.Add(new Paragraph(DateTime.Now.ToString()));
+            // Texto hardcode con el nombre de la empresa
+            document.Add(new Paragraph("K Racer - CUIT : 302202929910"));
+
+            //NUMERO DE VENTA
+            document.Add(new Paragraph("Factura: " + venta.Id));
+            //cliente
+            document.Add(new Paragraph("Cliente: " + venta.nombreCliente));
+
+            document.Add(new Paragraph("Conceptos: "));
+            //foearch de los productos en la venta:
+
+            foreach (Venta v in lista)
+            {
+                document.Add(new Paragraph(v.nombreProducto + " : " + "     " +"Valor unitario: "+v.precioProducto+"   "+"Cantidad: "+v.cantidadProducto+"   "+"Valor Total: "+v.valorTotal));
+                total += v.valorTotal;
+            }
+
+            document.Add(new Paragraph("total: " + "     "+total /*el total*/));
+
+            document.Close();
+            writer.Close();
+            fs.Close();
+
+        }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

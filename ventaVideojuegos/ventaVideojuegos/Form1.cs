@@ -16,27 +16,22 @@ namespace ventaVideojuegos
 
     {
 
-        Login log = new Login();
+        public string nombre = Login.usuario;
         
         
 
         public Form1()
         {
             InitializeComponent();
-            UC_Inicio uc = new UC_Inicio();
+            UC_Admin uc = new UC_Admin();
             addUserControl(uc);
+            txtNombreUsuario.Text = nombre;
            // setNombreUsuario();
             
             // txtNombreUsuario.Text = login.getUsuario();
 
            
 
-        }
-
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            UC_Inicio uc = new UC_Inicio();
-            addUserControl(uc);
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
@@ -71,23 +66,16 @@ namespace ventaVideojuegos
 
         }
 
-        private void guna2GradientButton4_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             Login login = new Login();
             this.Close();
             login.Show();
-        }
-
-        private void setNombreUsuario() 
-        {
-          
-            txtNombreUsuario.Text = log.getUsuario();
-
-        }
-
-        private void txtNombreUsuario_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

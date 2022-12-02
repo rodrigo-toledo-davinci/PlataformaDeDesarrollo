@@ -20,23 +20,15 @@ namespace ventaVideojuegos.UsersControls
         private List<Producto> Productos_Completo = new List<Producto>();
         private List<Producto> Productos_Filtrado = new List<Producto>();
         private List<Producto> Productos_Paginados = new List<Producto>();
-
-        private List<Venta> Ventas_Completas = new List<Venta>();
-        private List<Venta> Ventas_Paginadas = new List<Venta>();
-
-        private static int current_v = 0;
-        private static int paginador_v = 10;
-        private static int total_v = 0;
-        private static int last_pag_v = 0;
-        private static int current_pag_v= 1;
       
-
 
         private static int current = 0;
         private static int paginador = 10;
         private static int total = 0;
         private static int last_pag = 0;
         private static int current_pag = 1;
+
+        
 
         public UC_Admin()
         {
@@ -47,27 +39,27 @@ namespace ventaVideojuegos.UsersControls
             ControladorVentas.IniciarRepositorio();
             ControladorClientes.IniciarRepositorio();
             controladorUsuarios.IniciarRepositorio();
+            ControladorVentaUnificada.IniciarRepositorio();
 
-            Ventas_Completas = ControladorVentas.Ventas;
-            Ventas_Paginadas = ControladorVentas.Ventas;
+            
 
             Productos_Completo = ControladorProductos.Productos;
             Productos_Filtrado = ControladorProductos.Productos;
 
             total = Productos_Completo.Count();
-            total_v = Ventas_Completas.Count();
+            
 
             paginar(Productos_Completo);
-            paginar_v(Ventas_Completas);
+            
 
             last_pag = total / paginador;
-            last_pag_v = total_v / paginador_v;
 
             llenarCombos();
             VisualizarCategorias();
             VisualizarConsolas();
             VisualizarClientes();
             VisualizarEmpleados();
+            VisualizarVentas();
 
 
         }
@@ -106,21 +98,18 @@ namespace ventaVideojuegos.UsersControls
 
             }
         }
-        private void VisualizarVentas(List<Venta> listaVta)
+        private void VisualizarVentas()
         {
             dataGridViewCVentas.Rows.Clear();
-            foreach (Venta vta in ControladorVentas.Ventas)
+            foreach (VentaUnificada vtaU in ControladorVentaUnificada.VentasUnificadas)
             {
 
                     int rowIndex = dataGridViewCVentas.Rows.Add();
-                dataGridViewCVentas.Rows[rowIndex].Cells[0].Value = vta.Id.ToString();
-                dataGridViewCVentas.Rows[rowIndex].Cells[1].Value = vta.nombreEmpleado.ToString();
-                dataGridViewCVentas.Rows[rowIndex].Cells[2].Value = vta.nombreCliente.ToString();
-                dataGridViewCVentas.Rows[rowIndex].Cells[3].Value = vta.nombreProducto.ToString();
-                dataGridViewCVentas.Rows[rowIndex].Cells[4].Value = vta.precioProducto.ToString();
-                dataGridViewCVentas.Rows[rowIndex].Cells[5].Value = vta.cantidadProducto.ToString();
-                dataGridViewCVentas.Rows[rowIndex].Cells[6].Value = vta.valorTotal.ToString();
-                dataGridViewCVentas.Rows[rowIndex].Cells[7].Value = vta.DateTime.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[0].Value = vtaU.Id.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[1].Value = vtaU.nombreEmpleado.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[2].Value = vtaU.nombreCliente.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[3].Value = vtaU.valorTotal.ToString();
+                dataGridViewCVentas.Rows[rowIndex].Cells[4].Value = vtaU.DateTime.ToString();
 
 
 
@@ -140,16 +129,17 @@ namespace ventaVideojuegos.UsersControls
 
                     int rowIndex = dataGridView1.Rows.Add();
                     dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Stock.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Categoria.Nombre.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
                     Bitmap img;
                     img = new Bitmap(prod.Imagen);
-                    dataGridView1.Rows[rowIndex].Cells[8].Value = img; 
+                    dataGridView1.Rows[rowIndex].Cells[1].Value = img;
+                    dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Nombre.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Stock.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Categoria.Nombre.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Consola.Nombre.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[7].Value = prod.Conexion.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[8].Value = prod.ModoJuego.ToString();
+
                     dataGridView1.Rows[rowIndex].Cells[9].Value = prod.Vista.ToString();
 
                 }
@@ -159,16 +149,17 @@ namespace ventaVideojuegos.UsersControls
 
                     int rowIndex = dataGridView1.Rows.Add();
                     dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Precio.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Stock.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[4].Value = "Categoria no existente";
-                    dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Consola.Nombre.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Conexion.ToString();
-                    dataGridView1.Rows[rowIndex].Cells[7].Value = prod.ModoJuego.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[1].Value = prod.ModoJuego.ToString();
                     Bitmap img;
                     img = new Bitmap(prod.Imagen);
-                    dataGridView1.Rows[rowIndex].Cells[8].Value = img; 
+                    dataGridView1.Rows[rowIndex].Cells[2].Value = img;
+                    dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Nombre.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Precio.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[5].Value = prod.Stock.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[6].Value = "Categoria no existente";
+                    dataGridView1.Rows[rowIndex].Cells[7].Value = prod.Consola.Nombre.ToString();
+                    dataGridView1.Rows[rowIndex].Cells[8].Value = prod.Conexion.ToString();
+
                     dataGridView1.Rows[rowIndex].Cells[9].Value = prod.Vista.ToString();
                 }
 
@@ -362,13 +353,14 @@ namespace ventaVideojuegos.UsersControls
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 string idProdEditar = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                string nombreProdEditar = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                string precioProdEditar = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                string stockProdEditar = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                string categoriaProdEditar = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                string consolaProdEditar = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                string conexionProdEditar = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-                string modoJuegoProdEditar = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                string nombreProdEditar = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                string precioProdEditar = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                string stockProdEditar = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                string categoriaProdEditar = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                string consolaProdEditar = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+                string conexionProdEditar = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                string modoJuegoProdEditar = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+                string VistaProdEditar = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
 
                 Producto prodEditar = new Producto()
                 {
@@ -379,7 +371,8 @@ namespace ventaVideojuegos.UsersControls
                     Categoria = ControladorCategorias.GetCategoriaByName(categoriaProdEditar),
                     Consola = ControladorConsola.GetConsolaByName(consolaProdEditar),
                     Conexion = conexionProdEditar,
-                    ModoJuego = modoJuegoProdEditar
+                    ModoJuego = modoJuegoProdEditar,
+                    Vista = bool.Parse(VistaProdEditar)
                 };
 
                 FormProducto formProducto = new FormProducto(prodEditar);
@@ -485,15 +478,7 @@ namespace ventaVideojuegos.UsersControls
             boxPaginacion.SelectedItem = "10";
         }
 
-        private void llenarBoxPaginacion_v()
-        {
-            BoxPaginacion_v.Items.Add("10");
-            BoxPaginacion_v.Items.Add("20");
-            BoxPaginacion_v.Items.Add("30");
-            BoxPaginacion_v.Items.Add("40");
-            BoxPaginacion_v.Items.Add("50");
-            BoxPaginacion_v.SelectedItem = "10";
-        }
+  
        
 
         private void paginar(List<Producto> prodMostrar)
@@ -633,7 +618,7 @@ namespace ventaVideojuegos.UsersControls
                 
             }
 
-            if(filtro.Vista != null)
+            if(filtro.Vista != false)
             {
                 Productos_Filtrado = Productos_Filtrado.Where(x => x.Vista == filtro.Vista).ToList();
             }
@@ -752,87 +737,24 @@ namespace ventaVideojuegos.UsersControls
             }
         }
 
-        private void prim_pag_Click(object sender, EventArgs e)
+        private void btnVerDetalles_Click(object sender, EventArgs e)
         {
-            current_v = 0;
-            current_pag_v = 1;
-            paginar_v(Ventas_Completas);
-            btn_actual_page.Text = current_pag.ToString();
-        }
-
-        private void ant_pag_Click(object sender, EventArgs e)
-        {
-            current_v = current_v - paginador_v;
-            current_pag_v = (current_pag_v - 1);
-            ac_pag.Text = current_pag_v.ToString();
-            paginar_v(Ventas_Completas);
-        }
-
-        private void prox_pag_Click(object sender, EventArgs e)
-        {
-            current_v = current_v + paginador_v;
-            current_pag_v = (current_pag_v + 1);
-            ac_pag.Text = current_pag_v.ToString();
-            paginar_v(Ventas_Completas);
-        }
-
-        private void fin_pag_Click(object sender, EventArgs e)
-        {
-            current_v = last_pag_v + paginador_v;
-            current_pag_v = last_pag_v;
-            ac_pag.Text = current_pag_v.ToString();
-            paginar_v(Ventas_Completas);
-        }
-
-        private void paginar_v(List<Venta> ventaMostrar)
-        {
-            Ventas_Paginadas = ventaMostrar.Skip(current_v).Take(paginador_v).ToList();
-            VisualizarVentas(Ventas_Paginadas);
-
-            label2.Text = "Mostrando " + (current_v + 1) + " - " + (current_v + paginador_v) + "de " + total_v;
-
-
-            if (current_pag_v == 1)
+            if (dataGridViewCVentas.SelectedRows.Count == 1)
             {
-                prim_pag.Hide();
-                ant_pag.Hide();
+               int idVentaU = int.Parse(dataGridViewCVentas.SelectedRows[0].Cells[0].Value.ToString());
+
+                VerDetalles formVerDetalles = new VerDetalles(idVentaU);
+                DialogResult dialogResult = formVerDetalles.ShowDialog();
+
+
 
             }
             else
             {
-                prim_pag.Show();
-                prim_pag.Text = "1";
-                ant_pag.Show();
-                ant_pag.Text = (current_pag_v - 1).ToString();
+                MessageBox.Show("Debes seleccionar una venta para ver sus detalles", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (current_pag_v == last_pag_v)
-            {
-                fin_pag.Hide();
-                prox_pag.Hide();
-            }
-            else
-            {
-                fin_pag.Show();
-                prox_pag.Show();
-            }
-
-            if (prim_pag.Text == ant_pag.Text)
-            {
-                prim_pag.Hide();
-            }
-
-            if (fin_pag.Text == prox_pag.Text)
-            {
-                fin_pag.Hide();
-            }
-
-            prox_pag.Text = (current_pag_v + 1).ToString();
-            ant_pag.Text = (current_pag_v - 1).ToString();
-            ac_pag.Text = (current_pag_v).ToString();
-
+            
         }
-     
-
     }
 }
