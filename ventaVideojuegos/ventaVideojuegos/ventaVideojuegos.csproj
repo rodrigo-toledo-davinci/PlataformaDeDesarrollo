@@ -103,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="conexion.cs" />
     <Compile Include="Controlers\ControladorClientes.cs" />
     <Compile Include="Controlers\controladorUsuarios.cs" />
     <Compile Include="Controlers\ControladorVentas.cs" />

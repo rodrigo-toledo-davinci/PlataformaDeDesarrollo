@@ -45,3 +45,5 @@
 30,root,tomas,Tom Clancy´s Rainbow Six Siege,999,1,999,28/11/2022 13:43:23
 31,root,consumidor final,Call of Duty Modern Warfare II,6990,1,6990,28/11/2022 13:46:19
 32,root,consumidor final,Mafia (Definitive Edition),259,1,259,28/11/2022 13:51:34
+33,root,asd,Spider-Man Remastered,4999,2,9998,28/11/2022 16:01:57
+34,root,consumidor final,Mafia (Definitive Edition),259,1,259,28/11/2022 16:04:08

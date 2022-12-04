@@ -206,7 +206,7 @@ namespace ventaVideojuegos.UsersControls
            
 
             //ruta y nombre  //a esta ruta cambiarla segun el usuario
-            System.IO.FileStream fs = new FileStream("C:/Users/Usuario/source/repos/PlataformasDeDesarrollo/ventaVideojuegos/ventaVideojuegos/bin/Debug/Facturas/" + "Factura_" + venta.Id + ".pdf", FileMode.Create);
+            System.IO.FileStream fs = new FileStream("C:/Users/Usuario/source/repos/PlataformaDeDesarrollo/ventaVideojuegos/ventaVideojuegos/bin/Debug/Facturas/" + "Factura_" + venta.Id + ".pdf", FileMode.Create);
 
             // tamaño del pdf
             Document document = new Document(PageSize.A4, 25, 25, 30, 30);

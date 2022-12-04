@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using ventaVideojuegos.Modelo;
+using Guna.UI2.AnimatorNS;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ventaVideojuegos
 {
@@ -51,6 +55,26 @@ namespace ventaVideojuegos
             lastId++;
             GuardarEnMemoria(con);
         }
+        //Funcion que añade consolas a la DB
+        public static void AñadirConsolaDB(Consola con)
+        {
+       
+            conexion.Conectar();
+            string consulta = "Use tienda; insert into Consola (Nombre,Visible) values (@nombre,@visible)";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@nombre", con.Nombre);
+            cmd.Parameters.AddWithValue("@visible", con.Vista);
+
+            try
+            {
+                cmd.ExecuteNonQuery();       
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
+        }
 
         public static Consola GetConsolaByName(string name)
         {
@@ -70,6 +94,54 @@ namespace ventaVideojuegos
             con.Vista = false;
             ActualizarConsola(id, con);
         }
+        //eliminar consola en la DB cambia la vista de 1 a 0
+        public static void EliminarConsolaDB(int Id)
+        {
+
+            conexion.Conectar();
+            string consulta = "Use tienda; update Consola set Visible='0' where IdConsola = @id;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", Id);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
+        }
+        // trae la consola solicitada mediante un id desde la base de datos
+        public static Consola GetOne(int Id)
+        {
+            conexion.Conectar();
+            string query = "use tienda; select * from Consola where IdConsola = @id";
+            SqlCommand cmd = new SqlCommand(query, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", Id);
+
+            try
+            {
+                Consola con = new Consola();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    con.Id = reader.GetInt32(0);
+                    con.Nombre = reader.GetString(1);
+                    con.Vista = reader.GetBoolean(2);
+                }
+                reader.Close();
+
+                return con;
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+        }
 
         public static void ActualizarConsola(int id, Consola con)
         {
@@ -79,6 +151,25 @@ namespace ventaVideojuegos
                 Consolas[index] = con;
             }
             GuardarEnMemoriaLista();
+        }
+        // actualiza la consola en la DB mediante una consulta update
+        public static void ActualizarConsolaDB(int idconsola,Consola con)
+        {
+            conexion.Conectar();
+            string consulta = "Use tienda; update Consola set Nombre = @nombre, Visible=@visible where IdConsola = @id;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", idconsola);
+            cmd.Parameters.AddWithValue("@nombre", con.Nombre);
+            cmd.Parameters.AddWithValue("@visible", con.Vista);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
         }
 
         private static void GuardarEnMemoria(Consola con)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,7 @@ namespace ventaVideojuegos.UsersControls
             llenarCombos();
             VisualizarCategorias();
             VisualizarConsolas();
+            visualizarConDB();
             VisualizarClientes();
             VisualizarEmpleados();
             VisualizarVentas();
@@ -182,6 +184,7 @@ namespace ventaVideojuegos.UsersControls
 
         private void VisualizarConsolas()
         {
+            
             dataGridViewCon.Rows.Clear();
             foreach (Consola con in ControladorConsola.Consolas)
             {
@@ -191,6 +194,29 @@ namespace ventaVideojuegos.UsersControls
                 dataGridViewCon.Rows[rowIndex].Cells[2].Value = con.Vista.ToString();
 
             }
+
+            
+        }
+
+        //Sirve para visualizar los registros de la DB
+        private void visualizarConDB()
+        {
+            dataGridViewCon2.DataSource = llenar_grid_consolas();
+            
+        }
+
+        //Aca se genera la consulta SQL que llama los registros
+        public DataTable llenar_grid_consolas()
+        {
+            conexion.Conectar();
+            DataTable dt = new DataTable();
+            string consulta = "Use tienda; select * from Consola;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            adapter.Fill(dt);
+            return dt;
         }
 
 
@@ -225,7 +251,7 @@ namespace ventaVideojuegos.UsersControls
 
         private void btnNuevaCon_Click(object sender, EventArgs e)
         {
-
+            
             FormConsola conForm = new FormConsola();
             DialogResult dialogResult = conForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
@@ -237,7 +263,33 @@ namespace ventaVideojuegos.UsersControls
                 vaciarCombos();
                 llenarCombos();
             }
+
+
+
         }
+        //button nueva consola que funciona con la DB
+        private void buttonNuevoConDB_Click_1(object sender, EventArgs e)
+        {
+
+            FormConsola conForm = new FormConsola();
+            DialogResult dialogResult = conForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                ControladorConsola.AñadirConsolaDB(conForm.consolaNueva);
+                MessageBox.Show("Se agrego correctamente");
+       
+
+                VisualizarCategorias();
+                visualizarConDB();
+
+                vaciarCombos();
+                llenarCombos();
+            }
+
+        }
+
+
+
 
         private void btnEditarCat_Click(object sender, EventArgs e)
         {
@@ -310,6 +362,8 @@ namespace ventaVideojuegos.UsersControls
 
 
         }
+
+
 
         private void btnEliminarCat_Click(object sender, EventArgs e)
         {
@@ -733,8 +787,64 @@ namespace ventaVideojuegos.UsersControls
             }
         }
 
-        
-     
+        private void dataGridViewCon2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+            if (dataGridViewCon2.Columns[e.ColumnIndex].Name == "Eliminar_Con")
+            {
+                if (MessageBox.Show("Seguro que desea eliminar el registro?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    ControladorConsola.EliminarConsolaDB(int.Parse(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString()));
+                visualizarConDB();
+            }
+            /*
+            if (dataGridViewCon2.Columns[e.ColumnIndex].Name == "Editar_Con")
+            {
+                int idfila = int.Parse(dataGridViewCon2.CurrentCell.RowIndex.ToString());
+                FormConsola formCategoria = new FormConsola(idfila);
+                DialogResult dialogResult = formCategoria.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    visualizarConDB();
+                }
+            }
+            */
+
+            if (dataGridViewCon2.Columns[e.ColumnIndex].Name == "Editar_Con")
+            {
+                //MessageBox.Show(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+                //lo que tiraba error que solicitabamos la ubicacion de la celda y traia eso, nos faltaba agregarle Value para el valor
+                
+                //guarda el id que trae como valor de la celda
+                int idConEditar = int.Parse(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString());
+                
+                //string nombreConEditar = dataGridViewCon.SelectedRows[0].Cells[1].Value.ToString();
+
+                //traer los datos de esta consola desde la base de datos
+                Consola conEditar = ControladorConsola.GetOne(idConEditar);
+
+                //se pasa la consola x parametro
+                FormConsola formConsola = new FormConsola(conEditar);
+                DialogResult dialogResult = formConsola.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    //actualiza consolas DB
+                    ControladorConsola.ActualizarConsolaDB(idConEditar, formConsola.consolaNueva);
+
+                    vaciarCombos();
+                    llenarCombos();
+
+                }
+                VisualizarCategorias();
+                //visualizar consolas DB
+                visualizarConDB();
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar una consola para Editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
