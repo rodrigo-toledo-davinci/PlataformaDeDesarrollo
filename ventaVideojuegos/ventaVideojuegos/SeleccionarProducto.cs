@@ -54,6 +54,9 @@ namespace ventaVideojuegos
         private void VisualizarProductos(List<Producto> listaProductos)
         {
             dataGridView1.Rows.Clear();
+
+            try { 
+
             foreach (Producto prod in listaProductos)
             {
                 if (prod.Vista == true && prod.Stock > 0)
@@ -64,7 +67,7 @@ namespace ventaVideojuegos
                         int rowIndex = dataGridView1.Rows.Add();
                         dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
                         Bitmap img;
-                        img = new Bitmap(prod.Imagen);
+                        img = new Bitmap(Environment.CurrentDirectory + @"\Imgs\" + prod.Imagen);
                         dataGridView1.Rows[rowIndex].Cells[1].Value = img;
                         dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Nombre.ToString();
                         dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
@@ -80,7 +83,7 @@ namespace ventaVideojuegos
                         int rowIndex = dataGridView1.Rows.Add();
                         dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
                         Bitmap img;
-                        img = new Bitmap(prod.Imagen);
+                        img = new Bitmap(Environment.CurrentDirectory + @"\Imgs\" + prod.Imagen);
                         dataGridView1.Rows[rowIndex].Cells[1].Value = img;
                         dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Nombre.ToString();
                         dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
@@ -91,6 +94,12 @@ namespace ventaVideojuegos
                     }
 
                 }
+            }
+
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("ERROR: " + e);
             }
         }
 

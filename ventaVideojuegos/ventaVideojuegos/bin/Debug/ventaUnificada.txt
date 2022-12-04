@@ -3,3 +3,4 @@
 39,root,consumidor final,3989,2/12/2022 00:38:16
 40,root,franco,12497,2/12/2022 16:14:06
 41,root,consumidor final,192000,2/12/2022 16:22:23
+42,root,consumidor final,2500,3/12/2022 19:42:18

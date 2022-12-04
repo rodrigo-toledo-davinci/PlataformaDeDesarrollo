@@ -98,6 +98,7 @@ namespace ventaVideojuegos.UsersControls
                         valorTotal = precioVenta,
                         DateTime = DateTime.Now,
                     };
+
                     ControladorVentaUnificada.AñadirVentaUnificada(ventaUnueva);
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -144,8 +145,6 @@ namespace ventaVideojuegos.UsersControls
                auxiliar.Stock = auxiliar.Stock - cantStock;
                ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
            }
-           //auxiliar.Stock = auxiliar.Stock - cantStock;
-           //ControladorProductos.ActualizarProductos(auxiliar.Id, auxiliar);
 
        }
 
@@ -222,6 +221,7 @@ namespace ventaVideojuegos.UsersControls
 
             //ruta y nombre  //a esta ruta cambiarla segun el usuario
             System.IO.FileStream fs = new FileStream("C:/Users/franc/OneDrive/Escritorio/Facturas/" + "Factura_" + venta.Id + ".pdf", FileMode.Create);
+            
 
             // tamaño del pdf
             Document document = new Document(PageSize.A4, 25, 25, 30, 30);

@@ -16,6 +16,7 @@ namespace ventaVideojuegos
     {
         public Producto productoNuevo;
         public string filePath = string.Empty;
+        public string fileName = string.Empty;
         public FormProducto()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace ventaVideojuegos
             boxConsola.SelectedItem = prod.Consola.Nombre.ToString();
             txtModoJuego.Text = prod.ModoJuego.ToString();
             boxEstado.Text = prod.Vista.ToString();
+            txtImagen.Text = prod.Imagen.ToString();
 
 
         }
@@ -72,26 +74,6 @@ namespace ventaVideojuegos
             }
         }
 
-        private void GuardarProducto()
-        {
-            Producto prod = new Producto()
-            {
-                Id = int.Parse(txtId.Text),
-                Nombre = txtNombre.Text,
-                Precio = int.Parse(txtPrecio.Text),
-                Stock = int.Parse(txtStock.Text),
-                Categoria = ControladorCategorias.GetCategoriaByName(boxCategoria.SelectedItem.ToString()),
-                Consola = ControladorConsola.GetConsolaByName(boxConsola.SelectedItem.ToString()),
-                Conexion = txtConexion.Text,
-                ModoJuego = txtModoJuego.Text,
-                Vista = bool.Parse(boxEstado.Text)
-            };
-
-            ListaProducto lista = ControladorProductos.ListaProducto;
-            lista.GuardarEnInstancia(prod);
-            lista.GuardarEnMemoria(prod);
-
-        }
 
         private void limpiarErrores()
         {
@@ -240,18 +222,12 @@ namespace ventaVideojuegos
                     Consola = ControladorConsola.GetConsolaByName(boxConsola.SelectedItem.ToString()),
                     Conexion = txtConexion.Text,
                     ModoJuego = txtModoJuego.Text,
-                    Imagen = getRuta(),
+                    Imagen = txtImagen.Text,
                     Vista = bool.Parse(boxEstado.Text)
                 };
 
                 this.DialogResult = DialogResult.OK;
             }
-            else
-            {
-                //MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //this.DialogResult = DialogResult.Cancel;
-            }
-
         }
 
         private void llenarBoxEstado()
@@ -268,6 +244,11 @@ namespace ventaVideojuegos
         public string getRuta()
         {
             return filePath;
+        }
+
+        public string getNombreRuta()
+        {
+            return fileName;
         }
 
         private void guna2Button1_Click_1(object sender, EventArgs e)

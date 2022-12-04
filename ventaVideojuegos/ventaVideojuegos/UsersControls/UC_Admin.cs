@@ -120,17 +120,19 @@ namespace ventaVideojuegos.UsersControls
         {
             dataGridView1.Rows.Clear();
 
+            try{
+
+            
 
             foreach (Producto prod in listaProductos)
             {
                 if (prod.Categoria.Vista == true)
 
                 {
-
                     int rowIndex = dataGridView1.Rows.Add();
                     dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
                     Bitmap img;
-                    img = new Bitmap(prod.Imagen);
+                    img = new Bitmap(Environment.CurrentDirectory + @"\Imgs\" + prod.Imagen);
                     dataGridView1.Rows[rowIndex].Cells[1].Value = img;
                     dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
@@ -139,7 +141,6 @@ namespace ventaVideojuegos.UsersControls
                     dataGridView1.Rows[rowIndex].Cells[6].Value = prod.Consola.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[7].Value = prod.Conexion.ToString();
                     dataGridView1.Rows[rowIndex].Cells[8].Value = prod.ModoJuego.ToString();
-
                     dataGridView1.Rows[rowIndex].Cells[9].Value = prod.Vista.ToString();
 
                 }
@@ -151,7 +152,7 @@ namespace ventaVideojuegos.UsersControls
                     dataGridView1.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
                     dataGridView1.Rows[rowIndex].Cells[1].Value = prod.ModoJuego.ToString();
                     Bitmap img;
-                    img = new Bitmap(prod.Imagen);
+                    img = new Bitmap(Environment.CurrentDirectory + @"\Imgs\" + prod.Imagen);
                     dataGridView1.Rows[rowIndex].Cells[2].Value = img;
                     dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Precio.ToString();
@@ -159,12 +160,17 @@ namespace ventaVideojuegos.UsersControls
                     dataGridView1.Rows[rowIndex].Cells[6].Value = "Categoria no existente";
                     dataGridView1.Rows[rowIndex].Cells[7].Value = prod.Consola.Nombre.ToString();
                     dataGridView1.Rows[rowIndex].Cells[8].Value = prod.Conexion.ToString();
-
                     dataGridView1.Rows[rowIndex].Cells[9].Value = prod.Vista.ToString();
                 }
 
+              }
+
             }
 
+            catch(Exception e)
+            {
+                Console.WriteLine("EL ERROR FUE: " + e);
+            }
 
         }
 
@@ -353,26 +359,32 @@ namespace ventaVideojuegos.UsersControls
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 string idProdEditar = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                string nombreProdEditar = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                string precioProdEditar = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                string stockProdEditar = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                string categoriaProdEditar = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                string consolaProdEditar = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-                string conexionProdEditar = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
-                string modoJuegoProdEditar = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
-                string VistaProdEditar = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
+
+                
+                Producto auxiliar = ControladorProductos.GetProductoById(int.Parse(idProdEditar));
+
+                string nombreProdEditar = auxiliar.Nombre;
+                int precioProdEditar = auxiliar.Precio;
+                int stockProdEditar = auxiliar.Stock;
+                string categoriaProdEditar = auxiliar.Categoria.Nombre;
+                string consolaProdEditar = auxiliar.Consola.Nombre;
+                string conexionProdEditar = auxiliar.Conexion;
+                string modoJuegoProdEditar = auxiliar.ModoJuego;
+                bool VistaProdEditar = auxiliar.Vista;
+                string imgProdEditar = auxiliar.Imagen;
 
                 Producto prodEditar = new Producto()
                 {
                     Id = int.Parse(idProdEditar),
                     Nombre = nombreProdEditar,
-                    Precio = int.Parse(precioProdEditar),
-                    Stock = int.Parse(stockProdEditar),
+                    Precio = precioProdEditar,
+                    Stock = stockProdEditar,
                     Categoria = ControladorCategorias.GetCategoriaByName(categoriaProdEditar),
                     Consola = ControladorConsola.GetConsolaByName(consolaProdEditar),
                     Conexion = conexionProdEditar,
                     ModoJuego = modoJuegoProdEditar,
-                    Vista = bool.Parse(VistaProdEditar)
+                    Imagen = imgProdEditar,
+                    Vista = VistaProdEditar
                 };
 
                 FormProducto formProducto = new FormProducto(prodEditar);
