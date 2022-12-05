@@ -45,6 +45,7 @@ namespace ventaVideojuegos
             txtModoJuego.Text = prod.ModoJuego.ToString();
             boxEstado.Text = prod.Vista.ToString();
             txtImagen.Text = prod.Imagen.ToString();
+            pictureBoxImagen.Load(Environment.CurrentDirectory + @"\Imgs\" + prod.Imagen);
 
 
         }
@@ -271,6 +272,7 @@ namespace ventaVideojuegos
                     filePath = openFileDialog.FileName;
                     fileName = openFileDialog.SafeFileName;
                     txtImagen.Text = fileName;
+                    pictureBoxImagen.Load(filePath);
 
                     //Read the contents of the file into a stream
                     var fileStream = openFileDialog.OpenFile();
