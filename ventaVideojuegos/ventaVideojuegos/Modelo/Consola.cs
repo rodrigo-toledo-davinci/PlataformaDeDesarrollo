@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ventaVideojuegos
 {
+    //ya en la DB
     public class Consola
     {
         public int Id { get; set; }

@@ -106,6 +106,7 @@ namespace ventaVideojuegos
                 stockk = int.Parse(txtID.Text);
 
                 // descontarStock(cantStock);
+                MessageBox.Show("La venta se ha realizado con exito");
                 this.DialogResult = DialogResult.OK;
             }
         }

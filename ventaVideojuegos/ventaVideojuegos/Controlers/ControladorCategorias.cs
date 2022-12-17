@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,28 @@ namespace ventaVideojuegos
             GuardarEnMemoria(cat);
         }
 
+        //Funcion que añade categorias a la DB
+        public static void AñadirCategoriaDB(Categoria cat)
+        {
+
+            conexion.Conectar();
+            string consulta = "Use tienda; insert into Categoria (Nombre,Visible) values (@nombre,@visible)";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@nombre", cat.Nombre);
+            cmd.Parameters.AddWithValue("@visible", cat.Vista);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
+        }
+
+
         public static Categoria GetCategoriaByName(string name)
         {
             Categoria cat = Categorias.FirstOrDefault(x => x.Nombre == name);
@@ -74,6 +97,57 @@ namespace ventaVideojuegos
             
         }
 
+        //eliminar categoria en la DB cambia la vista de 1 a 0
+        public static void EliminarCategoriaDB(int Id)
+        {
+
+            conexion.Conectar();
+            string consulta = "Use tienda; update Categoria set Visible='0' where IdCategoria = @id;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", Id);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
+        }
+
+        // trae la categoria solicitada mediante un id desde la base de datos
+        public static Categoria GetOne(int Id)
+        {
+            conexion.Conectar();
+            string query = "use tienda; select * from Categoria where IdCategoria = @id";
+            SqlCommand cmd = new SqlCommand(query, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", Id);
+
+            try
+            {
+                Categoria cat = new Categoria();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cat.Id = reader.GetInt32(0);
+                    cat.Nombre = reader.GetString(1);
+                    cat.Vista = reader.GetBoolean(2);
+                }
+                reader.Close();
+
+                return cat;
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+        }
+
+
         public static void ActualizarCategoria(int id, Categoria cat)
         {
             int index = Categorias.FindIndex(e => e.Id.Equals(id));
@@ -82,6 +156,26 @@ namespace ventaVideojuegos
                 Categorias[index] = cat;
             }
             GuardarEnMemoriaLista();
+        }
+
+        // actualiza la consola en la DB mediante una consulta update
+        public static void ActualizarCategoriaDB(int idcategoria, Categoria cat)
+        {
+            conexion.Conectar();
+            string consulta = "Use tienda; update Categoria set Nombre = @nombre, Visible=@visible where IdCategoria = @id;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", idcategoria);
+            cmd.Parameters.AddWithValue("@nombre", cat.Nombre);
+            cmd.Parameters.AddWithValue("@visible", cat.Vista);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
         }
 
         private static void GuardarEnMemoria(Categoria cat)

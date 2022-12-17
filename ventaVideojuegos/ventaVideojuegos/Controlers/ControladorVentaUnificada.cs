@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -51,6 +52,29 @@ namespace ventaVideojuegos.Controlers
         {
             VentasUnificadas.Add(vtaU);
             GuardarEnMemoria(vtaU);
+        }
+
+        //Funcion que añade una venta unificada a la DB
+        public static void AñadirVentaUDB(VentaUnificada vtaU)
+        {
+
+            conexion.Conectar();
+            string consulta = "Use tienda; insert into VentaUnificada (NombreCliente,NombreEmpleado,ValorTotal,FechaYHora) values (@nombreCliente,@nombreEmpleado,@valorTotal,@fechayhora)";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@nombreCliente", vtaU.nombreCliente);
+            cmd.Parameters.AddWithValue("@nombreEmpleado", vtaU.nombreEmpleado);
+            cmd.Parameters.AddWithValue("@valorTotal", vtaU.valorTotal);
+            cmd.Parameters.AddWithValue("@fechayhora", vtaU.DateTime);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
         }
 
         private static void GuardarEnMemoria(VentaUnificada vtaU)

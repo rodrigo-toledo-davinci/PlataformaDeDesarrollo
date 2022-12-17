@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ventaVideojuegos.Modelo
 {
+    //Ya en la DB
     public class Producto
     {
 

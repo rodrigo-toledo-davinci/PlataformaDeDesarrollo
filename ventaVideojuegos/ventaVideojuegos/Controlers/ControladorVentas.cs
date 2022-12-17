@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -55,6 +56,32 @@ namespace ventaVideojuegos.Controlers
             Ventas.Add(vta);
             lastId++;
             GuardarEnMemoria(vta);
+        }
+
+        //Funcion que añade una venta a la DB
+        public static void AñadirVentaDB(Venta vta)
+        {
+
+            conexion.Conectar();
+            string consulta = "Use tienda; insert into Venta (NombreCliente,NombreEmpleado,NombreProducto,PrecioProducto,CantidadProducto,ValorTotal,FechaYHora) values (@nombreCliente,@nombreEmpleado,@nombreProducto,@precioProducto,@cantidadProducto,@valorTotal,@fechayhora)";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@nombreCliente", vta.nombreCliente);
+            cmd.Parameters.AddWithValue("@nombreEmpleado", vta.nombreEmpleado);
+            cmd.Parameters.AddWithValue("@nombreProducto", vta.nombreProducto);
+            cmd.Parameters.AddWithValue("@precioProducto", vta.precioProducto);
+            cmd.Parameters.AddWithValue("@cantidadProducto", vta.cantidadProducto);
+            cmd.Parameters.AddWithValue("@valorTotal", vta.valorTotal);
+            cmd.Parameters.AddWithValue("@fechayhora", vta.DateTime);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
         }
 
         private static void GuardarEnMemoria(Venta vta)

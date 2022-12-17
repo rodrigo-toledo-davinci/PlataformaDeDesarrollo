@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -36,58 +37,53 @@ namespace ventaVideojuegos
 
         private void bttnAcceder_Click_1(object sender, EventArgs e)
         {
-
+            bool exists;
             bool usuarioValidado = ValidarUsuario(out bool errorMsg);
 
             if (usuarioValidado)
             {
                 bool valido = false;
 
-                if (!File.Exists("usuarios.txt"))
+                //con esto buscamos el usuario
+                conexion.Conectar();
+                string query = "use tienda; select * from Usuario where Nombre = @nombre and Contrasena = @contrasena ;";
+                SqlCommand cmd = new SqlCommand(query, conexion.Conectar());
+                cmd.Parameters.AddWithValue("@nombre", txtUsuarioLogin.Text);
+                cmd.Parameters.AddWithValue("@contrasena", txtContrasenaLogin.Text);
+
+                try
                 {
-                    StreamWriter archivo = new StreamWriter("usuarios.txt");
-                    archivo.Close();
+                    var result = cmd.ExecuteScalar();
+                    exists = result != null ? (int)result > 0 : false;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la query: " + ex.Message);
+                }
+
+                if(exists)
+                {
+                    usuario = txtUsuarioLogin.Text;
+                    valido = true;
+                }
+
+
+                if (valido)
+                {
+                    usuario = txtUsuarioLogin.Text;
+                    this.Hide();
+                    Form1 form = new Form1();
+                    form.Show();
+
+
                 }
                 else
                 {
-
-
-                    StreamReader archivo = new StreamReader("usuarios.txt");
-                    while (!archivo.EndOfStream)
-                    {
-                        string usuario = archivo.ReadLine();
-                        string[] datos = usuario.Split(',');
-
-                        if (datos[1].Equals(txtUsuarioLogin.Text) && datos[2].Equals(txtContrasenaLogin.Text))
-                        {
-                            usuario = txtUsuarioLogin.Text;
-                            valido = true;
-
-
-                        }
-
-                    }
-
-                    archivo.Close();
+                    string error = "Credenciales invalidas";
+                    errLogin.Text = error;
+                    errLogin.Show();
                 }
 
-
-                    if (valido)
-                    {
-                        usuario = txtUsuarioLogin.Text;
-                        this.Hide();
-                        Form1 form = new Form1();
-                        form.Show();
-
-
-                    }
-                    else
-                    {
-                        string error = "Credenciales invalidas";
-                        errLogin.Text = error;
-                        errLogin.Show();
-                    }
-                
             }
             
         }

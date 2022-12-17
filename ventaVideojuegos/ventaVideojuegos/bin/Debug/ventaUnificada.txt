@@ -4,3 +4,9 @@
 40,root,franco,12497,2/12/2022 16:14:06
 41,root,consumidor final,192000,2/12/2022 16:22:23
 42,root,consumidor final,2500,3/12/2022 19:42:18
+43,root,consumidor final,259,5/12/2022 10:24:07
+44,root,consumidor final,5998,5/12/2022 10:26:13
+45,root,consumidor final,5998,5/12/2022 10:28:57
+46,root,tomas,6775,5/12/2022 14:03:21
+47,root,consumidor final,7034,5/12/2022 14:34:28
+48,root,consumidor final,518,17/12/2022 18:10:51

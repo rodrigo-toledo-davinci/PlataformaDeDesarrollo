@@ -12,6 +12,9 @@ using ventaVideojuegos.Controlers;
 using ventaVideojuegos.Modelo;
 
 
+//TABLAS IMPLEMENTADAS: Consola,Categoriam,Cliente,Usuario,Venta,VentaUnificada
+//TABLAS FALTANTES: Producto
+
 namespace ventaVideojuegos.UsersControls
 {
     public partial class UC_Admin : UserControl
@@ -56,12 +59,19 @@ namespace ventaVideojuegos.UsersControls
             last_pag = total / paginador;
 
             llenarCombos();
-            VisualizarCategorias();
+            //VisualizarCategorias();
+            visualizarCatDB();
             //VisualizarConsolas();
             visualizarConDB();
             VisualizarClientes();
+            visualizarCteDB();
+            //empleados no mostrala a futuro
             VisualizarEmpleados();
+            visualizarUsuDB();
+            //ventasUnificadas con txt
             VisualizarVentas();
+            //ventas Unificadas Con DB
+            visualizarVtaUDB();
 
 
         }
@@ -176,33 +186,7 @@ namespace ventaVideojuegos.UsersControls
 
         }
 
-        private void VisualizarCategorias()
-        {
-            dataGridViewCat.Rows.Clear();
-            foreach (Categoria cat in ControladorCategorias.Categorias)
-            {
-                int rowIndex = dataGridViewCat.Rows.Add();
-                dataGridViewCat.Rows[rowIndex].Cells[0].Value = cat.Id.ToString();
-                dataGridViewCat.Rows[rowIndex].Cells[1].Value = cat.Nombre.ToString();
-                dataGridViewCat.Rows[rowIndex].Cells[2].Value = cat.Vista.ToString();
-                
-
-            }
-        }
-        /*
-        private void VisualizarConsolas()
-        {
-            dataGridViewCon.Rows.Clear();
-            foreach (Consola con in ControladorConsola.Consolas)
-            {
-                int rowIndex = dataGridViewCon.Rows.Add();
-                dataGridViewCon.Rows[rowIndex].Cells[0].Value = con.Id.ToString();
-                dataGridViewCon.Rows[rowIndex].Cells[1].Value = con.Nombre.ToString();
-                dataGridViewCon.Rows[rowIndex].Cells[2].Value = con.Vista.ToString();
-
-            }
-        }
-        */
+        //CONSOLAS
 
         //Sirve para visualizar los registros de la DB
         private void visualizarConDB()
@@ -225,6 +209,264 @@ namespace ventaVideojuegos.UsersControls
             return dt;
         }
 
+        //Formulario que genera una nueva consola para la DB
+        private void buttonNuevoConDB_Click(object sender, EventArgs e)
+        {
+
+            FormConsola conForm = new FormConsola();
+            DialogResult dialogResult = conForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                ControladorConsola.AñadirConsolaDB(conForm.consolaNueva);
+                MessageBox.Show("Se agrego correctamente");
+
+
+                visualizarCatDB();
+                visualizarConDB();
+
+                vaciarCombos();
+                llenarCombos();
+            }
+
+        }
+
+        //Esto Muestra Las Consolas de la DATAGRIDVIEW de Consolas
+        private void dataGridViewCon2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridViewCon2.Columns[e.ColumnIndex].Name == "Eliminar_Con")
+            {
+                if (MessageBox.Show("Seguro que desea eliminar el registro?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    ControladorConsola.EliminarConsolaDB(int.Parse(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString()));
+                visualizarConDB();
+            }
+
+
+            if (dataGridViewCon2.Columns[e.ColumnIndex].Name == "Editar_Con")
+            {
+                //MessageBox.Show(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+                //lo que tiraba error que solicitabamos la ubicacion de la celda y traia eso, nos faltaba agregarle Value para el valor
+
+                //guarda el id que trae como valor de la celda
+                int idConEditar = int.Parse(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+                //string nombreConEditar = dataGridViewCon.SelectedRows[0].Cells[1].Value.ToString();
+
+                //traer los datos de esta consola desde la base de datos
+                Consola conEditar = ControladorConsola.GetOne(idConEditar);
+
+                //se pasa la consola x parametro
+                FormConsola formConsola = new FormConsola(conEditar);
+                DialogResult dialogResult = formConsola.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    //actualiza consolas DB
+                    ControladorConsola.ActualizarConsolaDB(idConEditar, formConsola.consolaNueva);
+
+                    vaciarCombos();
+                    llenarCombos();
+
+                }
+                visualizarCatDB();
+                //visualizar consolas DB
+                visualizarConDB();
+            }
+
+        }
+
+
+
+
+
+
+        //CATEGORIAS
+
+        //Sirve para visualizar los registros de la DB
+        private void visualizarCatDB()
+        {
+            dataGridViewCat2.DataSource = llenar_grid_categorias();
+        }
+        //Aca se genera la consulta SQL que llama los registros
+        public DataTable llenar_grid_categorias()
+        {
+            conexion.Conectar();
+            DataTable dt = new DataTable();
+            string consulta = "Use tienda; select * from Categoria;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        private void buttonNuevoCatDB_Click(object sender, EventArgs e)
+        {
+            FormCategoria catForm = new FormCategoria();
+            DialogResult dialogResult = catForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                ControladorCategorias.AñadirCategoriaDB(catForm.categoriaNueva);
+                MessageBox.Show("Se agrego correctamente");
+
+
+                visualizarCatDB();
+                visualizarConDB();
+
+                vaciarCombos();
+                llenarCombos();
+            }
+        }
+
+
+        private void dataGridViewCat2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewCat2.Columns[e.ColumnIndex].Name == "Eliminar_Cat")
+            {
+                if (MessageBox.Show("Seguro que desea eliminar el registro?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    ControladorCategorias.EliminarCategoriaDB(int.Parse(dataGridViewCat2.Rows[e.RowIndex].Cells[2].Value.ToString()));
+                visualizarCatDB();
+            }
+
+
+            if (dataGridViewCat2.Columns[e.ColumnIndex].Name == "Editar_Cat")
+            {
+                int idCatEditar = int.Parse(dataGridViewCat2.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+                Categoria catEditar = ControladorCategorias.GetOne(idCatEditar);
+
+                FormCategoria formCategoria = new FormCategoria(catEditar);
+                DialogResult dialogResult = formCategoria.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    ControladorCategorias.ActualizarCategoriaDB(idCatEditar, formCategoria.categoriaNueva);
+
+                    vaciarCombos();
+                    llenarCombos();
+
+                }
+                visualizarCatDB();
+                visualizarConDB();
+            }
+        }
+
+
+
+        //CLIENTES
+        private void visualizarCteDB()
+        {
+            dataGridViewCte2.DataSource = llenar_grid_clientes();
+        }
+
+        //Aca se genera la consulta SQL que llama los registros
+        public DataTable llenar_grid_clientes()
+        {
+            conexion.Conectar();
+            DataTable dt = new DataTable();
+            string consulta = "Use tienda; select * from Cliente;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        private void buttonNuevoCteDB_Click(object sender, EventArgs e)
+        {
+            FormCliente cteForm = new FormCliente();
+            DialogResult dialogResult = cteForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                ControladorClientes.AñadirClienteDB(cteForm.clienteNuevo);
+                MessageBox.Show("Se agrego correctamente");
+            }
+            visualizarCteDB();
+        }
+
+        private void dataGridViewCte2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridViewCte2.Columns[e.ColumnIndex].Name == "Eliminar_Cte")
+            {
+                if (MessageBox.Show("Seguro que desea eliminar el registro?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                 ControladorClientes.EliminarClienteDB(int.Parse(dataGridViewCte2.Rows[e.RowIndex].Cells[2].Value.ToString()));
+                visualizarCteDB();
+            }
+
+
+            if (dataGridViewCte2.Columns[e.ColumnIndex].Name == "Editar_Cte")
+            {
+                int idCteEditar = int.Parse(dataGridViewCte2.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+                Cliente cteEditar = ControladorClientes.GetOne(idCteEditar);
+
+                FormCliente formCliente = new FormCliente(cteEditar);
+                DialogResult dialogResult = formCliente.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    ControladorClientes.ActualizarClienteDB(idCteEditar, formCliente.clienteNuevo);
+                }
+                visualizarCteDB();
+            }
+
+        }
+
+
+
+
+        //VENTAS
+
+        private void visualizarVtaUDB()
+        {
+            dataGridViewVtaU2.DataSource = llenar_grid_ventasU();
+        }
+
+        //Aca se genera la consulta SQL que llama los registros
+        public DataTable llenar_grid_ventasU()
+        {
+            conexion.Conectar();
+            DataTable dt = new DataTable();
+            string consulta = "Use tienda; select * from VentaUnificada;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            adapter.Fill(dt);
+            return dt;
+        }
+
+
+        //USUARIOS
+
+        private void visualizarUsuDB()
+        {
+            dataGridViewUsu2.DataSource = llenar_grid_usuarios();
+        }
+
+        //Aca se genera la consulta SQL que llama los registros
+        public DataTable llenar_grid_usuarios()
+        {
+            conexion.Conectar();
+            DataTable dt = new DataTable();
+            string consulta = "Use tienda; select * from Usuario;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            adapter.Fill(dt);
+            return dt;
+        }
+
+
+
+
+
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FormProducto productForm = new FormProducto();
@@ -233,151 +475,10 @@ namespace ventaVideojuegos.UsersControls
             {
                 ControladorProductos.AñandirProducto(productForm.productoNuevo);
             }
-            VisualizarCategorias();
+            //VisualizarCategorias();
             //VisualizarConsolas();
             paginar(Productos_Completo);
         }
-
-        private void btnNuevaCat_Click(object sender, EventArgs e)
-        {
-
-            FormCategoria catForm = new FormCategoria();
-            DialogResult dialogResult = catForm.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                ControladorCategorias.AñadirCategoria(catForm.categoriaNueva);
-            }
-            VisualizarCategorias();
-            //VisualizarConsolas();
-
-            vaciarCombos();
-            llenarCombos();
-        }
-
-        private void btnNuevaCon_Click(object sender, EventArgs e)
-        {
-
-            FormConsola conForm = new FormConsola();
-            DialogResult dialogResult = conForm.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                ControladorConsola.AñadirConsola(conForm.consolaNueva);
-                VisualizarCategorias();
-                //VisualizarConsolas();
-
-                vaciarCombos();
-                llenarCombos();
-            }
-        }
-
-        
-
-        private void btnEditarCat_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewCat.SelectedRows.Count > 0)
-            {
-                string idCatEditar = dataGridViewCat.SelectedRows[0].Cells[0].Value.ToString();
-                string nombreCatEditar = dataGridViewCat.SelectedRows[0].Cells[1].Value.ToString();
-                string vistaCatEditar = dataGridViewCat.SelectedRows[0].Cells[2].Value.ToString();
-
-                Categoria catEditar = new Categoria()
-                {
-                    Id = int.Parse(idCatEditar),
-                    Nombre = nombreCatEditar,
-                    Vista = bool.Parse(vistaCatEditar)
-                };
-
-                FormCategoria formCategoria = new FormCategoria(catEditar);
-                DialogResult dialogResult = formCategoria.ShowDialog();
-
-                if (dialogResult == DialogResult.OK)
-                {
-                    ControladorCategorias.ActualizarCategoria(int.Parse(idCatEditar), formCategoria.categoriaNueva);
-                    VisualizarCategorias();
-                    //VisualizarConsolas();
-
-                    vaciarCombos();
-                    llenarCombos();
-                    VisualizarProductos(Productos_Completo);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debes seleccionar una categoria para Editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-        }
-        /*
-        private void btnEditarCon_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewCon.SelectedRows.Count > 0)
-            {
-                string idConEditar = dataGridViewCon.SelectedRows[0].Cells[0].Value.ToString();
-                string nombreConEditar = dataGridViewCon.SelectedRows[0].Cells[1].Value.ToString();
-
-                Consola conEditar = new Consola()
-                {
-                    Id = int.Parse(idConEditar),
-                    Nombre = nombreConEditar
-                };
-
-                FormConsola formConsola = new FormConsola(conEditar);
-                DialogResult dialogResult = formConsola.ShowDialog();
-
-                if (dialogResult == DialogResult.OK)
-                {
-                    ControladorConsola.ActualizarConsola(int.Parse(idConEditar), formConsola.consolaNueva);
-
-                    vaciarCombos();
-                    llenarCombos();
-
-                }
-                VisualizarCategorias();
-                VisualizarConsolas();
-            }
-            else
-            {
-                MessageBox.Show("Debes seleccionar una consola para Editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        
-        }*/
-
-        private void btnEliminarCat_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewCat.SelectedRows.Count > 0)
-            {
-                string idCatEliminar = dataGridViewCat.SelectedRows[0].Cells[0].Value.ToString();
-                ControladorCategorias.EliminarCategoria(int.Parse(idCatEliminar));
-                VisualizarCategorias();
-
-                vaciarCombos();
-                llenarCombos();
-
-                VisualizarProductos(Productos_Completo);
-            }
-            else
-            {
-                MessageBox.Show("Debes seleccionar una categoria para Eliminar", "Error", MessageBoxButtons.OK);
-            }
-        }
-        /*
-        private void btnEliminarCon_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewCon.SelectedRows.Count > 0)
-            {
-                string idConEliminar = dataGridViewCon.SelectedRows[0].Cells[0].Value.ToString();
-                ControladorConsola.EliminarConsola(int.Parse(idConEliminar));
-                VisualizarConsolas();
-                vaciarCombos();
-                llenarCombos();
-            }
-            else
-            {
-                MessageBox.Show("Debes seleccionar una consola para Eliminar", "Error", MessageBoxButtons.OK);
-            }
-        }*/
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -418,7 +519,7 @@ namespace ventaVideojuegos.UsersControls
                 if (dialogResult == DialogResult.OK)
                 {
                     ControladorProductos.ActualizarProductos(int.Parse(idProdEditar), formProducto.productoNuevo);
-                    VisualizarCategorias();
+                    //VisualizarCategorias();
                     //VisualizarConsolas();
                     paginar(Productos_Completo);
                 }
@@ -435,7 +536,7 @@ namespace ventaVideojuegos.UsersControls
             {
                 string idProdEliminar = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 ControladorProductos.EliminarProducto(int.Parse(idProdEliminar));
-                VisualizarCategorias();
+                //VisualizarCategorias();
                 //VisualizarConsolas();
                 paginar(Productos_Completo);
             }
@@ -795,69 +896,22 @@ namespace ventaVideojuegos.UsersControls
             
         }
 
-        private void buttonNuevoConDB_Click(object sender, EventArgs e)
+        private void btnVerDetallesDB_Click(object sender, EventArgs e)
         {
-
-            FormConsola conForm = new FormConsola();
-            DialogResult dialogResult = conForm.ShowDialog();
-            if (dialogResult == DialogResult.OK)
+            if (dataGridViewVtaU2.SelectedRows.Count == 1)
             {
-                ControladorConsola.AñadirConsolaDB(conForm.consolaNueva);
-                MessageBox.Show("Se agrego correctamente");
+                int idVentaU = int.Parse(dataGridViewVtaU2.SelectedRows[0].Cells[0].Value.ToString());
+
+                VerDetalles formVerDetalles = new VerDetalles(idVentaU);
+                DialogResult dialogResult = formVerDetalles.ShowDialog();
 
 
-                VisualizarCategorias();
-                visualizarConDB();
 
-                vaciarCombos();
-                llenarCombos();
             }
-
-        }
-
-        private void dataGridViewCon2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (dataGridViewCon2.Columns[e.ColumnIndex].Name == "Eliminar_Con")
+            else
             {
-                if (MessageBox.Show("Seguro que desea eliminar el registro?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    ControladorConsola.EliminarConsolaDB(int.Parse(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString()));
-                visualizarConDB();
+                MessageBox.Show("Debes seleccionar una venta para ver sus detalles", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            if (dataGridViewCon2.Columns[e.ColumnIndex].Name == "Editar_Con")
-            {
-                //MessageBox.Show(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString());
-
-                //lo que tiraba error que solicitabamos la ubicacion de la celda y traia eso, nos faltaba agregarle Value para el valor
-
-                //guarda el id que trae como valor de la celda
-                int idConEditar = int.Parse(dataGridViewCon2.Rows[e.RowIndex].Cells[2].Value.ToString());
-
-                //string nombreConEditar = dataGridViewCon.SelectedRows[0].Cells[1].Value.ToString();
-
-                //traer los datos de esta consola desde la base de datos
-                Consola conEditar = ControladorConsola.GetOne(idConEditar);
-
-                //se pasa la consola x parametro
-                FormConsola formConsola = new FormConsola(conEditar);
-                DialogResult dialogResult = formConsola.ShowDialog();
-
-                if (dialogResult == DialogResult.OK)
-                {
-                    //actualiza consolas DB
-                    ControladorConsola.ActualizarConsolaDB(idConEditar, formConsola.consolaNueva);
-
-                    vaciarCombos();
-                    llenarCombos();
-
-                }
-                VisualizarCategorias();
-                //visualizar consolas DB
-                visualizarConDB();
-            }
-
         }
     }
 }

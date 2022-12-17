@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,30 @@ namespace ventaVideojuegos.Controlers
             GuardarEnMemoria(cte);
         }
 
+        //Funcion que añade categorias a la DB
+        public static void AñadirClienteDB(Cliente cte)
+        {
+
+            conexion.Conectar();
+            string consulta = "Use tienda; insert into Cliente (Nombre,Apellido,NombreUsuario,Email,Visible) values (@nombre,@apellido,@nombreUsuario,@email,@visible);";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@nombre", cte.Nombre);
+            cmd.Parameters.AddWithValue("@apellido", cte.Nombre);
+            cmd.Parameters.AddWithValue("@nombreUsuario", cte.Nombre);
+            cmd.Parameters.AddWithValue("@email", cte.Nombre);
+            cmd.Parameters.AddWithValue("@visible", cte.Vista);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
+        }
+
         public static void ActualizarCliente(int id, Cliente cte)
         {
             int index = Clientes.FindIndex(e => e.Id.Equals(id));
@@ -66,11 +91,88 @@ namespace ventaVideojuegos.Controlers
             GuardarEnMemoriaLista();
         }
 
+
+        // actualiza la consola en la DB mediante una consulta update
+        public static void ActualizarClienteDB(int idcategoria, Cliente cte)
+        {
+            conexion.Conectar();
+            string consulta = "Use tienda; update Cliente set Nombre = @nombre,Apellido=@apellido,NombreUsuario=@nombreUsuario,Email=@email, Visible=@visible where IdCliente = @id;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", idcategoria);
+            cmd.Parameters.AddWithValue("@nombre", cte.Nombre);
+            cmd.Parameters.AddWithValue("@apellido", cte.Apellido);
+            cmd.Parameters.AddWithValue("@nombreUsuario", cte.NUsuario);
+            cmd.Parameters.AddWithValue("@email", cte.Email);
+            cmd.Parameters.AddWithValue("@visible", cte.Vista);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+        }
+
         public static void EliminarCliente(int id)
         {
             Cliente cte = Clientes.FirstOrDefault(c => c.Id == id);
             cte.Vista = false;
             ActualizarCliente(id, cte);
+        }
+
+        //eliminar categoria en la DB cambia la vista de 1 a 0
+        public static void EliminarClienteDB(int Id)
+        {
+
+            conexion.Conectar();
+            string consulta = "Use tienda; update Cliente set Visible='0' where IdCliente = @id;";
+            SqlCommand cmd = new SqlCommand(consulta, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", Id);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
+
+        }
+
+        // trae el cliente solicitado mediante un id desde la base de datos
+        public static Cliente GetOne(int Id)
+        {
+            conexion.Conectar();
+            string query = "use tienda; select * from Cliente where IdCliente = @id";
+            SqlCommand cmd = new SqlCommand(query, conexion.Conectar());
+            cmd.Parameters.AddWithValue("@id", Id);
+
+            try
+            {
+                Cliente cte = new Cliente();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cte.Id = reader.GetInt32(0);
+                    cte.Nombre = reader.GetString(1);
+                    cte.Apellido= reader.GetString(2);
+                    cte.NUsuario= reader.GetString(3);
+                    cte.Email= reader.GetString(4);
+                    cte.Vista = reader.GetBoolean(5);
+                }
+                reader.Close();
+
+                return cte;
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Hay un error en la query: " + ex.Message);
+            }
         }
 
         public static void GuardarEnMemoria(Cliente cte)

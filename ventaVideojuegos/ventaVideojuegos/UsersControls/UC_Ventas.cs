@@ -76,7 +76,7 @@ namespace ventaVideojuegos.UsersControls
 
 
         }
-
+        //tiene integrada el añadir a db las ventas
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
 
@@ -89,7 +89,7 @@ namespace ventaVideojuegos.UsersControls
 
                 if (dialogResult == DialogResult.OK)
                 {
-
+                    //Con TXT
                     ventaUnueva = new VentaUnificada
                     {
                         Id = formVenta.stockk,
@@ -100,6 +100,9 @@ namespace ventaVideojuegos.UsersControls
                     };
 
                     ControladorVentaUnificada.AñadirVentaUnificada(ventaUnueva);
+                    //Con DB
+                    ControladorVentaUnificada.AñadirVentaUDB(ventaUnueva);
+
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
@@ -115,7 +118,11 @@ namespace ventaVideojuegos.UsersControls
                             DateTime = DateTime.Now,
 
                             };
+                        //Con Txt
                             ControladorVentas.AñadirVenta(ventaNueva);
+                        //Con DB
+                            ControladorVentas.AñadirVentaDB(ventaNueva);
+
                             descontarStock(int.Parse(row.Cells["Cantidad"].Value.ToString()), row.Cells["Producto"].Value.ToString());
                         
                     }
@@ -220,7 +227,7 @@ namespace ventaVideojuegos.UsersControls
            
 
             //ruta y nombre  //a esta ruta cambiarla segun el usuario
-            System.IO.FileStream fs = new FileStream("C:/Users/franc/OneDrive/Escritorio/Facturas/" + "Factura_" + venta.Id + ".pdf", FileMode.Create);
+            System.IO.FileStream fs = new FileStream(Environment.CurrentDirectory + @"\Facturas\" + "Factura_" + venta.Id + ".pdf", FileMode.Create);
             
 
             // tamaño del pdf
